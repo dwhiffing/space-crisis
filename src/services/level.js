@@ -42,7 +42,6 @@ export default class LevelService {
 
     this.playerGroup.add(this.player)
 
-    this.pushers = [this.playerGroup, this.enemies]
     this.pickups = [this.coins]
 
     this.width = this.map.widthInPixels
@@ -50,8 +49,19 @@ export default class LevelService {
 
     scene.physics.world.bounds.width = this.width
     scene.physics.world.bounds.height = this.height
-    scene.physics.add.collider(this.pushers, this.groundLayer)
-    // scene.physics.add.collider(this.pushers, this.pushers)
+    this.playerCollider = scene.physics.add.collider(
+      this.player,
+      this.groundLayer,
+      (player, tile) => {
+        if (tile.index === 159) {
+          player.canFall = true
+        } else {
+          player.canFall = false
+        }
+      },
+    )
+    scene.physics.add.collider(this.enemies, this.groundLayer)
+    // scene.physics.add.collider(this., this.)
     scene.physics.add.overlap(
       [this.player, this.player.bullets],
       this.enemies,

@@ -93,6 +93,19 @@ export class Player extends Phaser.Physics.Arcade.Sprite {
     }
   }
 
+  fall() {
+    if (this.body.onFloor() && this.canFall) {
+      this.body.setVelocityY(200)
+      this.scene.level.playerCollider.active = false
+      this.scene.time.addEvent({
+        delay: 200,
+        callback: () => {
+          this.scene.level.playerCollider.active = true
+        },
+      })
+    }
+  }
+
   damage(amount) {
     if (this.justDamaged) return
     this.justDamaged = true

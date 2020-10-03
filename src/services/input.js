@@ -87,7 +87,11 @@ export default class InputService {
   }
 
   jump() {
-    this.scene.level.player.jump()
+    if (this.direction === 3) {
+      this.scene.level.player.fall()
+    } else {
+      this.scene.level.player.jump()
+    }
   }
 
   shoot() {
