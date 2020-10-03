@@ -7,11 +7,11 @@
   <image source="../../../tojam2020/assets/images/tilemap.png" width="1890" height="1890"/>
  </tileset>
  <objectgroup id="7" name="Objects">
-  <object id="53" name="red" type="spawn" x="3402" y="4725">
+  <object id="53" name="red" type="spawn" x="4425.75" y="4772.25">
    <point/>
   </object>
   <object id="100" type="coin" gid="79" x="4851" y="4740.75" width="63" height="63"/>
-  <object id="101" type="enemy" gid="261" x="3528" y="4851" width="63" height="63"/>
+  <object id="101" type="enemy" gid="261" x="3984.75" y="4835.25" width="63" height="63"/>
  </objectgroup>
  <layer id="1" name="World" width="100" height="100">
   <data encoding="base64">

@@ -1,5 +1,6 @@
 import { Player } from '../sprites/Player'
-import { ObjectSprite, NAMES } from '../sprites/Object'
+import { ObjectSprite } from '../sprites/Object'
+import { Enemy } from '../sprites/Enemy'
 
 export default class LevelService {
   constructor(scene, key) {
@@ -22,6 +23,7 @@ export default class LevelService {
 
     this.playerGroup = scene.add.group()
     this.coins = scene.physics.add.group({ allowGravity: false })
+    this.enemies = scene.physics.add.group()
 
     this.objLayer = this.map.getObjectLayer('Objects')
     this.objLayer.objects.forEach((object) => {
@@ -32,11 +34,15 @@ export default class LevelService {
       if (object.type === 'coin') {
         this.coins.add(new ObjectSprite(scene, object))
       }
+
+      if (object.type === 'enemy') {
+        this.enemies.add(new Enemy(scene, object))
+      }
     })
 
     this.playerGroup.add(this.player)
 
-    this.pushers = [this.playerGroup]
+    this.pushers = [this.playerGroup, this.enemies]
     this.pickups = [this.coins]
 
     this.width = this.map.widthInPixels
@@ -45,6 +51,15 @@ export default class LevelService {
     scene.physics.world.bounds.width = this.width
     scene.physics.world.bounds.height = this.height
     scene.physics.add.collider(this.pushers, this.groundLayer)
+    // scene.physics.add.collider(this.pushers, this.pushers)
+    scene.physics.add.overlap(
+      this.player.bullets,
+      this.enemies,
+      (bullet, enemy) => {
+        bullet.destroy()
+        enemy.destroy()
+      },
+    )
     scene.physics.add.collider(
       this.player.bullets,
       this.groundLayer,
@@ -54,7 +69,6 @@ export default class LevelService {
           tile.layer.tilemapLayer.removeTileAt(tile.x, tile.y)
       },
     )
-    scene.physics.add.collider(this.pushers, this.pushers)
     scene.physics.add.overlap(
       this.playerGroup,
       this.pickups,
