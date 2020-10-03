@@ -60,23 +60,23 @@ export default class InputService {
         'jump',
         this.jumpPressed,
         this.jumpReleased,
-        1.8,
+        1.45,
       )
       this.makeButton(
-        width - DISTX * 3,
+        width - DISTX * 2.5,
         height - DISTY,
         'swap',
         this.shootPressed,
         this.shootReleased,
-        1.8,
+        1.45,
       )
       this.makeButton(
-        width - DISTX * 6,
+        width - DISTX * 4,
         height - DISTY,
         'swap',
         this.missilePressed,
         this.missileReleased,
-        1.8,
+        1.45,
       )
     }
 
@@ -186,7 +186,7 @@ export default class InputService {
     this.cursors.right.removeListener('up')
   }
 
-  makeButton(x, y, key, callback, releaseCallback = () => {}, scale = 1.25) {
+  makeButton(x, y, key, callback, releaseCallback = () => {}, scale = 1) {
     return this.scene.add
       .image(x, y, key)
       .setScale(scale)

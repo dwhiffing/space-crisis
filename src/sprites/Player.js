@@ -218,7 +218,12 @@ export class Player extends Phaser.Physics.Arcade.Sprite {
   }
 
   die() {
-    this.scene.scene.start('Menu')
+    this.scene.time.addEvent({
+      delay: 500,
+      callback: () => {
+        this.scene.scene.start('Game')
+      },
+    })
   }
 
   shoot(isMissile, bulletCount = 1, charge = 1) {
@@ -256,7 +261,6 @@ export class Player extends Phaser.Physics.Arcade.Sprite {
             lifeSpan = 1000
           }
         }
-        console.log(charge)
         this.direction.shoot = 0
 
         bullet.fire(

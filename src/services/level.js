@@ -89,9 +89,17 @@ export default class LevelService {
       this.groundLayer,
       (bullet, tile) => {
         bullet.destroy()
+        // normal door door
         if (tile.index === 195)
           tile.layer.tilemapLayer.removeTileAt(tile.x, tile.y)
+        // red door (missiles)
         if (bullet.scale > 0.5 && tile.index === 225)
+          tile.layer.tilemapLayer.removeTileAt(tile.x, tile.y)
+        // blue door (charge)
+        if (this.player.unlocks.gun >= 3 && tile.index === 226)
+          tile.layer.tilemapLayer.removeTileAt(tile.x, tile.y)
+        // green door (drill)
+        if (this.player.unlocks.gun >= 4 && tile.index === 196)
           tile.layer.tilemapLayer.removeTileAt(tile.x, tile.y)
       },
     )

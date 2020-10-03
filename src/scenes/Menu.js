@@ -23,6 +23,11 @@ export default class extends Phaser.Scene {
       .on('pointerdown', () => {
         this.scene.start('Credits')
       })
+
+    this.add
+      .text(this.width / 2, this.height / 2 - 40, 'Space Crisis')
+      .setOrigin(0.5)
+      .setFontSize(40)
   }
 
   update() {}
