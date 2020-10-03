@@ -1,25 +1,5 @@
 import { Bullet } from './Bullet'
 
-const UNLOCKS = [
-  'jump',
-  'gun',
-  'highJump',
-  'speed',
-  'health',
-  'ammo',
-
-  // 'win',
-  // 'missiles',
-  // 'doubleJump',
-  // 'charge',
-  // 'armor',
-
-  // 'longBeam', ?
-  // 'more speed', ?
-  // 'wall jump', ?
-  // 'drill', destroy tiles at will
-]
-
 export class Player extends Phaser.Physics.Arcade.Sprite {
   constructor(scene, object) {
     super(scene, object.x, object.y, 'tilemap')
@@ -36,9 +16,26 @@ export class Player extends Phaser.Physics.Arcade.Sprite {
     this.name = object.name
     this.canShoot = true
     this.canMove = true
-    this.unlocks = {}
+    this.unlocks = {
+      speed: 1,
+      health: 1,
+      ammo: 0,
+      jump: false,
+      gun: false,
+      highJump: false,
+      win: false,
+      // 'missiles',
+      // 'doubleJump',
+      // 'charge',
+      // 'armor',
 
-    this.body.setMaxVelocity(600, 1300)
+      // 'longBeam', ?
+      // 'more speed', ?
+      // 'wall jump', ?
+      // 'drill', destroy tiles at will
+    }
+
+    this.body.setMaxVelocity(1500, 1300)
     this.body.useDamping = true
     this.body.setSize(this.width, this.height - 8)
     this.setDrag(0.81, 1)
@@ -46,10 +43,14 @@ export class Player extends Phaser.Physics.Arcade.Sprite {
     this.setOffset(9, 21)
     this.setDepth(2)
     this.setAlpha(1)
-    this.maxAmmo = 5
+
+    this.speed = 350 + this.unlocks.speed * 100
+    this.maxAmmo = this.unlocks.ammo * 5
     this.ammo = this.maxAmmo
-    this.maxHealth = 100
+    this.maxHealth = this.unlocks.health * 100
     this.health = this.maxHealth
+    this.scene.ammoText.text = this.ammo.toString()
+    this.scene.healthText.text = this.health.toString()
 
     this.bullets = scene.add.group({
       classType: Bullet,
@@ -83,14 +84,11 @@ export class Player extends Phaser.Physics.Arcade.Sprite {
 
   walk() {
     if (!this.canMove) return
-    let speed = this.body.onFloor() ? 450 : 350
-
-    if (this.unlocks.speed) {
-      speed *= 2
-    }
-
+    let speed = this.speed
     if (this.body.onFloor()) {
       this.anims.play(`walk`, true)
+    } else {
+      speed *= 0.8
     }
     if (
       this.body.onFloor() ||
@@ -129,7 +127,11 @@ export class Player extends Phaser.Physics.Arcade.Sprite {
   }
 
   unlock(name) {
-    if (name === 'health') {
+    if (name === 'speed') {
+      this.unlocks.speed = this.unlocks.speed || 1
+      this.unlocks.speed++
+      this.speed = 350 + this.unlocks.speed * 100
+    } else if (name === 'health') {
       this.unlocks.health = this.unlocks.health || 1
       this.unlocks.health++
       this.maxHealth = this.unlocks.health * 100
