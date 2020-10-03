@@ -7,12 +7,12 @@
   <image source="../../../tojam2020/assets/images/tilemap.png" width="1890" height="1890"/>
  </tileset>
  <objectgroup id="7" name="Objects">
-  <object id="53" name="red" type="spawn" x="5339.25" y="4740.75">
+  <object id="53" name="red" type="spawn" x="1212.75" y="4032">
    <point/>
   </object>
   <object id="100" name="jump" type="upgrade" gid="79" x="3008.25" y="5764.5" width="63" height="63"/>
   <object id="101" type="enemy" gid="261" x="1244.25" y="4803.75" width="63" height="63"/>
-  <object id="102" name="gun" type="upgrade" gid="79" x="1008" y="4079.25" width="63" height="63"/>
+  <object id="102" name="gun" type="upgrade" gid="79" x="945" y="4095" width="63" height="63"/>
   <object id="103" name="speed" type="upgrade" gid="79" x="5087.25" y="4126.5" width="63" height="63"/>
   <object id="105" type="enemy" gid="261" x="819" y="4803.75" width="63" height="63"/>
   <object id="106" name="armor" type="upgrade" gid="79" x="6158.25" y="6205.5" width="63" height="63"/>
@@ -24,7 +24,7 @@
    </properties>
    <point/>
   </object>
-  <object id="110" name="gun-collect-trigger" type="trigger" x="960.75" y="3969" width="157.5" height="126"/>
+  <object id="110" name="gun-collect-trigger" type="trigger" x="945" y="4032" width="63" height="63"/>
   <object id="111" name="enemy-spawn" type="enemy-spawn" x="2079" y="3890.25">
    <properties>
     <property name="trigger" value="gun-collect-trigger"/>
@@ -80,7 +80,7 @@
   <object id="137" name="gun" type="upgrade" gid="79" x="3780" y="3039.75" width="63" height="63"/>
   <object id="139" name="jump" type="upgrade" gid="79" x="4725" y="1559.25" width="63" height="63"/>
   <object id="140" name="gun" type="upgrade" gid="79" x="3370.5" y="6221.25" width="63" height="63"/>
-  <object id="141" name="trigger-heat-damage" type="trigger" x="5229" y="4646.25" width="1055.25" height="283.5">
+  <object id="141" name="trigger-heat-damage" type="trigger" x="5166" y="4536" width="756" height="315">
    <properties>
     <property name="continuous" type="bool" value="true"/>
    </properties>
