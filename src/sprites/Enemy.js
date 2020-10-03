@@ -50,6 +50,7 @@ export class Enemy extends Phaser.Physics.Arcade.Sprite {
   }
 
   destroy() {
+    if (!this.scene) return
     const roll = Phaser.Math.RND.integerInRange(0, 4)
     if (roll === 0) {
       this.scene.level.coins.add(

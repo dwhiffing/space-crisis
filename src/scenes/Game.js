@@ -8,6 +8,7 @@ export default class extends Phaser.Scene {
 
   create() {
     this.iter = 0
+    this.timer = 299
     this.background = this.add
       .tileSprite(0, 0, 1920, 1080, 'background')
       .setScrollFactor(0)
@@ -17,6 +18,22 @@ export default class extends Phaser.Scene {
       .text(20, 20, '100')
       .setScrollFactor(0)
       .setDepth(999)
+
+    this.timerText = this.add
+      .text(20, 40, this.timer + 1)
+      .setScrollFactor(0)
+      .setDepth(999)
+
+    this.time.addEvent({
+      delay: 1000,
+      repeat: -1,
+      callback: () => {
+        if (this.timer < 0) {
+          this.scene.start('Game')
+        }
+        if (this.timer >= 0) this.timerText.setText(this.timer--)
+      },
+    })
 
     this.ammoText = this.add.text(100, 20, '5').setScrollFactor(0).setDepth(999)
 
