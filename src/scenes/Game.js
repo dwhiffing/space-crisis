@@ -18,6 +18,8 @@ export default class extends Phaser.Scene {
       .setScrollFactor(0)
       .setDepth(999)
 
+    this.ammoText = this.add.text(100, 20, '5').setScrollFactor(0).setDepth(999)
+
     this.level = new LevelService(this, 'map')
     this.inputService = new InputService(this)
   }

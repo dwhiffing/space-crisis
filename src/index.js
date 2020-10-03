@@ -19,6 +19,7 @@ const game = new Phaser.Game({
     default: 'arcade',
     arcade: {
       fps: 60,
+      tileBias: 64,
       gravity: { y: 2000 },
       debug: true,
     },
