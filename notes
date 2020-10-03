@@ -1,6 +1,7 @@
+timer/looping system
+spikes
 
-environment that hurts you without powerup?
-Health and ammo pickups
+enemy spawning system when leaving/entering rooms
 Change doors into objects?
 
 
@@ -15,15 +16,35 @@ Enemies:
   swooping flyer
   Boss
 
-upgrades:
-  Long beam
-  Missiles
-  wall jumps?
-  Armor
-  health up
-  missile up
-  charge shot
-  double jump
+Need to make design of each room more interesting with mazing paths and different enemy layouts
+need to add faster progression by using secrets/knowledge gained from previous playthroughs
 
 random ideas
   secret tunnel to unlock speed early (should have as many sequence breaks from knowledge gained from previous playthroughs as possible)
+
+
+Graphics
+  main character
+  bullet/missile/charge
+  explosions
+  powerups
+  map tiles
+  different enemy types
+  menu assets
+
+Sound
+  jump
+  walk
+  shot
+  missile
+  explosions
+  charge
+
+Music
+  menu
+  game
+  boss
+  win
+
+About screen
+Win screen

@@ -34,5 +34,13 @@ export class ObjectSprite extends Phaser.Physics.Arcade.Sprite {
       player.unlock(this.name)
       this.destroy()
     }
+    if (this.type === 'health') {
+      player.heal(10)
+      this.destroy()
+    }
+    if (this.type === 'ammo') {
+      player.reload(2)
+      this.destroy()
+    }
   }
 }

@@ -1,3 +1,5 @@
+import { ObjectSprite } from './Object'
+
 export class Enemy extends Phaser.Physics.Arcade.Sprite {
   constructor(scene, object) {
     super(scene, object.x, object.y, 'tilemap')
@@ -5,6 +7,7 @@ export class Enemy extends Phaser.Physics.Arcade.Sprite {
     this.setFrame(frame)
     this.scene = scene
     this.damage = this.damage.bind(this)
+    this.destroy = this.destroy.bind(this)
     this.scene.add.existing(this)
     this.scene.physics.world.enable(this)
     this.setSize(45, 25)
@@ -47,6 +50,27 @@ export class Enemy extends Phaser.Physics.Arcade.Sprite {
   }
 
   destroy() {
+    const roll = Phaser.Math.RND.integerInRange(0, 4)
+    if (roll === 0) {
+      this.scene.level.coins.add(
+        new ObjectSprite(this.scene, {
+          x: this.x,
+          y: this.y + 10,
+          type: 'health',
+          gid: 374,
+        }).setScale(0.5),
+      )
+    } else if (roll === 1) {
+      this.scene.level.coins.add(
+        new ObjectSprite(this.scene, {
+          x: this.x,
+          y: this.y + 10,
+          type: 'ammo',
+          gid: 377,
+        }).setScale(0.5),
+      )
+    }
+
     super.destroy()
     this.callback.remove()
   }

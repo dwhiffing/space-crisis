@@ -7,7 +7,7 @@
   <image source="../../../tojam2020/assets/images/tilemap.png" width="1890" height="1890"/>
  </tileset>
  <objectgroup id="7" name="Objects">
-  <object id="53" name="red" type="spawn" x="4110.75" y="4788">
+  <object id="53" name="red" type="spawn" x="1370.25" y="4000.5">
    <point/>
   </object>
   <object id="100" name="jump" type="upgrade" gid="79" x="3008.25" y="5764.5" width="63" height="63"/>
