@@ -72,7 +72,6 @@ export default class LevelService {
       },
     )
     scene.physics.add.collider(this.enemies, this.groundLayer)
-    // scene.physics.add.collider(this., this.)
     scene.physics.add.overlap(
       [this.player, this.player.bullets],
       this.enemies,
@@ -81,7 +80,7 @@ export default class LevelService {
           bulletOrPlayer.damage(10)
         } else if (bulletOrPlayer.active) {
           bulletOrPlayer.destroy()
-          enemy.damage(20)
+          enemy.damage(bulletOrPlayer.scale > 0.5 ? 100 : 20)
         }
       },
     )
@@ -91,6 +90,8 @@ export default class LevelService {
       (bullet, tile) => {
         bullet.destroy()
         if (tile.index === 195)
+          tile.layer.tilemapLayer.removeTileAt(tile.x, tile.y)
+        if (bullet.scale > 0.5 && tile.index === 225)
           tile.layer.tilemapLayer.removeTileAt(tile.x, tile.y)
       },
     )

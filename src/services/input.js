@@ -3,6 +3,8 @@ export default class InputService {
     this.scene = scene
     this.jumpPressed = this.jumpPressed.bind(this)
     this.jumpReleased = this.jumpReleased.bind(this)
+    this.missilePressed = this.missilePressed.bind(this)
+    this.missileReleased = this.missileReleased.bind(this)
     this.shootPressed = this.shootPressed.bind(this)
     this.shootReleased = this.shootReleased.bind(this)
     this.makeButton = this.makeButton.bind(this)
@@ -68,6 +70,14 @@ export default class InputService {
         this.shootReleased,
         1.8,
       )
+      this.makeButton(
+        width - DISTX * 6,
+        height - DISTY,
+        'swap',
+        this.missilePressed,
+        this.missileReleased,
+        1.8,
+      )
     }
 
     this.cursors = this.scene.input.keyboard.createCursorKeys()
@@ -85,6 +95,8 @@ export default class InputService {
     this.cursors.right.addListener('up', this.rightReleased)
     this.zKey.addListener('down', this.shootPressed)
     this.zKey.addListener('up', this.shootReleased)
+    this.xKey.addListener('down', this.missilePressed)
+    this.xKey.addListener('up', this.missileReleased)
     this.spaceKey.addListener('down', this.jumpPressed)
     this.spaceKey.addListener('up', this.jumpReleased)
   }
@@ -139,6 +151,13 @@ export default class InputService {
   }
   shootReleased() {
     this.player.direction.shoot = false
+  }
+
+  missilePressed() {
+    this.player.direction.missile = true
+  }
+  missileReleased() {
+    this.player.direction.missile = false
   }
 
   cleanup() {

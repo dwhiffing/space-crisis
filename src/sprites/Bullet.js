@@ -8,19 +8,20 @@ export class Bullet extends Phaser.Physics.Arcade.Sprite {
     this.speed = 800
   }
 
-  fire(x, y, directionX, directionY) {
+  fire(x, y, directionX, directionY, lifeSpan = 250) {
     this.setPosition(x, y)
     this.startX = x
     this.setActive(true)
     this.setVisible(true)
     this.setVelocityX(this.speed * directionX)
+    this.lifeSpan = lifeSpan
     this.setVelocityY(
       (directionX === 0 ? this.speed : this.speed * 0.5) * directionY,
     )
   }
 
   update(time, delta) {
-    if (Math.abs(this.x - this.startX) > 250) {
+    if (Math.abs(this.x - this.startX) > this.lifeSpan) {
       this.destroy()
     }
   }
