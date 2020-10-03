@@ -6,7 +6,6 @@ export class Trigger extends Phaser.Physics.Arcade.Sprite {
     this.scene.physics.world.enable(this)
     this.scene.add.existing(this)
     this.setOrigin(0)
-    // this.setAlpha(0)
     this.setSize(object.width, object.height, false)
 
     this.hasTriggered = false

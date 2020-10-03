@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.3.4" orientation="orthogonal" renderorder="right-down" width="100" height="100" tilewidth="63" tileheight="63" infinite="0" backgroundcolor="#ffffff" nextlayerid="8" nextobjectid="149">
+<map version="1.2" tiledversion="1.3.4" orientation="orthogonal" renderorder="right-down" width="100" height="100" tilewidth="63" tileheight="63" infinite="0" backgroundcolor="#ffffff" nextlayerid="8" nextobjectid="153">
  <editorsettings>
   <export target="map.json" format="json"/>
  </editorsettings>
@@ -7,7 +7,7 @@
   <image source="../../../tojam2020/assets/images/tilemap.png" width="1890" height="1890"/>
  </tileset>
  <objectgroup id="7" name="Objects">
-  <object id="53" name="red" type="spawn" x="1370.25" y="4000.5">
+  <object id="53" name="red" type="spawn" x="1748.25" y="2992.5">
    <point/>
   </object>
   <object id="100" name="jump" type="upgrade" gid="79" x="3008.25" y="5764.5" width="63" height="63"/>
@@ -85,6 +85,8 @@
     <property name="continuous" type="bool" value="true"/>
    </properties>
   </object>
+  <object id="149" type="spike" gid="574" x="4599" y="4473" width="63" height="63"/>
+  <object id="152" type="spike" gid="574" x="1134" y="3087" width="63" height="63"/>
  </objectgroup>
  <layer id="1" name="World" width="100" height="100">
   <data encoding="base64">

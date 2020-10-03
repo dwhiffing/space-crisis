@@ -2,6 +2,7 @@ import { Player } from '../sprites/Player'
 import { ObjectSprite } from '../sprites/Object'
 import { Enemy } from '../sprites/Enemy'
 import { Trigger } from '../sprites/Trigger'
+import { Spike } from '../sprites/Spike'
 
 export default class LevelService {
   constructor(scene, key) {
@@ -27,6 +28,7 @@ export default class LevelService {
     this.coins = scene.physics.add.group({ allowGravity: false })
     this.enemies = scene.physics.add.group()
     this.triggers = scene.physics.add.group({ allowGravity: false })
+    this.spikes = scene.physics.add.group({ allowGravity: false })
     this.spawners = []
 
     this.objLayer = this.map.getObjectLayer('Objects')
@@ -42,6 +44,10 @@ export default class LevelService {
         this.coins.add(new ObjectSprite(scene, object))
       }
 
+      if (object.type === 'spike') {
+        this.spikes.add(new Spike(scene, object))
+      }
+
       if (object.type === 'trigger') {
         this.triggers.add(new Trigger(scene, object))
       }
@@ -53,7 +59,7 @@ export default class LevelService {
 
     this.playerGroup.add(this.player)
 
-    this.pickups = [this.coins, this.triggers]
+    this.pickups = [this.coins, this.triggers, this.spikes]
 
     this.width = this.map.widthInPixels
     this.height = this.map.heightInPixels
