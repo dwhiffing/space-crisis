@@ -11,11 +11,11 @@
    <point/>
   </object>
   <object id="100" type="coin" gid="79" x="5229" y="4851" width="63" height="63"/>
-  <object id="101" type="enemy" gid="261" x="4284" y="4835.25" width="63" height="63"/>
+  <object id="101" type="enemy" gid="261" x="4284" y="4803.75" width="63" height="63"/>
   <object id="102" type="coin" gid="79" x="4977" y="4851" width="63" height="63"/>
   <object id="103" type="coin" gid="79" x="4914" y="4851" width="63" height="63"/>
   <object id="104" type="coin" gid="79" x="4851" y="4851" width="63" height="63"/>
-  <object id="105" type="enemy" gid="261" x="3591" y="4835.25" width="63" height="63"/>
+  <object id="105" type="enemy" gid="261" x="3591" y="4788" width="63" height="63"/>
  </objectgroup>
  <layer id="1" name="World" width="100" height="100">
   <data encoding="base64">

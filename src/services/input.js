@@ -1,22 +1,28 @@
 export default class InputService {
   constructor(scene) {
     this.scene = scene
-    this.jump = this.jump.bind(this)
-    this.shoot = this.shoot.bind(this)
+    this.jumpPressed = this.jumpPressed.bind(this)
+    this.jumpReleased = this.jumpReleased.bind(this)
+    this.shootPressed = this.shootPressed.bind(this)
+    this.shootReleased = this.shootReleased.bind(this)
     this.makeButton = this.makeButton.bind(this)
-    this.keyReleased = this.keyReleased.bind(this)
-    this.leftPressed = this.leftPressed.bind(this)
-    this.rightPressed = this.rightPressed.bind(this)
     this.cleanup = this.cleanup.bind(this)
     this.update = this.update.bind(this)
     this.upPressed = this.upPressed.bind(this)
     this.downPressed = this.downPressed.bind(this)
+    this.leftPressed = this.leftPressed.bind(this)
+    this.rightPressed = this.rightPressed.bind(this)
+    this.upReleased = this.upReleased.bind(this)
+    this.downReleased = this.downReleased.bind(this)
+    this.leftReleased = this.leftReleased.bind(this)
+    this.rightReleased = this.rightReleased.bind(this)
+
+    this.player = this.scene.level.player
 
     const DISTX = 50
     const DISTY = 70
     const { height, width } = this.scene.cameras.main
 
-    this.direction = 0
     if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
       this.leftTouch = this.makeButton(
         DISTX,
@@ -42,11 +48,24 @@ export default class InputService {
         'right',
         this.rightPressed,
       )
-      this.leftTouch.on('pointerup', this.keyReleased)
-      this.downTouch.on('pointerup', this.keyReleased)
-      this.upTouch.on('pointerup', this.keyReleased)
-      this.rightTouch.on('pointerup', this.keyReleased)
-      this.makeButton(width - DISTX, height - DISTY, 'jump', this.jump)
+      this.leftTouch.on('pointerup', this.leftReleased)
+      this.downTouch.on('pointerup', this.downReleased)
+      this.upTouch.on('pointerup', this.upReleased)
+      this.rightTouch.on('pointerup', this.rightReleased)
+      this.makeButton(
+        width - DISTX,
+        height - DISTY,
+        'jump',
+        this.jumpPressed,
+        this.jumpReleased,
+      )
+      this.makeButton(
+        width - DISTX - 80,
+        height - DISTY,
+        'swap',
+        this.shootPressed,
+        this.shootReleased,
+      )
     }
 
     this.cursors = this.scene.input.keyboard.createCursorKeys()
@@ -58,44 +77,66 @@ export default class InputService {
     this.cursors.left.addListener('down', this.leftPressed)
     this.cursors.right.addListener('down', this.rightPressed)
     this.cursors.down.addListener('down', this.downPressed)
-    this.cursors.down.addListener('up', this.keyReleased)
-    this.cursors.up.addListener('up', this.keyReleased)
-    this.cursors.left.addListener('up', this.keyReleased)
-    this.cursors.right.addListener('up', this.keyReleased)
-    this.zKey.addListener('down', this.shoot)
-    this.spaceKey.addListener('down', this.jump)
+    this.cursors.down.addListener('up', this.downReleased)
+    this.cursors.up.addListener('up', this.upReleased)
+    this.cursors.left.addListener('up', this.leftReleased)
+    this.cursors.right.addListener('up', this.rightReleased)
+    this.zKey.addListener('down', this.shootPressed)
+    this.zKey.addListener('up', this.shootReleased)
+    this.spaceKey.addListener('down', this.jumpPressed)
+    this.spaceKey.addListener('up', this.jumpReleased)
   }
 
   leftPressed() {
-    this.direction = -1
+    this.player.direction.left = true
+  }
+  leftReleased() {
+    this.player.direction.left = false
   }
 
   rightPressed() {
-    this.direction = 1
+    this.player.direction.right = true
+  }
+  rightReleased() {
+    this.player.direction.right = false
   }
 
   upPressed() {
-    this.direction = 2
+    this.player.direction.up = true
+  }
+  upReleased() {
+    this.player.direction.up = false
   }
 
   downPressed() {
-    this.direction = 3
+    this.player.direction.down = true
+  }
+  downReleased() {
+    this.player.direction.down = false
   }
 
-  keyReleased() {
-    this.direction = 0
+  jumpPressed() {
+    this.shouldTriggerJumpOnRelease = true
+    this.player.direction.jump = true
+    this.jumpTime = +new Date()
+    this.scene.time.addEvent({
+      delay: 100,
+      callback: this.jumpReleased,
+    })
+  }
+  jumpReleased() {
+    if (!this.shouldTriggerJumpOnRelease) return
+
+    this.shouldTriggerJumpOnRelease = false
+    this.player.direction.jump = false
+    this.player.jump(+new Date() - this.jumpTime)
   }
 
-  jump() {
-    if (this.direction === 3) {
-      this.scene.level.player.fall()
-    } else {
-      this.scene.level.player.jump()
-    }
+  shootPressed() {
+    this.player.direction.shoot = true
   }
-
-  shoot() {
-    this.scene.level.player.shoot()
+  shootReleased() {
+    this.player.direction.shoot = false
   }
 
   cleanup() {
@@ -111,7 +152,7 @@ export default class InputService {
     this.cursors.right.removeListener('up')
   }
 
-  makeButton(x, y, key, callback, scale = 0.7) {
+  makeButton(x, y, key, callback, releaseCallback = () => {}, scale = 0.7) {
     const image = this.scene.add.image(x, y, key)
     image
       .setScale(scale)
@@ -119,14 +160,9 @@ export default class InputService {
       .setScrollFactor(0)
       .setDepth(10)
       .on('pointerdown', callback)
+      .on('pointerup', releaseCallback)
     return image
   }
 
-  update() {
-    if (this.direction === 1 || this.direction === -1) {
-      this.scene.level.player.walk(this.direction)
-    } else {
-      this.scene.level.player.stop()
-    }
-  }
+  update() {}
 }

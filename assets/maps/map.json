@@ -50,7 +50,7 @@
                  "visible":true,
                  "width":63,
                  "x":4284,
-                 "y":4835.25
+                 "y":4803.75
                 }, 
                 {
                  "gid":79,
@@ -98,7 +98,7 @@
                  "visible":true,
                  "width":63,
                  "x":3591,
-                 "y":4835.25
+                 "y":4788
                 }],
          "opacity":1,
          "type":"objectgroup",

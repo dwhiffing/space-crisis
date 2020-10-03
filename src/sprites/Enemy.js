@@ -6,6 +6,8 @@ export class Enemy extends Phaser.Physics.Arcade.Sprite {
     this.damage = this.damage.bind(this)
     this.scene.add.existing(this)
     this.scene.physics.world.enable(this)
+    this.setSize(45, 25)
+    this.setOffset(8, 35)
     this.health = 100
     const speed = 200
     scene.time.addEvent({

@@ -19,7 +19,7 @@ const game = new Phaser.Game({
     default: 'arcade',
     arcade: {
       fps: 60,
-      gravity: { y: 700 },
+      gravity: { y: 2000 },
       // debug: true,
     },
   },

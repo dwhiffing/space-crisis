@@ -10,14 +10,17 @@ export class Player extends Phaser.Physics.Arcade.Sprite {
     this.jump = this.jump.bind(this)
     scene.add.existing(this)
     scene.physics.world.enable(this)
+    this.direction = { left: false, right: false, up: false, down: false }
 
     this.type = object.name
     this.name = object.name
+    this.canShoot = true
+    this.canMove = true
 
-    this.body.setMaxVelocity(300, 600)
+    this.body.setMaxVelocity(600, 1200)
     this.body.useDamping = true
     this.body.setSize(this.width, this.height - 8)
-    this.setDrag(0.86, 0.9)
+    this.setDrag(0.86, 1)
     this.setSize(58, 40)
     this.setOffset(3, 21)
     this.setDepth(2)
@@ -49,14 +52,14 @@ export class Player extends Phaser.Physics.Arcade.Sprite {
     })
     scene.anims.create({
       key: `jump`,
-      frameRate: 2,
+      frameRate: 5,
       frames: scene.anims.generateFrameNames('tilemap', { start: 83, end: 84 }),
     })
   }
 
-  walk(x) {
-    if (this.justDamaged) return
-    const speed = this.body.onFloor() ? 350 : 100
+  walk() {
+    if (!this.canMove) return
+    const speed = this.body.onFloor() ? 450 : 350
 
     if (this.body.onFloor()) {
       this.anims.play(`walk`, true)
@@ -66,13 +69,18 @@ export class Player extends Phaser.Physics.Arcade.Sprite {
       this.body.touching.down ||
       (this.body.velocity.x < speed && this.body.velocity.x > -speed)
     ) {
-      this.body.setVelocityX(x * speed)
+      const velo = this.direction.left
+        ? -speed
+        : this.direction.right
+        ? speed
+        : 0
+      this.body.setVelocityX(velo)
     }
-    this.flipX = x < 0
+    this.flipX = this.direction.left
   }
 
   stop() {
-    if (this.justDamaged) return
+    if (!this.canMove) return
     if (this.body.onFloor()) {
       this.anims.play(`idle`, true)
     }
@@ -83,13 +91,26 @@ export class Player extends Phaser.Physics.Arcade.Sprite {
     if (!this.body.onFloor()) {
       this.body.setAllowGravity(true)
     }
+    if (!this.direction.left && !this.direction.right) {
+      this.stop()
+    } else {
+      this.walk()
+    }
+    if (this.direction.shoot) {
+      this.shoot()
+    }
   }
 
-  jump() {
-    if (this.justDamaged) return
+  jump(amount) {
+    if (this.direction.down && this.canFall) {
+      this.fall()
+      return
+    }
+    if (!this.canMove) return
     if (this.body.onFloor()) {
       this.anims.play(`jump`, true)
-      this.body.setVelocityY(-600)
+      const diff = amount > 70 ? 1 : 0.65
+      this.body.setVelocityY(-950 * diff)
     }
   }
 
@@ -117,11 +138,18 @@ export class Player extends Phaser.Physics.Arcade.Sprite {
 
     this.scene.healthText.text = this.health.toString()
     this.setVelocity(this.flipX ? 200 : -200, -200)
+    this.canMove = false
     this.scene.time.addEvent({
-      delay: 500,
+      delay: 250,
+      callback: () => {
+        this.canMove = true
+        this.clearTint()
+      },
+    })
+    this.scene.time.addEvent({
+      delay: 1000,
       callback: () => {
         this.justDamaged = false
-        this.clearTint()
       },
     })
   }
@@ -131,10 +159,31 @@ export class Player extends Phaser.Physics.Arcade.Sprite {
   }
 
   shoot() {
+    if (!this.canShoot) return
+    this.canShoot = false
+
+    this.scene.time.addEvent({
+      delay: 200,
+      callback: () => {
+        this.canShoot = true
+      },
+    })
     const bullet = this.bullets.get()
+    const directionX =
+      this.direction.up ||
+      (this.direction.down && !(this.direction.left || this.direction.right))
+        ? 0
+        : this.flipX
+        ? -1
+        : 1
 
     if (bullet) {
-      bullet.fire(this.x, this.y, this.flipX ? 1 : -1)
+      bullet.fire(
+        this.x,
+        this.y,
+        directionX,
+        this.direction.up ? -1 : this.direction.down ? 1 : 0,
+      )
     }
   }
 }

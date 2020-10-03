@@ -22,6 +22,7 @@ export default class extends Phaser.Scene {
     this.load.image('down', 'assets/images/down.png')
     this.load.image('right', 'assets/images/right.png')
     this.load.image('jump', 'assets/images/jump.png')
+    this.load.image('swap', 'assets/images/swap.png')
     this.load.image('playButton', 'assets/images/play.png')
     this.load.image('helpButton', 'assets/images/help.png')
     this.load.image('exit', 'assets/images/exit.png')
