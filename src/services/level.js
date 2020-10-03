@@ -111,6 +111,9 @@ export default class LevelService {
     const triggeredSpawners = this.spawners.filter((s) =>
       s.properties.some((p) => p.name === 'trigger' && p.value === name),
     )
+    if (name === 'trigger-heat-damage' && !this.player.unlocks.armor) {
+      this.player.damage(5)
+    }
     triggeredSpawners.forEach((s) => {
       this.enemies.add(new Enemy(this.scene, s))
     })

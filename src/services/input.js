@@ -147,10 +147,23 @@ export default class InputService {
   }
 
   shootPressed() {
-    this.player.direction.shoot = true
+    // charge shot
+    if (this.player.unlocks.gun >= 3) {
+      this.shootTime = +new Date()
+    } else {
+      this.player.direction.shoot = 1
+    }
   }
   shootReleased() {
-    this.player.direction.shoot = false
+    // charge shot
+    if (this.player.unlocks.gun >= 3) {
+      this.player.direction.shoot = Math.max(
+        1,
+        Math.min(3, (+new Date() - this.shootTime) / 500),
+      )
+    } else {
+      this.player.direction.shoot = 0
+    }
   }
 
   missilePressed() {

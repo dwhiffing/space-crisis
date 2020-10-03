@@ -20,16 +20,10 @@ export class Player extends Phaser.Physics.Arcade.Sprite {
       speed: 1,
       health: 1,
       ammo: 0,
-      jump: 1,
-      gun: 0,
+      armor: 0,
+      jump: 0, // short: 1, high: 2, double: 3
+      gun: 0, // short: 1, long: 2, charge: 3, drill: 4
       win: 0,
-      doubleJump: 0,
-      // 'charge',
-      // 'armor',
-
-      // 'longBeam', ?
-      // 'wall jump', ?
-      // 'drill', destroy tiles at will
     }
     this.jumpCount = 1
 
@@ -112,7 +106,7 @@ export class Player extends Phaser.Physics.Arcade.Sprite {
 
   update() {
     if (this.body.onFloor()) {
-      this.jumpCount = this.unlocks.doubleJump ? 2 : 1
+      this.jumpCount = this.unlocks.jump >= 3 ? 2 : 1
     } else {
       this.body.setAllowGravity(true)
     }
@@ -122,7 +116,7 @@ export class Player extends Phaser.Physics.Arcade.Sprite {
       this.walk()
     }
     if (this.direction.shoot) {
-      this.shoot()
+      this.shoot(false, this.unlocks.gun >= 4 ? 3 : 1, this.direction.shoot)
     }
     if (this.direction.missile) {
       this.shoot(true)
@@ -135,6 +129,14 @@ export class Player extends Phaser.Physics.Arcade.Sprite {
     } else {
       this.unlocks[name] = this.unlocks[name] || 0
       this.unlocks[name]++
+    }
+    if (name === 'ammo') {
+      this.maxAmmo = this.unlocks.ammo * 5
+      this.reload(1000)
+    }
+    if (name === 'health') {
+      this.maxHelth = this.unlocks.health * 100
+      this.heal(1000)
     }
   }
 
@@ -167,7 +169,7 @@ export class Player extends Phaser.Physics.Arcade.Sprite {
       this.anims.play(`jump`, true)
 
       let jumpHeight = this.unlocks.jump ? -880 : -300
-      if (this.unlocks.jump === 2) {
+      if (this.unlocks.jump >= 2) {
         jumpHeight *= 1.4
       }
       const diff = amount > 70 ? 1 : 0.65
@@ -219,7 +221,7 @@ export class Player extends Phaser.Physics.Arcade.Sprite {
     this.scene.scene.start('Menu')
   }
 
-  shoot(isMissile) {
+  shoot(isMissile, bulletCount = 1, charge = 1) {
     if (!this.canShoot || !this.unlocks.gun) return
     this.canShoot = false
 
@@ -229,34 +231,42 @@ export class Player extends Phaser.Physics.Arcade.Sprite {
         this.canShoot = true
       },
     })
-    const bullet = this.bullets.get()
-    const directionX =
-      this.direction.up ||
-      (this.direction.down && !(this.direction.left || this.direction.right))
-        ? 0
-        : this.flipX
-        ? -1
-        : 1
+    for (let i = bulletCount; i > 0; i--) {
+      const bullet = this.bullets.get()
+      const directionX =
+        this.direction.up ||
+        (this.direction.down && !(this.direction.left || this.direction.right))
+          ? 0
+          : this.flipX
+          ? -1
+          : 1
 
-    let lifeSpan = 250
-    if (bullet) {
-      if (isMissile && this.unlocks.ammo > 0) {
-        if (this.ammo === 0) return
-        this.ammo--
-        this.scene.ammoText.text = this.ammo.toString()
-        bullet.setScale(1)
-        lifeSpan = 1000
-      } else {
-        bullet.setScale(0.5)
+      let lifeSpan = 250
+      if (bullet) {
+        if (isMissile) {
+          if (this.unlocks.ammo === 0) return
+          if (this.ammo === 0) return
+          this.ammo--
+          this.scene.ammoText.text = this.ammo.toString()
+          bullet.setScale(1)
+          lifeSpan = 1000
+        } else {
+          bullet.setScale(0.5 * charge)
+          if (this.unlocks.gun >= 2) {
+            lifeSpan = 1000
+          }
+        }
+        console.log(charge)
+        this.direction.shoot = 0
+
+        bullet.fire(
+          this.x,
+          this.y + (bulletCount > 1 ? (i - 2) * 20 : 0),
+          directionX,
+          this.direction.up ? -1 : this.direction.down ? 1 : 0,
+          lifeSpan,
+        )
       }
-
-      bullet.fire(
-        this.x,
-        this.y,
-        directionX,
-        this.direction.up ? -1 : this.direction.down ? 1 : 0,
-        lifeSpan,
-      )
     }
   }
 }

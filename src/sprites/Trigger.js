@@ -14,7 +14,11 @@ export class Trigger extends Phaser.Physics.Arcade.Sprite {
   }
 
   overlap() {
-    if (this.hasTriggered) return
+    if (
+      this.hasTriggered &&
+      !this.object.properties.some((p) => p.name === 'continuous')
+    )
+      return
     this.hasTriggered = true
     this.scene.level.trigger(this.object.name)
   }
