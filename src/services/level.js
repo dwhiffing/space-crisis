@@ -10,6 +10,16 @@ export default class LevelService {
     this.groundLayer = this.map.createDynamicLayer('World', groundTiles, 0, 0)
     this.groundLayer.setCollisionByExclusion([-1])
 
+    this.groundLayer.layer.data.forEach(function (row) {
+      row.forEach(function (tile) {
+        if (tile.index === 159) {
+          tile.collideDown = false
+          tile.collideRight = false
+          tile.collideLeft = false
+        }
+      })
+    })
+
     this.playerGroup = scene.add.group()
     this.coins = scene.physics.add.group({ allowGravity: false })
 

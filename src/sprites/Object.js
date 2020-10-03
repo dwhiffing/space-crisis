@@ -1,15 +1,15 @@
 export class ObjectSprite extends Phaser.Physics.Arcade.Sprite {
   constructor(scene, object) {
     super(scene, object.x, object.y, 'tilemap')
+    this.overlap = this.overlap.bind(this)
+
     this.scene = scene
     this.type = object.type
     this.gid = object.gid
     this.scene.physics.world.enable(this)
-
-    this.setCollideWorldBounds(true)
-    this.isPressed = false
-    this.setOrigin(0, 1)
     this.scene.add.existing(this)
+
+    this.setOrigin(0, 1)
     this.setFrame(this.gid - 1)
 
     setTimeout(() => {
@@ -19,7 +19,6 @@ export class ObjectSprite extends Phaser.Physics.Arcade.Sprite {
         this.setOffset(8, 20)
       }
     }, 0)
-    this.overlap = this.overlap.bind(this)
   }
 
   overlap(player, callback) {

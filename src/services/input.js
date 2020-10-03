@@ -2,6 +2,7 @@ export default class InputService {
   constructor(scene) {
     this.scene = scene
     this.jump = this.jump.bind(this)
+    this.shoot = this.shoot.bind(this)
     this.makeButton = this.makeButton.bind(this)
     this.keyReleased = this.keyReleased.bind(this)
     this.leftPressed = this.leftPressed.bind(this)
@@ -61,7 +62,7 @@ export default class InputService {
     this.cursors.up.addListener('up', this.keyReleased)
     this.cursors.left.addListener('up', this.keyReleased)
     this.cursors.right.addListener('up', this.keyReleased)
-    this.zKey.addListener('down', this.jump)
+    this.zKey.addListener('down', this.shoot)
     this.spaceKey.addListener('down', this.jump)
   }
 
@@ -86,7 +87,11 @@ export default class InputService {
   }
 
   jump() {
-    this.scene.activePlayer.action()
+    this.scene.level.player.jump()
+  }
+
+  shoot() {
+    this.scene.level.player.shoot()
   }
 
   cleanup() {
@@ -115,9 +120,9 @@ export default class InputService {
 
   update() {
     if (this.direction === 1 || this.direction === -1) {
-      this.scene.activePlayer.walk(this.direction)
+      this.scene.level.player.walk(this.direction)
     } else {
-      this.scene.activePlayer.stop()
+      this.scene.level.player.stop()
     }
   }
 }

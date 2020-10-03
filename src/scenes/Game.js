@@ -8,9 +8,11 @@ export default class extends Phaser.Scene {
   }
 
   create() {
+    this.iter = 0
     this.background = this.add
       .tileSprite(0, 0, 1920, 1080, 'background')
       .setScrollFactor(0)
+      .setTint(0xe86a17)
 
     this.level = new LevelService(this, `map`)
     this.width = this.level.map.widthInPixels
@@ -27,12 +29,9 @@ export default class extends Phaser.Scene {
     )
 
     this.cameras.main.setBounds(0, 0, this.width, this.height)
-    this.background.setTint(0xe86a17)
-    this.activePlayer = this.level.player
     this.cameras.main.setLerp(0.2, 0.2)
 
     this.inputService = new InputService(this)
-    this.iter = 0
   }
 
   update(time, delta) {
@@ -40,7 +39,7 @@ export default class extends Phaser.Scene {
     this.background.tilePositionX = Math.cos(-this.iter) * 400
     this.background.tilePositionY = Math.sin(-this.iter) * 400
     this.inputService.update(time, delta)
-    this.activePlayer.update()
+    this.level.player.update()
   }
 
   overlap(player, object) {
