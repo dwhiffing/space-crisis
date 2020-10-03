@@ -2,8 +2,11 @@ export class Enemy extends Phaser.Physics.Arcade.Sprite {
   constructor(scene, object) {
     super(scene, object.x, object.y, 'tilemap')
     this.setFrame(object.gid - 1)
+    this.scene = scene
+    this.damage = this.damage.bind(this)
     this.scene.add.existing(this)
     this.scene.physics.world.enable(this)
+    this.health = 100
     const speed = 200
     scene.time.addEvent({
       delay: 1000,
@@ -17,6 +20,25 @@ export class Enemy extends Phaser.Physics.Arcade.Sprite {
             this.setFlipX(this.body.velocity.x > 0)
           },
         })
+      },
+    })
+  }
+
+  damage(amount) {
+    if (this.justDamaged) return
+    this.justDamaged = true
+    this.health -= amount
+    this.setTintFill(0xffffff)
+    if (this.health <= 0) {
+      this.destroy()
+      return
+    }
+
+    this.scene.time.addEvent({
+      delay: 100,
+      callback: () => {
+        this.justDamaged = false
+        this.clearTint()
       },
     })
   }

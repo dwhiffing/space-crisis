@@ -13,6 +13,11 @@ export default class extends Phaser.Scene {
       .setScrollFactor(0)
       .setTint(0xe86a17)
 
+    this.healthText = this.add
+      .text(20, 20, '100')
+      .setScrollFactor(0)
+      .setDepth(999)
+
     this.level = new LevelService(this, 'map')
     this.inputService = new InputService(this)
   }

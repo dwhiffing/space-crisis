@@ -53,11 +53,15 @@ export default class LevelService {
     scene.physics.add.collider(this.pushers, this.groundLayer)
     // scene.physics.add.collider(this.pushers, this.pushers)
     scene.physics.add.overlap(
-      this.player.bullets,
+      [this.player, this.player.bullets],
       this.enemies,
-      (bullet, enemy) => {
-        bullet.destroy()
-        enemy.destroy()
+      (bulletOrPlayer, enemy) => {
+        if (bulletOrPlayer.name === 'red') {
+          bulletOrPlayer.damage(10)
+        } else {
+          bulletOrPlayer.destroy()
+          enemy.damage(10)
+        }
       },
     )
     scene.physics.add.collider(

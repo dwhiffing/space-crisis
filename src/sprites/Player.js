@@ -6,6 +6,7 @@ export class Player extends Phaser.Physics.Arcade.Sprite {
     this.scene = scene
     this.walk = this.walk.bind(this)
     this.stop = this.stop.bind(this)
+    this.die = this.die.bind(this)
     this.jump = this.jump.bind(this)
     scene.add.existing(this)
     scene.physics.world.enable(this)
@@ -21,6 +22,7 @@ export class Player extends Phaser.Physics.Arcade.Sprite {
     this.setOffset(3, 21)
     this.setDepth(2)
     this.setAlpha(1)
+    this.health = 100
 
     this.bullets = scene.add.group({
       classType: Bullet,
@@ -53,6 +55,7 @@ export class Player extends Phaser.Physics.Arcade.Sprite {
   }
 
   walk(x) {
+    if (this.justDamaged) return
     const speed = this.body.onFloor() ? 350 : 100
 
     if (this.body.onFloor()) {
@@ -69,6 +72,7 @@ export class Player extends Phaser.Physics.Arcade.Sprite {
   }
 
   stop() {
+    if (this.justDamaged) return
     if (this.body.onFloor()) {
       this.anims.play(`idle`, true)
     }
@@ -82,10 +86,35 @@ export class Player extends Phaser.Physics.Arcade.Sprite {
   }
 
   jump() {
+    if (this.justDamaged) return
     if (this.body.onFloor()) {
       this.anims.play(`jump`, true)
       this.body.setVelocityY(-600)
     }
+  }
+
+  damage(amount) {
+    if (this.justDamaged) return
+    this.justDamaged = true
+    this.health -= amount
+    this.setTintFill(0xffffff)
+    if (this.health <= 0) {
+      this.die()
+    }
+
+    this.scene.healthText.text = this.health.toString()
+    this.setVelocity(this.flipX ? 200 : -200, -200)
+    this.scene.time.addEvent({
+      delay: 500,
+      callback: () => {
+        this.justDamaged = false
+        this.clearTint()
+      },
+    })
+  }
+
+  die() {
+    this.scene.scene.start('Menu')
   }
 
   shoot() {
