@@ -4,7 +4,6 @@ import LevelService from '../services/level'
 export default class extends Phaser.Scene {
   constructor() {
     super({ key: 'Game' })
-    this.overlap = this.overlap.bind(this)
   }
 
   create() {
@@ -14,23 +13,7 @@ export default class extends Phaser.Scene {
       .setScrollFactor(0)
       .setTint(0xe86a17)
 
-    this.level = new LevelService(this, `map`)
-    this.width = this.level.map.widthInPixels
-    this.height = this.level.map.heightInPixels
-
-    this.physics.world.bounds.width = this.width
-    this.physics.world.bounds.height = this.height
-    this.physics.add.collider(this.level.pushers, this.level.groundLayer)
-    this.physics.add.collider(this.level.pushers, this.level.pushers)
-    this.physics.add.overlap(
-      this.level.playerGroup,
-      this.level.pickups,
-      this.overlap,
-    )
-
-    this.cameras.main.setBounds(0, 0, this.width, this.height)
-    this.cameras.main.setLerp(0.2, 0.2)
-
+    this.level = new LevelService(this, 'map')
     this.inputService = new InputService(this)
   }
 
@@ -40,9 +23,5 @@ export default class extends Phaser.Scene {
     this.background.tilePositionY = Math.sin(-this.iter) * 400
     this.inputService.update(time, delta)
     this.level.player.update()
-  }
-
-  overlap(player, object) {
-    object.overlap(player, () => {})
   }
 }

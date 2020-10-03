@@ -38,5 +38,32 @@ export default class LevelService {
 
     this.pushers = [this.playerGroup]
     this.pickups = [this.coins]
+
+    this.width = this.map.widthInPixels
+    this.height = this.map.heightInPixels
+
+    scene.physics.world.bounds.width = this.width
+    scene.physics.world.bounds.height = this.height
+    scene.physics.add.collider(this.pushers, this.groundLayer)
+    scene.physics.add.collider(
+      this.player.bullets,
+      this.groundLayer,
+      (bullet, tile) => {
+        bullet.destroy()
+        if (tile.index === 195)
+          tile.layer.tilemapLayer.removeTileAt(tile.x, tile.y)
+      },
+    )
+    scene.physics.add.collider(this.pushers, this.pushers)
+    scene.physics.add.overlap(
+      this.playerGroup,
+      this.pickups,
+      (player, object) => {
+        object.overlap(player, () => {})
+      },
+    )
+
+    this.scene.cameras.main.setBounds(0, 0, this.width, this.height)
+    this.scene.cameras.main.setLerp(0.2, 0.2)
   }
 }

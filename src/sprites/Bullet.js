@@ -3,6 +3,8 @@ export class Bullet extends Phaser.Physics.Arcade.Sprite {
     super(scene, x, y, 'exit')
     this.fire = this.fire.bind(this)
     this.setScale(0.4)
+    scene.physics.world.enable(this)
+    this.body.setAllowGravity(false)
   }
 
   fire(x, y, direction = 1) {
@@ -11,11 +13,10 @@ export class Bullet extends Phaser.Physics.Arcade.Sprite {
     this.direction = direction
     this.setActive(true)
     this.setVisible(true)
+    this.setVelocityX(-500 * this.direction)
   }
 
   update(time, delta) {
-    this.x -= 10 * this.direction
-    console.log(Math.abs(this.x - this.startX))
     if (Math.abs(this.x - this.startX) > 250) {
       this.setActive(false)
       this.setVisible(false)
