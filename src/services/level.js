@@ -1,10 +1,12 @@
 import { Player } from '../sprites/Player'
 import { ObjectSprite } from '../sprites/Object'
 import { Enemy } from '../sprites/Enemy'
+import { Trigger } from '../sprites/Trigger'
 
 export default class LevelService {
   constructor(scene, key) {
     this.scene = scene
+    this.trigger = this.trigger.bind(this)
     this.map = scene.make.tilemap({ key })
 
     const groundTiles = this.map.addTilesetImage('tilemap')
@@ -24,15 +26,24 @@ export default class LevelService {
     this.playerGroup = scene.add.group()
     this.coins = scene.physics.add.group({ allowGravity: false })
     this.enemies = scene.physics.add.group()
+    this.triggers = scene.physics.add.group({ allowGravity: false })
+    this.spawners = []
 
     this.objLayer = this.map.getObjectLayer('Objects')
     this.objLayer.objects.forEach((object) => {
       if (object.type === 'spawn') {
         this.player = new Player(scene, object)
       }
+      if (object.type === 'enemy-spawn') {
+        this.spawners.push(object)
+      }
 
-      if (object.type === 'coin') {
+      if (object.type === 'coin' || object.type === 'upgrade') {
         this.coins.add(new ObjectSprite(scene, object))
+      }
+
+      if (object.type === 'trigger') {
+        this.triggers.add(new Trigger(scene, object))
       }
 
       if (object.type === 'enemy') {
@@ -42,7 +53,7 @@ export default class LevelService {
 
     this.playerGroup.add(this.player)
 
-    this.pickups = [this.coins]
+    this.pickups = [this.coins, this.triggers]
 
     this.width = this.map.widthInPixels
     this.height = this.map.heightInPixels
@@ -68,9 +79,9 @@ export default class LevelService {
       (bulletOrPlayer, enemy) => {
         if (bulletOrPlayer.name === 'red') {
           bulletOrPlayer.damage(10)
-        } else {
+        } else if (bulletOrPlayer.active) {
           bulletOrPlayer.destroy()
-          enemy.damage(10)
+          enemy.damage(20)
         }
       },
     )
@@ -93,5 +104,14 @@ export default class LevelService {
 
     this.scene.cameras.main.setBounds(0, 0, this.width, this.height)
     this.scene.cameras.main.setLerp(0.2, 0.2)
+  }
+
+  trigger(name) {
+    const triggeredSpawners = this.spawners.filter((s) =>
+      s.properties.some((p) => p.name === 'trigger' && p.value === name),
+    )
+    triggeredSpawners.forEach((s) => {
+      this.enemies.add(new Enemy(this.scene, s))
+    })
   }
 }

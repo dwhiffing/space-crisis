@@ -5,6 +5,7 @@ export class ObjectSprite extends Phaser.Physics.Arcade.Sprite {
 
     this.scene = scene
     this.type = object.type
+    this.name = object.name
     this.gid = object.gid
     this.scene.physics.world.enable(this)
     this.scene.add.existing(this)
@@ -18,11 +19,19 @@ export class ObjectSprite extends Phaser.Physics.Arcade.Sprite {
         this.setSize(45, 40)
         this.setOffset(8, 20)
       }
+      if (this.body && this.type === 'upgrade') {
+        this.setSize(45, 40)
+        this.setOffset(8, 20)
+      }
     }, 0)
   }
 
   overlap(player, callback) {
     if (this.type === 'coin') {
+      this.destroy()
+    }
+    if (this.type === 'upgrade') {
+      player.unlock(this.name)
       this.destroy()
     }
   }

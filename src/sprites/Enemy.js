@@ -1,7 +1,8 @@
 export class Enemy extends Phaser.Physics.Arcade.Sprite {
   constructor(scene, object) {
     super(scene, object.x, object.y, 'tilemap')
-    this.setFrame(object.gid - 1)
+    const frame = object.gid ? object.gid - 1 : 260
+    this.setFrame(frame)
     this.scene = scene
     this.damage = this.damage.bind(this)
     this.scene.add.existing(this)

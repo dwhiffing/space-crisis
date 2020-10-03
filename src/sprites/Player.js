@@ -16,13 +16,14 @@ export class Player extends Phaser.Physics.Arcade.Sprite {
     this.name = object.name
     this.canShoot = true
     this.canMove = true
+    this.unlocks = {}
 
     this.body.setMaxVelocity(600, 1200)
     this.body.useDamping = true
     this.body.setSize(this.width, this.height - 8)
-    this.setDrag(0.86, 1)
-    this.setSize(58, 40)
-    this.setOffset(3, 21)
+    this.setDrag(0.81, 1)
+    this.setSize(45, 40)
+    this.setOffset(9, 21)
     this.setDepth(2)
     this.setAlpha(1)
     this.health = 100
@@ -87,7 +88,6 @@ export class Player extends Phaser.Physics.Arcade.Sprite {
   }
 
   update() {
-    this.body.useDamping = this.body.onFloor()
     if (!this.body.onFloor()) {
       this.body.setAllowGravity(true)
     }
@@ -101,16 +101,21 @@ export class Player extends Phaser.Physics.Arcade.Sprite {
     }
   }
 
+  unlock(name) {
+    this.unlocks[name] = true
+  }
+
   jump(amount) {
+    if (!this.canMove) return
     if (this.direction.down && this.canFall) {
       this.fall()
       return
     }
-    if (!this.canMove) return
     if (this.body.onFloor()) {
       this.anims.play(`jump`, true)
+      const jumpHeight = this.unlocks.jump ? -950 : -300
       const diff = amount > 70 ? 1 : 0.65
-      this.body.setVelocityY(-950 * diff)
+      this.body.setVelocityY(jumpHeight * diff)
     }
   }
 
@@ -159,7 +164,7 @@ export class Player extends Phaser.Physics.Arcade.Sprite {
   }
 
   shoot() {
-    if (!this.canShoot) return
+    if (!this.canShoot || !this.unlocks.gun) return
     this.canShoot = false
 
     this.scene.time.addEvent({
