@@ -19,8 +19,8 @@ export default class InputService {
 
     this.player = this.scene.level.player
 
-    const DISTX = 50
-    const DISTY = 70
+    const DISTX = 80
+    const DISTY = 100
     const { height, width } = this.scene.cameras.main
 
     if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
@@ -29,42 +29,44 @@ export default class InputService {
         height - DISTY,
         'left',
         this.leftPressed,
+        this.leftReleased,
       )
       this.upTouch = this.makeButton(
-        DISTX * 1.75,
+        DISTX * 1.8,
         height - DISTY * 1.6,
         'up',
         this.upPressed,
+        this.upReleased,
       )
       this.downTouch = this.makeButton(
-        DISTX * 1.75,
+        DISTX * 1.8,
         height - DISTY + DISTY * 0.6,
         'down',
         this.downPressed,
+        this.downReleased,
       )
       this.rightTouch = this.makeButton(
-        DISTX * 2.5,
+        DISTX * 2.6,
         height - DISTY,
         'right',
         this.rightPressed,
+        this.rightReleased,
       )
-      this.leftTouch.on('pointerup', this.leftReleased)
-      this.downTouch.on('pointerup', this.downReleased)
-      this.upTouch.on('pointerup', this.upReleased)
-      this.rightTouch.on('pointerup', this.rightReleased)
       this.makeButton(
         width - DISTX,
         height - DISTY,
         'jump',
         this.jumpPressed,
         this.jumpReleased,
+        1.8,
       )
       this.makeButton(
-        width - DISTX - 80,
+        width - DISTX * 3,
         height - DISTY,
         'swap',
         this.shootPressed,
         this.shootReleased,
+        1.8,
       )
     }
 
@@ -152,16 +154,17 @@ export default class InputService {
     this.cursors.right.removeListener('up')
   }
 
-  makeButton(x, y, key, callback, releaseCallback = () => {}, scale = 0.7) {
-    const image = this.scene.add.image(x, y, key)
-    image
+  makeButton(x, y, key, callback, releaseCallback = () => {}, scale = 1.25) {
+    return this.scene.add
+      .image(x, y, key)
       .setScale(scale)
       .setInteractive()
       .setScrollFactor(0)
       .setDepth(10)
+      .setAlpha(0.75)
       .on('pointerdown', callback)
       .on('pointerup', releaseCallback)
-    return image
+      .on('pointerout', releaseCallback)
   }
 
   update() {}
