@@ -13,7 +13,7 @@ export class Enemy extends Phaser.Physics.Arcade.Sprite {
     this.scene.physics.world.enable(this)
     this.setSize(15, 9)
     this.setOffset(1, 8)
-    this.health = 100
+    this.health = 50
 
     const props = object.properties || []
     const getPropValue = (n, defaultValue = 0) =>
@@ -64,6 +64,10 @@ export class Enemy extends Phaser.Physics.Arcade.Sprite {
         this.velo = this.speed * 2
         this.setVelocityX(this.speed * 2 * this.direction)
         this.setVelocityY(this.speed * -5)
+        this.scene.sound.play('jump', {
+          rate: Phaser.Math.RND.between(4, 5) / 10,
+          volume: 0.5,
+        })
       })
       this.callback2 = this.scene.time.addEvent({
         delay: baseDelay * 3,
@@ -82,6 +86,9 @@ export class Enemy extends Phaser.Physics.Arcade.Sprite {
       this.flipY = true
       this.setOffset(1, -1)
       this.doInit(-this.speed, 0, -1000, baseDelay, () => {
+        this.scene.sound.play('jump', {
+          rate: Phaser.Math.RND.between(8, 10) / 10,
+        })
         this.setVelocityX(this.speed * this.direction)
         this.setVelocityY(this.speed * 2)
       })
@@ -137,6 +144,7 @@ export class Enemy extends Phaser.Physics.Arcade.Sprite {
 
   destroy() {
     if (!this.scene) return
+    this.scene.sound.play('enemyDead')
     const roll = Phaser.Math.RND.integerInRange(0, 4)
     if (roll === 0) {
       this.scene.level.coins.add(

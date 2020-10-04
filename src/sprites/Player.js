@@ -123,7 +123,21 @@ export class Player extends Phaser.Physics.Arcade.Sprite {
     if (!this.canMove) return
     let speed = this.speed
     if (this.body.onFloor()) {
-      if (!this.emitter.on) this.emitter.start()
+      if (!this.emitter.on) {
+        this.emitter.start()
+        if (!this.runSoundCallback) {
+          this.runSoundCallback = this.scene.time.addEvent({
+            delay: 400,
+            repeat: -1,
+            callback: () => {
+              this.scene.sound.play('hit2', {
+                rate: Phaser.Math.RND.between(3, 6) / 10,
+                volume: 0.2,
+              })
+            },
+          })
+        }
+      }
       this.anims.play(`walk`, true)
     }
     if (
@@ -152,8 +166,18 @@ export class Player extends Phaser.Physics.Arcade.Sprite {
   update() {
     this.emitter.setPosition(this.x + (this.flipX ? 2 : -2), this.y + 6)
     this.jumpEmitter.setPosition(this.x + (this.flipX ? 2 : -2), this.y + 6)
-    if (this.body.onFloor()) {
+    if (!this.body.onFloor()) {
+      this.inAir = true
+    }
+
+    if (this.body.onFloor() && this.inAir) {
+      this.inAir = false
       this.jumpCount = this.unlocks.jump >= 3 ? 2 : 1
+      this.jumpEmitter.explode(20)
+      this.scene.sound.play('hit2', {
+        rate: Phaser.Math.RND.between(9, 10) / 10,
+        volume: 0.5,
+      })
     } else {
       this.emitter.stop()
       this.body.setAllowGravity(true)
@@ -161,12 +185,14 @@ export class Player extends Phaser.Physics.Arcade.Sprite {
     this.gun.setPosition(this.x + (this.flipX ? -5 : 5), this.y + 3)
     this.gun.flipX = this.flipX
     if (!this.direction.left && !this.direction.right) {
+      this.runSoundCallback && this.runSoundCallback.remove()
+      this.runSoundCallback = null
       this.stop()
     } else {
       this.walk()
     }
     if (this.direction.shoot) {
-      this.shoot(false, this.unlocks.gun >= 4 ? 3 : 1, this.direction.shoot)
+      this.shoot(false, 1, this.direction.shoot)
     }
     if (this.direction.missile) {
       this.shoot(true)
@@ -227,6 +253,8 @@ export class Player extends Phaser.Physics.Arcade.Sprite {
       upgradeText = 'HEAT PROTECTION'
     }
 
+    this.scene.sound.play('upgrade')
+
     this.scene.upgradeText.setText(`${upgradeText} UPGRADE RECEIVED`)
     this.scene.time.addEvent({
       delay: 2000,
@@ -260,7 +288,12 @@ export class Player extends Phaser.Physics.Arcade.Sprite {
     }
     if (this.jumpCount > 0) {
       this.jumpCount--
+      // TODO: allow 3 levels of jump height
       this.jumpEmitter.explode(this.unlocks.jump * 20)
+      if (!this.scene) debugger
+      this.scene.sound.play('jump', {
+        rate: Phaser.Math.RND.between(8, 10) / 10,
+      })
       this.anims.play(`jump`, true)
 
       let jumpHeight = this.unlocks.jump ? -240 : -5
@@ -289,6 +322,9 @@ export class Player extends Phaser.Physics.Arcade.Sprite {
     if (this.justDamaged) return
     this.justDamaged = true
     this.health -= amount
+    this.scene.sound.play('hit', {
+      rate: Phaser.Math.RND.between(8, 10) / 10,
+    })
     this.setTintFill(0xffffff)
     if (this.health <= 0) {
       this.die()
@@ -341,7 +377,7 @@ export class Player extends Phaser.Physics.Arcade.Sprite {
           ? -1
           : 1
 
-      let lifeSpan = 250
+      let lifeSpan = 50
       if (bullet) {
         if (isMissile) {
           if (this.unlocks.ammo === 0) return
@@ -350,13 +386,31 @@ export class Player extends Phaser.Physics.Arcade.Sprite {
           this.scene.ammoText.text = this.ammo.toString()
           bullet.isMissile = true
           bullet.setSize(8, 8)
-          lifeSpan = 1000
+          lifeSpan = 200
+          bullet.setFrame(49)
+          this.scene.sound.play('missile', {
+            rate: Phaser.Math.RND.between(8, 10) / 10,
+          })
+          bullet.damageAmount = 100
         } else {
+          if (charge >= 2) {
+            this.scene.sound.play('charge', {
+              rate: Phaser.Math.RND.between(8, 10) / 10,
+            })
+            bullet.damageAmount = Math.round(charge) * 20
+            bullet.setFrame(51)
+          } else {
+            bullet.setFrame(50)
+            bullet.damageAmount = 10
+            this.scene.sound.play('shoot', {
+              rate: Phaser.Math.RND.between(8, 10) / 10,
+            })
+          }
           bullet.isMissile = false
           bullet.setSize(8, 8)
           bullet.setScale(1)
           if (this.unlocks.gun >= 2) {
-            lifeSpan = 1000
+            lifeSpan = 150
           }
         }
         this.direction.shoot = 0

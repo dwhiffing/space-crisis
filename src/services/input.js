@@ -101,6 +101,12 @@ export default class InputService {
     this.rKey.addListener('down', () => this.scene.scene.start('Game'))
     this.spaceKey.addListener('down', this.jumpPressed)
     this.spaceKey.addListener('up', this.jumpReleased)
+
+    this.chargeSound = this.scene.sound.add('charge2', {
+      rate: 0.5,
+      volume: 0.5,
+      loop: true,
+    })
   }
 
   leftPressed() {
@@ -152,13 +158,57 @@ export default class InputService {
     // charge shot
     if (this.player.unlocks.gun >= 3) {
       this.shootTime = +new Date()
+      let tint = 1
+      this.cb = this.scene.time.addEvent({
+        delay: 100,
+        repeat: -1,
+        callback: () => {
+          if (tint) {
+            this.player.setTintFill(0xffffff)
+            tint = 0
+          } else {
+            this.player.clearTint()
+            tint = 1
+          }
+        },
+      })
+      this.cb1 = this.scene.time.addEvent({
+        delay: 300,
+        callback: () => {
+          this.chargeSound.play()
+        },
+      })
+      this.cb2 = this.scene.time.addEvent({
+        delay: 1000,
+        callback: () => {
+          this.chargeSound.volume *= 1.5
+          this.chargeSound.rate *= 1.5
+        },
+      })
+      this.cb3 = this.scene.time.addEvent({
+        delay: 2000,
+        callback: () => {
+          this.chargeSound.volume *= 1.5
+          this.chargeSound.rate *= 1.5
+        },
+      })
     } else {
       this.player.direction.shoot = 1
     }
   }
   shootReleased() {
     // charge shot
+    if (this.cb) {
+      this.cb.remove()
+      this.player.clearTint()
+    }
+    if (this.cb1) this.cb1.remove()
+    if (this.cb2) this.cb2.remove()
+    if (this.cb3) this.cb3.remove()
+    this.chargeSound.volume = 0.5
+    this.chargeSound.rate = 0.5
     if (this.player.unlocks.gun >= 3) {
+      this.chargeSound.stop()
       this.player.direction.shoot = Math.max(
         1,
         Math.min(3, (+new Date() - this.shootTime) / 500),

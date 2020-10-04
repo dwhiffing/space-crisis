@@ -1,20 +1,9 @@
 add enemies throughout map, incrementing difficulty based on intended progression
-add upgrade text
-add missile graphics and explosion effects (use for ammo pickups, disable ammo pickups if maxAmmo=0)
-add charge graphics and explosions effects
-balance short gun vs long gun (damage to enemies)
+add missile graphics (use for ammo pickups, disable ammo pickups if maxAmmo=0)
 add powerup graphics
 add different enemy art
 add Menu assets
 add introduction text
-
-Add Sound
-  jump
-  walk
-  shot
-  missile
-  explosions
-  charge
 
 Add Music
 

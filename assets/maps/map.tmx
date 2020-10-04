@@ -10,7 +10,7 @@
   <image source="../images/tilemap.png" width="240" height="240"/>
  </tileset>
  <objectgroup id="2" name="Objects">
-  <object id="1" name="red" type="spawn" x="1092" y="888">
+  <object id="1" name="red" type="spawn" x="312" y="1044">
    <point/>
   </object>
   <object id="2" name="jump" type="upgrade" gid="47" x="761.025" y="1459.57" width="15.8475" height="15.8475"/>

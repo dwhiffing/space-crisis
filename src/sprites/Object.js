@@ -35,10 +35,12 @@ export class ObjectSprite extends Phaser.Physics.Arcade.Sprite {
       this.destroy()
     }
     if (this.type === 'health') {
+      this.scene.sound.play('pickup')
       player.heal(10)
       this.destroy()
     }
     if (this.type === 'ammo') {
+      this.scene.sound.play('pickup')
       player.reload(2)
       this.destroy()
     }

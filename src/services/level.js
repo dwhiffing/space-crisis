@@ -88,7 +88,7 @@ export default class LevelService {
           bulletOrPlayer.damage(10)
         } else if (bulletOrPlayer.active) {
           bulletOrPlayer.destroy()
-          enemy.damage(bulletOrPlayer.isMissile ? 100 : 20)
+          enemy.damage(bulletOrPlayer.damageAmount || 5)
         }
       },
     )
