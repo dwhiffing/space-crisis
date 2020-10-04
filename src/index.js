@@ -1,21 +1,19 @@
 import Phaser from 'phaser'
 import * as scenes from './scenes'
 
-let scale = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent) ? 3 : 6
-
 const game = new Phaser.Game({
   transparent: true,
   type: Phaser.AUTO,
   parent: 'phaser-example',
-  width: Math.floor(window.innerWidth / scale),
-  height: Math.floor(window.innerHeight / scale),
+  width: 150,
+  height: 85,
   pixelArt: true,
-  zoom: scale,
+  zoom: 10,
   input: {
     activePointers: 3,
   },
   scale: {
-    // mode: Phaser.Scale.FIT,
+    mode: Phaser.Scale.FIT,
     autoCenter: Phaser.Scale.CENTER_BOTH,
   },
   physics: {

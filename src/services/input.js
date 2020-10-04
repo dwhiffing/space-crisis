@@ -21,8 +21,8 @@ export default class InputService {
 
     this.player = this.scene.level.player
 
-    const DISTX = 80
-    const DISTY = 100
+    const DISTX = 18
+    const DISTY = 20
     const { height, width } = this.scene.cameras.main
 
     if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
@@ -60,23 +60,20 @@ export default class InputService {
         217,
         this.jumpPressed,
         this.jumpReleased,
-        1.45,
       )
       this.makeButton(
-        width - DISTX * 2.5,
+        width - DISTX * 2,
         height - DISTY,
         218,
         this.shootPressed,
         this.shootReleased,
-        1.45,
       )
       this.makeButton(
-        width - DISTX * 4,
+        width - DISTX * 3,
         height - DISTY,
         219,
         this.missilePressed,
         this.missileReleased,
-        1.45,
       )
     }
 
@@ -245,7 +242,7 @@ export default class InputService {
       .setInteractive()
       .setScrollFactor(0)
       .setDepth(10)
-      .setAlpha(0.75)
+      .setAlpha(0.6)
       .on('pointerdown', callback)
       .on('pointerup', releaseCallback)
       .on('pointerout', releaseCallback)

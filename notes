@@ -1,10 +1,3 @@
 add enemies throughout map, incrementing difficulty based on intended progression
-add missile graphics (use for ammo pickups, disable ammo pickups if maxAmmo=0)
-add powerup graphics
 add different enemy art
-add Menu assets
-add introduction text
-
-Add Music
-
 end boss?

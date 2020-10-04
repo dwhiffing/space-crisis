@@ -9,26 +9,29 @@ export default class extends Phaser.Scene {
   }
 
   create() {
+    this.iter = 0
+    this.timer = 299
+    this.background = this.add
+      .tileSprite(0, 0, window.innerWidth, window.innerHeight, 'background')
+      .setScrollFactor(0)
+    this.add.image(this.width / 2, this.height / 2 - 10, 'title').setScale(0.5)
     this.add
-      .image(this.width / 2 - 50, this.height / 2 + 50, 'tilemap', 223)
-      .setScale(1)
+      .image(this.width / 2 - 15, this.height - 10, 'tilemap', 223)
       .setInteractive()
       .on('pointerdown', () => {
         this.scene.start('Game')
       })
     this.add
-      .image(this.width / 2 + 50, this.height / 2 + 50, 'tilemap', 224)
-      .setScale(1)
+      .image(this.width / 2 + 15, this.height - 10, 'tilemap', 224)
       .setInteractive()
       .on('pointerdown', () => {
         this.scene.start('Credits')
       })
-
-    this.add
-      .text(this.width / 2, this.height / 2 - 40, 'Space Crisis')
-      .setOrigin(0.5)
-      .setFontSize(40)
   }
 
-  update() {}
+  update(time, delta) {
+    this.iter += 0.001
+    this.background.tilePositionX = Math.floor(Math.cos(-this.iter) * 400)
+    this.background.tilePositionY = Math.floor(Math.sin(-this.iter) * 400)
+  }
 }

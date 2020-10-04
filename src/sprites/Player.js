@@ -74,7 +74,6 @@ export class Player extends Phaser.Physics.Arcade.Sprite {
         quantity: 1,
       })
       .stop()
-      .setFrequency(300 - this.unlocks.speed * 100)
 
     this.speed = 60 + this.unlocks.speed * 30
     this.maxAmmo = this.unlocks.ammo * 5
@@ -90,7 +89,7 @@ export class Player extends Phaser.Physics.Arcade.Sprite {
       runChildUpdate: true,
     })
 
-    scene.cameras.main.startFollow(this, true, 0.1, 0.1, 0, 20)
+    scene.cameras.main.startFollow(this, true, 0.1, 0.1, 0, 15)
 
     scene.anims.create({
       key: `idle`,
@@ -124,10 +123,10 @@ export class Player extends Phaser.Physics.Arcade.Sprite {
     let speed = this.speed
     if (this.body.onFloor()) {
       if (!this.emitter.on) {
-        this.emitter.start()
+        this.emitter.flow(300 - this.unlocks.speed * 100)
         if (!this.runSoundCallback) {
           this.runSoundCallback = this.scene.time.addEvent({
-            delay: 400,
+            delay: 500 - 120 * this.unlocks.speed,
             repeat: -1,
             callback: () => {
               this.scene.sound.play('hit2', {
@@ -158,7 +157,7 @@ export class Player extends Phaser.Physics.Arcade.Sprite {
   stop() {
     if (!this.canMove) return
     if (this.body.onFloor()) {
-      if (this.emitter.on) this.emitter.stop()
+      this.emitter.stop()
       this.anims.play(`idle`, true)
     }
   }
@@ -170,6 +169,8 @@ export class Player extends Phaser.Physics.Arcade.Sprite {
       this.inAir = true
     }
 
+    if (!this.body.onFloor() && this.emitter.on) this.emitter.stop()
+
     if (this.body.onFloor() && this.inAir) {
       this.inAir = false
       this.jumpCount = this.unlocks.jump >= 3 ? 2 : 1
@@ -179,7 +180,6 @@ export class Player extends Phaser.Physics.Arcade.Sprite {
         volume: 0.5,
       })
     } else {
-      this.emitter.stop()
       this.body.setAllowGravity(true)
     }
     this.gun.setPosition(this.x + (this.flipX ? -5 : 5), this.y + 3)
@@ -209,7 +209,6 @@ export class Player extends Phaser.Physics.Arcade.Sprite {
 
     if (name === 'speed') {
       this.speed = 60 + this.unlocks.speed * 30
-      this.emitter.setFrequency(300 - this.unlocks.speed * 100)
       this.walkAnim.frameRate = this.unlocks.speed * 6
     }
 
@@ -281,6 +280,9 @@ export class Player extends Phaser.Physics.Arcade.Sprite {
   }
 
   jump(amount) {
+    if (!this.unlocks.jump) {
+      this.scene.sound.play('not-available')
+    }
     if (!this.canMove) return
     if (this.direction.down && this.canFall) {
       this.fall()
@@ -290,15 +292,16 @@ export class Player extends Phaser.Physics.Arcade.Sprite {
       this.jumpCount--
       // TODO: allow 3 levels of jump height
       this.jumpEmitter.explode(this.unlocks.jump * 20)
-      if (!this.scene) debugger
-      this.scene.sound.play('jump', {
-        rate: Phaser.Math.RND.between(8, 10) / 10,
-      })
+      if (this.unlocks.jump) {
+        this.scene.sound.play('jump', {
+          rate: Phaser.Math.RND.between(8, 10) / 10,
+        })
+      }
       this.anims.play(`jump`, true)
 
-      let jumpHeight = this.unlocks.jump ? -240 : -5
+      let jumpHeight = this.unlocks.jump ? -220 : -5
       if (this.unlocks.jump >= 2) {
-        jumpHeight *= 1.3
+        jumpHeight *= 1.45
       }
       const diff = amount > 70 ? 1 : 0.65
       this.body.setVelocityY(jumpHeight * diff)
@@ -358,7 +361,7 @@ export class Player extends Phaser.Physics.Arcade.Sprite {
   }
 
   shoot(isMissile, bulletCount = 1, charge = 1) {
-    if (!this.canShoot || !this.unlocks.gun) return
+    if (!this.canShoot) return
     this.canShoot = false
 
     this.scene.time.addEvent({
@@ -367,6 +370,10 @@ export class Player extends Phaser.Physics.Arcade.Sprite {
         this.canShoot = true
       },
     })
+    if (!this.unlocks.gun) {
+      this.scene.sound.play('not-available')
+      return
+    }
     for (let i = bulletCount; i > 0; i--) {
       const bullet = this.bullets.get()
       const directionX =
@@ -380,8 +387,11 @@ export class Player extends Phaser.Physics.Arcade.Sprite {
       let lifeSpan = 50
       if (bullet) {
         if (isMissile) {
-          if (this.unlocks.ammo === 0) return
-          if (this.ammo === 0) return
+          if (!this.unlocks.ammo || this.ammo === 0) {
+            this.scene.sound.play('not-available')
+            this.canShoot = false
+            return
+          }
           this.ammo--
           this.scene.ammoText.text = this.ammo.toString()
           bullet.isMissile = true

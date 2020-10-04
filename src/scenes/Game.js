@@ -12,7 +12,6 @@ export default class extends Phaser.Scene {
     this.background = this.add
       .tileSprite(0, 0, window.innerWidth, window.innerHeight, 'background')
       .setScrollFactor(0)
-      .setScale(1)
     this.background2 = this.add
       .graphics(0, 0)
       .fillStyle(0x181425)
@@ -30,12 +29,27 @@ export default class extends Phaser.Scene {
       .setDepth(999)
 
     this.ammoText = this.add
-      .bitmapText(60, 7, 'pixel-dan', '5')
+      .bitmapText(55, 7, 'pixel-dan', '5')
+      .setScrollFactor(0)
+      .setDepth(999)
+
+    this.heartImage = this.add
+      .image(10, 9, 'tilemap', 47)
+      .setScrollFactor(0)
+      .setDepth(999)
+
+    this.ammoImage = this.add
+      .image(45, 10, 'tilemap', 49)
+      .setScrollFactor(0)
+      .setDepth(999)
+
+    this.timerImage = this.add
+      .image(this.cameras.main.width - 25, 9, 'tilemap', 212)
       .setScrollFactor(0)
       .setDepth(999)
 
     this.timerText = this.add
-      .bitmapText(this.cameras.main.width - 20, 7, 'pixel-dan', this.timer + 1)
+      .bitmapText(this.cameras.main.width - 18, 7, 'pixel-dan', this.timer + 1)
       .setScrollFactor(0)
       .setDepth(999)
 

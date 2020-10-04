@@ -145,8 +145,8 @@ export class Enemy extends Phaser.Physics.Arcade.Sprite {
   destroy() {
     if (!this.scene) return
     this.scene.sound.play('enemyDead')
-    const roll = Phaser.Math.RND.integerInRange(0, 4)
-    if (roll === 0) {
+    const roll = Phaser.Math.RND.integerInRange(0, 10)
+    if (roll >= 3 && this.scene.player.health < this.scene.player.maxHealth) {
       this.scene.level.coins.add(
         new ObjectSprite(this.scene, {
           x: this.x,
@@ -155,13 +155,13 @@ export class Enemy extends Phaser.Physics.Arcade.Sprite {
           gid: 47,
         }),
       )
-    } else if (roll === 1) {
+    } else if (roll >= 6 && this.scene.player.unlocks.ammo) {
       this.scene.level.coins.add(
         new ObjectSprite(this.scene, {
           x: this.x,
           y: this.y + 10,
           type: 'ammo',
-          gid: 46,
+          gid: 51,
         }),
       )
     }
