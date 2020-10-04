@@ -50,7 +50,6 @@ export default class extends Phaser.Scene {
       progress.destroy()
       this.scene.start('Menu')
       this.sound.play('music', { loop: true, volume: 0.5 })
-      // this.scene.start('Game')
     })
   }
 }

@@ -76,7 +76,7 @@ export class Player extends Phaser.Physics.Arcade.Sprite {
       .stop()
 
     this.speed = 60 + this.unlocks.speed * 30
-    this.maxAmmo = this.unlocks.ammo * 5
+    this.maxAmmo = this.unlocks.ammo * 10
     this.ammo = this.maxAmmo
     this.maxHealth = this.unlocks.health * 100
     this.health = this.maxHealth
@@ -202,6 +202,7 @@ export class Player extends Phaser.Physics.Arcade.Sprite {
 
   unlock(name) {
     if (name === 'win') {
+      this.scene.sound.muted = true
       this.scene.scene.start('Win')
     } else {
       this.unlocks[name] = this.unlocks[name] || 0
@@ -218,7 +219,7 @@ export class Player extends Phaser.Physics.Arcade.Sprite {
     }
 
     if (name === 'ammo') {
-      this.maxAmmo = this.unlocks.ammo * 5
+      this.maxAmmo = this.unlocks.ammo * 10
       this.reload(1000)
     }
     if (name === 'health') {
@@ -323,6 +324,7 @@ export class Player extends Phaser.Physics.Arcade.Sprite {
   }
 
   damage(amount) {
+    this.scene.cameras.main.shake(100, 0.015)
     if (this.justDamaged) return
     this.justDamaged = true
     this.health -= amount
@@ -353,9 +355,11 @@ export class Player extends Phaser.Physics.Arcade.Sprite {
   }
 
   die() {
+    this.scene.cameras.main.shake(200, 0.02)
     this.scene.time.addEvent({
       delay: 500,
       callback: () => {
+        this.sound.muted = true
         this.scene.scene.start('Game')
       },
     })
@@ -421,6 +425,7 @@ export class Player extends Phaser.Physics.Arcade.Sprite {
           bullet.setSize(8, 8)
           bullet.setScale(1)
           if (this.unlocks.gun >= 2) {
+            charge <= 1 && (bullet.damageAmount = 20)
             lifeSpan = 150
           }
         }

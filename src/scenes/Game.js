@@ -69,6 +69,7 @@ export default class extends Phaser.Scene {
       repeat: -1,
       callback: () => {
         if (this.timer < 0) {
+          this.sound.muted = true
           this.scene.start('Game')
         }
         if (this.timer >= 0) this.timerText.setText(this.timer--)
@@ -81,9 +82,9 @@ export default class extends Phaser.Scene {
   }
 
   update(time, delta) {
-    this.iter += 0.001
-    this.background.tilePositionX = Math.floor(Math.cos(-this.iter) * 400)
-    this.background.tilePositionY = Math.floor(Math.sin(-this.iter) * 400)
+    this.iter += 0.0008
+    this.background.tilePositionX = Math.floor(Math.cos(-this.iter) * 500)
+    this.background.tilePositionY = Math.floor(Math.sin(-this.iter) * 100)
     this.inputService.update(time, delta)
     this.level.update(time, delta)
     this.level.player.update()

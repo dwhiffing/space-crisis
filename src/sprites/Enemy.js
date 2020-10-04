@@ -195,7 +195,7 @@ export class Enemy extends Phaser.Physics.Arcade.Sprite {
           x: this.x,
           y: this.y + 10,
           type: 'ammo',
-          gid: 52,
+          gid: 50,
         }),
       )
     }

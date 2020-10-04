@@ -104,7 +104,11 @@ export default class LevelService {
         if (bullet.isMissile && tile.index === 6)
           tile.layer.tilemapLayer.removeTileAt(tile.x, tile.y)
         // blue door (charge)
-        if (this.player.unlocks.gun >= 3 && tile.index === 7)
+        if (
+          this.player.unlocks.gun >= 3 &&
+          tile.index === 7 &&
+          bullet.damageAmount >= 60
+        )
           tile.layer.tilemapLayer.removeTileAt(tile.x, tile.y)
         // green door (boss)
         if (this.player.unlocks.bossKey >= 1 && tile.index === 8)
@@ -127,7 +131,12 @@ export default class LevelService {
       s.properties.some((p) => p.name === 'trigger' && p.value === name),
     )
     if (name === 'trigger-heat-damage' && !this.player.unlocks.armor) {
-      this.player.damage(5)
+      this.scene.upgradeText.setText(`FIND ARMOR TO STOP HEAT DAMAGE`)
+      this.scene.time.addEvent({
+        delay: 2000,
+        callback: () => this.scene.upgradeText.setText(''),
+      })
+      this.player.damage(10)
     }
     triggeredSpawners.forEach((s) => {
       this.enemies.add(new Enemy(this.scene, s))

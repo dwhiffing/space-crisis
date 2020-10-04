@@ -14,6 +14,13 @@ export default class extends Phaser.Scene {
     this.background = this.add
       .tileSprite(0, 0, window.innerWidth, window.innerHeight, 'background')
       .setScrollFactor(0)
+
+    this.time.addEvent({
+      delay: 300,
+      callback: () => {
+        this.scene.sound.muted = false
+      },
+    })
     this.add
       .bitmapText(
         this.width / 2,
@@ -28,6 +35,7 @@ export default class extends Phaser.Scene {
       .image(this.width / 2 - 15, this.height - 10, 'tilemap', 223)
       .setInteractive()
       .on('pointerdown', () => {
+        this.sound.muted = true
         this.scene.start('Game')
       })
     this.add
