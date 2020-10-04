@@ -25,7 +25,7 @@ export default class extends Phaser.Scene {
     this.add
       .bitmapText(
         5,
-        18,
+        31,
         'pixel-dan',
         'Prevent a core breach by exploring the\nstation to uncover the secrets within\nyou have 5 minutes'.toUpperCase(),
       )
@@ -36,7 +36,7 @@ export default class extends Phaser.Scene {
         5,
         this.height / 2 + 5,
         'pixel-dan',
-        'Arrow to move\nSpace to jump\nZ or X to shoot'.toUpperCase(),
+        'Arrows to move\nR to restart'.toUpperCase(),
       )
       .setFontSize(5)
       .setOrigin(0, 0.5)

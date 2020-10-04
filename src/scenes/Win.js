@@ -16,9 +16,9 @@ export default class extends Phaser.Scene {
       .setScrollFactor(0)
 
     this.time.addEvent({
-      delay: 300,
+      delay: 500,
       callback: () => {
-        this.scene.sound.muted = false
+        this.sound.muted = false
       },
     })
     this.add

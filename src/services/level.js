@@ -14,7 +14,7 @@ export default class LevelService {
     this.groundLayer = this.map.createDynamicLayer('World', groundTiles, 0, 0)
     const overlay = this.map.createDynamicLayer('Overlay', groundTiles, 0, 0)
     overlay.setDepth(99)
-    this.groundLayer.setCollisionByExclusion([-1, 26])
+    this.groundLayer.setCollisionByExclusion([-1])
 
     this.groundLayer.layer.data.forEach(function (row) {
       row.forEach(function (tile) {

@@ -228,8 +228,10 @@ export class Player extends Phaser.Physics.Arcade.Sprite {
     }
 
     let upgradeText = name.toUpperCase()
+    let extraText = ''
     if (name === 'ammo') {
       upgradeText = this.unlocks.ammo === 1 ? 'MISSILE' : 'MISSILE AMMO'
+      extraText = this.unlocks.ammo === 1 ? 'X TO SHOOT' : ''
     }
     if (name === 'jump') {
       upgradeText =
@@ -238,6 +240,12 @@ export class Player extends Phaser.Physics.Arcade.Sprite {
           : this.unlocks.jump === 2
           ? 'JUMP HEIGHT'
           : 'DOUBLE JUMP'
+      extraText =
+        this.unlocks.jump === 1
+          ? 'SPACE TO JUMP'
+          : this.unlocks.jump === 2
+          ? ''
+          : ''
     }
     if (name === 'gun') {
       upgradeText =
@@ -246,9 +254,16 @@ export class Player extends Phaser.Physics.Arcade.Sprite {
           : this.unlocks.gun === 2
           ? 'LONG SHOT'
           : 'CHARGE GUN'
+      extraText =
+        this.unlocks.gun === 1
+          ? 'Z TO SHOOT'
+          : this.unlocks.gun === 2
+          ? ''
+          : 'Z TO CHARGE'
     }
     if (name === 'bossKey') {
       upgradeText = 'BOSS KEY'
+      extraText = 'HURRY TO GREEN DOOR'
     }
     if (name === 'armor') {
       upgradeText = 'HEAT PROTECTION'
@@ -256,9 +271,9 @@ export class Player extends Phaser.Physics.Arcade.Sprite {
 
     this.scene.sound.play('upgrade')
 
-    this.scene.upgradeText.setText(`${upgradeText} UPGRADE RECEIVED`)
+    this.scene.upgradeText.setText(`${upgradeText} UPGRADE ${extraText}`)
     this.scene.time.addEvent({
-      delay: 2000,
+      delay: 6000,
       callback: () => this.scene.upgradeText.setText(''),
     })
   }
@@ -315,7 +330,7 @@ export class Player extends Phaser.Physics.Arcade.Sprite {
       this.body.setVelocityY(20)
       this.scene.level.playerCollider.active = false
       this.scene.time.addEvent({
-        delay: 200,
+        delay: 400,
         callback: () => {
           this.scene.level.playerCollider.active = true
         },
@@ -359,7 +374,7 @@ export class Player extends Phaser.Physics.Arcade.Sprite {
     this.scene.time.addEvent({
       delay: 500,
       callback: () => {
-        this.sound.muted = true
+        this.scene.sound.muted = true
         this.scene.scene.start('Game')
       },
     })
