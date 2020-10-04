@@ -1,23 +1,14 @@
-enemy spawning system when leaving/entering rooms
-Add end boss
-Change doors into objects?
+add enemies throughout map, incrementing difficulty based on intended progression
+add upgrade text
+add missile graphics and explosion effects (use for ammo pickups, disable ammo pickups if maxAmmo=0)
+add charge graphics and explosions effects
+balance short gun vs long gun (damage to enemies)
+add powerup graphics
+add different enemy art
+add Menu assets
+add introduction text
 
-Need to make design of each room more interesting with mazing paths and different enemy layouts
-need to add faster progression by using secrets/knowledge gained from previous playthroughs
-
-random ideas
-  secret tunnel to unlock speed early (should have as many sequence breaks from knowledge gained from previous playthroughs as possible)
-
-Graphics
-  main character
-  bullet/missile/charge
-  explosions
-  powerups
-  map tiles
-  different enemy types
-  menu assets
-
-Sound
+Add Sound
   jump
   walk
   shot
@@ -25,11 +16,6 @@ Sound
   explosions
   charge
 
-Music
-  menu
-  game
-  boss
-  win
+Add Music
 
-About screen
-Win screen
+end boss?

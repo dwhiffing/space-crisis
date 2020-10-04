@@ -12,7 +12,9 @@ export default class LevelService {
 
     const groundTiles = this.map.addTilesetImage('tilemap')
     this.groundLayer = this.map.createDynamicLayer('World', groundTiles, 0, 0)
-    this.groundLayer.setCollisionByExclusion([-1])
+    const overlay = this.map.createDynamicLayer('Overlay', groundTiles, 0, 0)
+    overlay.setDepth(99)
+    this.groundLayer.setCollisionByExclusion([-1, 26])
 
     this.groundLayer.layer.data.forEach(function (row) {
       row.forEach(function (tile) {
@@ -104,8 +106,8 @@ export default class LevelService {
         // blue door (charge)
         if (this.player.unlocks.gun >= 3 && tile.index === 7)
           tile.layer.tilemapLayer.removeTileAt(tile.x, tile.y)
-        // green door (drill)
-        if (this.player.unlocks.gun >= 4 && tile.index === 8)
+        // green door (boss)
+        if (this.player.unlocks.bossKey >= 1 && tile.index === 8)
           tile.layer.tilemapLayer.removeTileAt(tile.x, tile.y)
       },
     )

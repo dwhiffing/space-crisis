@@ -39,6 +39,11 @@ export default class extends Phaser.Scene {
       .setScrollFactor(0)
       .setDepth(999)
 
+    this.upgradeText = this.add
+      .bitmapText(10, this.cameras.main.height - 10, 'pixel-dan', '')
+      .setScrollFactor(0)
+      .setDepth(999)
+
     this.time.addEvent({
       delay: 1000,
       repeat: -1,

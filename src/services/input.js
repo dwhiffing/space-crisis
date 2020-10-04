@@ -84,6 +84,7 @@ export default class InputService {
     this.spaceKey = this.scene.input.keyboard.addKey('SPACE')
     this.zKey = this.scene.input.keyboard.addKey('Z')
     this.xKey = this.scene.input.keyboard.addKey('X')
+    this.rKey = this.scene.input.keyboard.addKey('R')
 
     this.cursors.up.addListener('down', this.upPressed)
     this.cursors.left.addListener('down', this.leftPressed)
@@ -97,6 +98,7 @@ export default class InputService {
     this.zKey.addListener('up', this.shootReleased)
     this.xKey.addListener('down', this.missilePressed)
     this.xKey.addListener('up', this.missileReleased)
+    this.rKey.addListener('down', () => this.scene.scene.start('Game'))
     this.spaceKey.addListener('down', this.jumpPressed)
     this.spaceKey.addListener('up', this.jumpReleased)
   }

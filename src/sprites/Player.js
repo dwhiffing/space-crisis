@@ -23,10 +23,16 @@ export class Player extends Phaser.Physics.Arcade.Sprite {
       ammo: 0,
       armor: 0,
       jump: 0, // short: 1, high: 2, double: 3
-      gun: 0, // short: 1, long: 2, charge: 3, drill: 4
+      gun: 0, // short: 1, long: 2, charge: 3
+      bossKey: 0,
       win: 0,
     }
     this.jumpCount = 1
+
+    this.gun = this.scene.add
+      .image(this.x, this.y, 'tilemap', 52)
+      .setDepth(99)
+      .setAlpha(0)
 
     this.body.setMaxVelocity(600, 600)
     this.body.useDamping = true
@@ -152,6 +158,8 @@ export class Player extends Phaser.Physics.Arcade.Sprite {
       this.emitter.stop()
       this.body.setAllowGravity(true)
     }
+    this.gun.setPosition(this.x + (this.flipX ? -5 : 5), this.y + 3)
+    this.gun.flipX = this.flipX
     if (!this.direction.left && !this.direction.right) {
       this.stop()
     } else {
@@ -179,14 +187,51 @@ export class Player extends Phaser.Physics.Arcade.Sprite {
       this.walkAnim.frameRate = this.unlocks.speed * 6
     }
 
+    if (name === 'gun') {
+      this.gun.setAlpha(1)
+    }
+
     if (name === 'ammo') {
       this.maxAmmo = this.unlocks.ammo * 5
       this.reload(1000)
     }
     if (name === 'health') {
-      this.maxHelth = this.unlocks.health * 100
+      this.maxHealth = this.unlocks.health * 100
       this.heal(1000)
     }
+
+    let upgradeText = name.toUpperCase()
+    if (name === 'ammo') {
+      upgradeText = this.unlocks.ammo === 1 ? 'MISSILE' : 'MISSILE AMMO'
+    }
+    if (name === 'jump') {
+      upgradeText =
+        this.unlocks.jump === 1
+          ? 'JUMP'
+          : this.unlocks.jump === 2
+          ? 'JUMP HEIGHT'
+          : 'DOUBLE JUMP'
+    }
+    if (name === 'gun') {
+      upgradeText =
+        this.unlocks.gun === 1
+          ? 'GUN'
+          : this.unlocks.gun === 2
+          ? 'LONG SHOT'
+          : 'CHARGE GUN'
+    }
+    if (name === 'bossKey') {
+      upgradeText = 'BOSS KEY'
+    }
+    if (name === 'armor') {
+      upgradeText = 'HEAT PROTECTION'
+    }
+
+    this.scene.upgradeText.setText(`${upgradeText} UPGRADE RECEIVED`)
+    this.scene.time.addEvent({
+      delay: 2000,
+      callback: () => this.scene.upgradeText.setText(''),
+    })
   }
 
   heal(amount) {
@@ -318,7 +363,7 @@ export class Player extends Phaser.Physics.Arcade.Sprite {
 
         bullet.fire(
           this.x,
-          this.y + (bulletCount > 1 ? (i - 2) * 20 : 0),
+          this.y + (bulletCount > 1 ? (i - 2) * 20 : 2),
           directionX,
           this.direction.up ? -1 : this.direction.down ? 1 : 0,
           lifeSpan,
