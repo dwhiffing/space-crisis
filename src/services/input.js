@@ -29,35 +29,35 @@ export default class InputService {
       this.leftTouch = this.makeButton(
         DISTX,
         height - DISTY,
-        'left',
+        216,
         this.leftPressed,
         this.leftReleased,
       )
       this.upTouch = this.makeButton(
         DISTX * 1.8,
         height - DISTY * 1.6,
-        'up',
+        213,
         this.upPressed,
         this.upReleased,
       )
       this.downTouch = this.makeButton(
         DISTX * 1.8,
         height - DISTY + DISTY * 0.6,
-        'down',
+        215,
         this.downPressed,
         this.downReleased,
       )
       this.rightTouch = this.makeButton(
         DISTX * 2.6,
         height - DISTY,
-        'right',
+        214,
         this.rightPressed,
         this.rightReleased,
       )
       this.makeButton(
         width - DISTX,
         height - DISTY,
-        'jump',
+        217,
         this.jumpPressed,
         this.jumpReleased,
         1.45,
@@ -65,7 +65,7 @@ export default class InputService {
       this.makeButton(
         width - DISTX * 2.5,
         height - DISTY,
-        'swap',
+        218,
         this.shootPressed,
         this.shootReleased,
         1.45,
@@ -73,7 +73,7 @@ export default class InputService {
       this.makeButton(
         width - DISTX * 4,
         height - DISTY,
-        'swap',
+        219,
         this.missilePressed,
         this.missileReleased,
         1.45,
@@ -188,7 +188,7 @@ export default class InputService {
 
   makeButton(x, y, key, callback, releaseCallback = () => {}, scale = 1) {
     return this.scene.add
-      .image(x, y, key)
+      .image(x, y, 'tilemap', key)
       .setScale(scale)
       .setInteractive()
       .setScrollFactor(0)

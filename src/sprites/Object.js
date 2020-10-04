@@ -16,12 +16,12 @@ export class ObjectSprite extends Phaser.Physics.Arcade.Sprite {
     setTimeout(() => {
       if (this.body && this.type === 'coin') {
         this.body.useDamping = true
-        this.setSize(45, 40)
-        this.setOffset(8, 20)
+        this.setSize(15, 15)
+        this.setOffset(1, 1)
       }
       if (this.body && this.type === 'upgrade') {
-        this.setSize(45, 40)
-        this.setOffset(8, 20)
+        this.setSize(15, 15)
+        this.setOffset(1, 1)
       }
     }, 0)
   }

@@ -1,11 +1,10 @@
 export class Bullet extends Phaser.Physics.Arcade.Sprite {
   constructor(scene, x, y) {
-    super(scene, x, y, 'exit')
+    super(scene, x, y, 'tilemap', 50)
     this.fire = this.fire.bind(this)
-    this.setScale(0.5)
     scene.physics.world.enable(this)
     this.body.setAllowGravity(false)
-    this.speed = 800
+    this.speed = 300
   }
 
   fire(x, y, directionX, directionY, lifeSpan = 250) {

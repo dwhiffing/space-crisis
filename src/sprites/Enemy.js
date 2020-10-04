@@ -3,7 +3,7 @@ import { ObjectSprite } from './Object'
 export class Enemy extends Phaser.Physics.Arcade.Sprite {
   constructor(scene, object) {
     super(scene, object.x, object.y, 'tilemap')
-    const frame = object.gid ? object.gid - 1 : 260
+    const frame = object.gid ? object.gid - 1 : 76
     this.setFrame(frame)
     this.scene = scene
     this.damage = this.damage.bind(this)
@@ -11,10 +11,11 @@ export class Enemy extends Phaser.Physics.Arcade.Sprite {
     this.destroy = this.destroy.bind(this)
     this.scene.add.existing(this)
     this.scene.physics.world.enable(this)
-    this.setSize(45, 25)
-    this.setOffset(8, 35)
+    this.setSize(15, 15)
+    this.setOffset(1, 1)
     this.health = 100
     this.type = +object.name
+
     this.move(object.name)
   }
 
@@ -22,7 +23,7 @@ export class Enemy extends Phaser.Physics.Arcade.Sprite {
     if (!this.type) this.type = 1
     // walker
     if (this.type === 1) {
-      const speed = 200
+      const speed = 50
       this.scene.time.addEvent({
         delay: 0,
         callback: () => {
@@ -49,7 +50,7 @@ export class Enemy extends Phaser.Physics.Arcade.Sprite {
       this.scene.time.addEvent({
         delay: 0,
         callback: () => {
-          this.body.setGravityY(2000)
+          this.body.setGravityY(1000)
         },
       })
       this.scene.time.addEvent({
@@ -57,7 +58,7 @@ export class Enemy extends Phaser.Physics.Arcade.Sprite {
         repeat: -1,
         callback: () => {
           this.setVelocityX(100)
-          this.setVelocityY(-700)
+          this.setVelocityY(-300)
         },
       })
       // flipper
@@ -77,15 +78,15 @@ export class Enemy extends Phaser.Physics.Arcade.Sprite {
       this.scene.time.addEvent({
         delay: 0,
         callback: () => {
-          this.body.setGravityY(-2000)
+          this.body.setGravityY(-1000)
         },
       })
       this.scene.time.addEvent({
         delay: 2000,
         repeat: -1,
         callback: () => {
-          this.setVelocityX(-200)
-          this.setVelocityY(700)
+          this.setVelocityX(-100)
+          this.setVelocityY(300)
         },
       })
       // dasher
@@ -93,16 +94,16 @@ export class Enemy extends Phaser.Physics.Arcade.Sprite {
       this.scene.time.addEvent({
         delay: 0,
         callback: () => {
-          this.body.setGravityY(2000)
+          this.body.setGravityY(1000)
         },
       })
       this.scene.time.addEvent({
         delay: 2000,
         repeat: -1,
         callback: () => {
-          this.setVelocityX(800)
+          this.setVelocityX(400)
           this.scene.time.addEvent({
-            delay: 200,
+            delay: 100,
             callback: () => {
               this.setVelocityX(0)
             },
@@ -116,10 +117,10 @@ export class Enemy extends Phaser.Physics.Arcade.Sprite {
         repeat: -1,
         callback: () => {
           // TODO: needs to swoop
-          this.setVelocityX(800)
-          this.setVelocityY(400)
+          this.setVelocityX(400)
+          this.setVelocityY(200)
           this.scene.time.addEvent({
-            delay: 200,
+            delay: 100,
             callback: () => {
               this.setVelocityX(0)
               this.setVelocityY(0)
@@ -133,7 +134,7 @@ export class Enemy extends Phaser.Physics.Arcade.Sprite {
         delay: 2000,
         repeat: -1,
         callback: () => {
-          this.setVelocityY(this.body.velocity.y > 0 ? -200 : 200)
+          this.setVelocityY(this.body.velocity.y > 0 ? -100 : 100)
         },
       })
     }
@@ -177,8 +178,8 @@ export class Enemy extends Phaser.Physics.Arcade.Sprite {
           x: this.x,
           y: this.y + 10,
           type: 'health',
-          gid: 374,
-        }).setScale(0.5),
+          gid: 47,
+        }),
       )
     } else if (roll === 1) {
       this.scene.level.coins.add(
@@ -186,8 +187,8 @@ export class Enemy extends Phaser.Physics.Arcade.Sprite {
           x: this.x,
           y: this.y + 10,
           type: 'ammo',
-          gid: 377,
-        }).setScale(0.5),
+          gid: 46,
+        }),
       )
     }
 

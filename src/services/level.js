@@ -16,7 +16,7 @@ export default class LevelService {
 
     this.groundLayer.layer.data.forEach(function (row) {
       row.forEach(function (tile) {
-        if (tile.index === 159) {
+        if (tile.index === 3) {
           tile.collideDown = false
           tile.collideRight = false
           tile.collideLeft = false
@@ -70,7 +70,7 @@ export default class LevelService {
       this.player,
       this.groundLayer,
       (player, tile) => {
-        if (tile.index === 159) {
+        if (tile.index === 3) {
           player.canFall = true
         } else {
           player.canFall = false
@@ -86,7 +86,7 @@ export default class LevelService {
           bulletOrPlayer.damage(10)
         } else if (bulletOrPlayer.active) {
           bulletOrPlayer.destroy()
-          enemy.damage(bulletOrPlayer.scale > 0.5 ? 100 : 20)
+          enemy.damage(bulletOrPlayer.isMissile ? 100 : 20)
         }
       },
     )
@@ -96,16 +96,16 @@ export default class LevelService {
       (bullet, tile) => {
         bullet.destroy()
         // normal door door
-        if (tile.index === 195)
+        if (tile.index === 5)
           tile.layer.tilemapLayer.removeTileAt(tile.x, tile.y)
         // red door (missiles)
-        if (bullet.scale > 0.5 && tile.index === 225)
+        if (bullet.isMissile && tile.index === 6)
           tile.layer.tilemapLayer.removeTileAt(tile.x, tile.y)
         // blue door (charge)
-        if (this.player.unlocks.gun >= 3 && tile.index === 226)
+        if (this.player.unlocks.gun >= 3 && tile.index === 7)
           tile.layer.tilemapLayer.removeTileAt(tile.x, tile.y)
         // green door (drill)
-        if (this.player.unlocks.gun >= 4 && tile.index === 196)
+        if (this.player.unlocks.gun >= 4 && tile.index === 8)
           tile.layer.tilemapLayer.removeTileAt(tile.x, tile.y)
       },
     )
@@ -118,7 +118,6 @@ export default class LevelService {
     )
 
     this.scene.cameras.main.setBounds(0, 0, this.width, this.height)
-    this.scene.cameras.main.setLerp(0.2, 0.2)
   }
 
   trigger(name) {

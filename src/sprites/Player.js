@@ -10,7 +10,7 @@ export class Player extends Phaser.Physics.Arcade.Sprite {
     this.jump = this.jump.bind(this)
     scene.add.existing(this)
     scene.physics.world.enable(this)
-    this.body.setGravityY(2000)
+    this.body.setGravityY(500)
     this.direction = { left: false, right: false, up: false, down: false }
 
     this.type = object.name
@@ -28,16 +28,49 @@ export class Player extends Phaser.Physics.Arcade.Sprite {
     }
     this.jumpCount = 1
 
-    this.body.setMaxVelocity(1500, 1300)
+    this.body.setMaxVelocity(600, 600)
     this.body.useDamping = true
-    this.body.setSize(this.width, this.height - 8)
-    this.setDrag(0.81, 1)
-    this.setSize(45, 40)
-    this.setOffset(9, 21)
+    this.setDrag(0.9, 1)
+    this.setSize(14, 14)
+    this.setOffset(1, 2)
     this.setDepth(2)
     this.setAlpha(1)
 
-    this.speed = 350 + this.unlocks.speed * 100
+    this.particles = this.scene.add.particles('tilemap')
+    this.jumpEmitter = this.particles
+      .createEmitter({
+        frame: 15,
+        x: 0,
+        y: 0,
+        lifespan: { min: 300, max: 900 },
+        speedX: { min: -30, max: 30 },
+        speedY: { min: -20, max: 20 },
+        angle: { min: 0, max: 360 },
+        rotate: { min: 0, max: 360 },
+        gravityY: -10,
+        alpha: { start: 0.5, end: 0 },
+        scale: { start: 0.2, end: 0 },
+      })
+      .stop()
+    this.emitter = this.particles
+      .createEmitter({
+        frame: 15,
+        x: 0,
+        y: 0,
+        lifespan: { min: 300, max: 900 },
+        speedX: { min: -10, max: 10 },
+        speedY: { min: -10, max: -2 },
+        angle: { min: 0, max: 360 },
+        rotate: { min: 0, max: 360 },
+        gravityY: -20,
+        alpha: { start: 0.5, end: 0 },
+        scale: { start: 0.2, end: 0 },
+        quantity: 1,
+      })
+      .stop()
+      .setFrequency(300 - this.unlocks.speed * 100)
+
+    this.speed = 60 + this.unlocks.speed * 30
     this.maxAmmo = this.unlocks.ammo * 5
     this.ammo = this.maxAmmo
     this.maxHealth = this.unlocks.health * 100
@@ -51,27 +84,32 @@ export class Player extends Phaser.Physics.Arcade.Sprite {
       runChildUpdate: true,
     })
 
-    const lastX = scene.cameras.main.scrollX
-    const lastY = scene.cameras.main.scrollY
-    scene.cameras.main.startFollow(this, true, 0.2, 0.2)
-    scene.cameras.main.scrollX = lastX
-    scene.cameras.main.scrollY = lastY
+    scene.cameras.main.startFollow(this, true, 0.1, 0.1, 0, 20)
 
     scene.anims.create({
-      key: `walk`,
+      key: `idle`,
       frameRate: 4,
       repeat: -1,
-      frames: scene.anims.generateFrameNames('tilemap', { start: 81, end: 82 }),
+      frames: scene.anims.generateFrameNames('tilemap', {
+        start: 153,
+        end: 154,
+      }),
     })
-    scene.anims.create({
-      key: `idle`,
-      frameRate: 5,
-      frames: scene.anims.generateFrameNames('tilemap', { start: 79, end: 80 }),
+    this.walkAnim = scene.anims.create({
+      key: `walk`,
+      frameRate: this.unlocks.speed * 6,
+      frames: scene.anims.generateFrameNames('tilemap', {
+        start: 151,
+        end: 152,
+      }),
     })
     scene.anims.create({
       key: `jump`,
       frameRate: 5,
-      frames: scene.anims.generateFrameNames('tilemap', { start: 83, end: 84 }),
+      frames: scene.anims.generateFrameNames('tilemap', {
+        start: 155,
+        end: 156,
+      }),
     })
   }
 
@@ -79,13 +117,11 @@ export class Player extends Phaser.Physics.Arcade.Sprite {
     if (!this.canMove) return
     let speed = this.speed
     if (this.body.onFloor()) {
+      if (!this.emitter.on) this.emitter.start()
       this.anims.play(`walk`, true)
-    } else {
-      speed *= 0.8
     }
     if (
       this.body.onFloor() ||
-      this.body.touching.down ||
       (this.body.velocity.x < speed && this.body.velocity.x > -speed)
     ) {
       const velo = this.direction.left
@@ -95,20 +131,25 @@ export class Player extends Phaser.Physics.Arcade.Sprite {
         : 0
       this.body.setVelocityX(velo)
     }
+
     this.flipX = this.direction.left
   }
 
   stop() {
     if (!this.canMove) return
     if (this.body.onFloor()) {
+      if (this.emitter.on) this.emitter.stop()
       this.anims.play(`idle`, true)
     }
   }
 
   update() {
+    this.emitter.setPosition(this.x + (this.flipX ? 2 : -2), this.y + 6)
+    this.jumpEmitter.setPosition(this.x + (this.flipX ? 2 : -2), this.y + 6)
     if (this.body.onFloor()) {
       this.jumpCount = this.unlocks.jump >= 3 ? 2 : 1
     } else {
+      this.emitter.stop()
       this.body.setAllowGravity(true)
     }
     if (!this.direction.left && !this.direction.right) {
@@ -131,6 +172,13 @@ export class Player extends Phaser.Physics.Arcade.Sprite {
       this.unlocks[name] = this.unlocks[name] || 0
       this.unlocks[name]++
     }
+
+    if (name === 'speed') {
+      this.speed = 60 + this.unlocks.speed * 30
+      this.emitter.setFrequency(300 - this.unlocks.speed * 100)
+      this.walkAnim.frameRate = this.unlocks.speed * 6
+    }
+
     if (name === 'ammo') {
       this.maxAmmo = this.unlocks.ammo * 5
       this.reload(1000)
@@ -167,11 +215,12 @@ export class Player extends Phaser.Physics.Arcade.Sprite {
     }
     if (this.jumpCount > 0) {
       this.jumpCount--
+      this.jumpEmitter.explode(this.unlocks.jump * 20)
       this.anims.play(`jump`, true)
 
-      let jumpHeight = this.unlocks.jump ? -880 : -300
+      let jumpHeight = this.unlocks.jump ? -240 : -5
       if (this.unlocks.jump >= 2) {
-        jumpHeight *= 1.4
+        jumpHeight *= 1.3
       }
       const diff = amount > 70 ? 1 : 0.65
       this.body.setVelocityY(jumpHeight * diff)
@@ -180,7 +229,7 @@ export class Player extends Phaser.Physics.Arcade.Sprite {
 
   fall() {
     if (this.body.onFloor() && this.canFall) {
-      this.body.setVelocityY(200)
+      this.body.setVelocityY(20)
       this.scene.level.playerCollider.active = false
       this.scene.time.addEvent({
         delay: 200,
@@ -201,7 +250,7 @@ export class Player extends Phaser.Physics.Arcade.Sprite {
     }
 
     this.scene.healthText.text = this.health.toString()
-    this.setVelocity(this.flipX ? 200 : -200, -200)
+    this.setVelocity(this.flipX ? 100 : -100, -100)
     this.canMove = false
     this.scene.time.addEvent({
       delay: 250,
@@ -254,10 +303,13 @@ export class Player extends Phaser.Physics.Arcade.Sprite {
           if (this.ammo === 0) return
           this.ammo--
           this.scene.ammoText.text = this.ammo.toString()
-          bullet.setScale(1)
+          bullet.isMissile = true
+          bullet.setSize(8, 8)
           lifeSpan = 1000
         } else {
-          bullet.setScale(0.5 * charge)
+          bullet.isMissile = false
+          bullet.setSize(8, 8)
+          bullet.setScale(1)
           if (this.unlocks.gun >= 2) {
             lifeSpan = 1000
           }
