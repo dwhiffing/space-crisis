@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.3.4" orientation="orthogonal" renderorder="right-down" width="100" height="100" tilewidth="63" tileheight="63" infinite="0" backgroundcolor="#ffffff" nextlayerid="8" nextobjectid="153">
+<map version="1.2" tiledversion="1.3.4" orientation="orthogonal" renderorder="right-down" width="100" height="100" tilewidth="63" tileheight="63" infinite="0" backgroundcolor="#ffffff" nextlayerid="8" nextobjectid="155">
  <editorsettings>
   <export target="map.json" format="json"/>
  </editorsettings>
@@ -7,11 +7,11 @@
   <image source="../../../tojam2020/assets/images/tilemap.png" width="1890" height="1890"/>
  </tileset>
  <objectgroup id="7" name="Objects">
-  <object id="53" name="red" type="spawn" x="1748.25" y="2992.5">
+  <object id="53" name="red" type="spawn" x="1590.75" y="4788">
    <point/>
   </object>
   <object id="100" name="jump" type="upgrade" gid="79" x="3008.25" y="5764.5" width="63" height="63"/>
-  <object id="101" type="enemy" gid="261" x="1244.25" y="4803.75" width="63" height="63"/>
+  <object id="101" name="3" type="enemy" gid="261" x="1244.25" y="4803.75" width="63" height="63"/>
   <object id="102" name="gun" type="upgrade" gid="79" x="945" y="4095" width="63" height="63"/>
   <object id="103" name="speed" type="upgrade" gid="79" x="5087.25" y="4126.5" width="63" height="63"/>
   <object id="105" type="enemy" gid="261" x="819" y="4803.75" width="63" height="63"/>
@@ -87,6 +87,7 @@
   </object>
   <object id="149" type="spike" gid="574" x="4599" y="4473" width="63" height="63"/>
   <object id="152" type="spike" gid="574" x="1134" y="3087" width="63" height="63"/>
+  <object id="153" name="2" type="enemy" gid="261" x="1086.75" y="4803.75" width="63" height="63"/>
  </objectgroup>
  <layer id="1" name="World" width="100" height="100">
   <data encoding="base64">

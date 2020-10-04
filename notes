@@ -1,26 +1,12 @@
-spikes
-
 enemy spawning system when leaving/entering rooms
+Add end boss
 Change doors into objects?
-
-
-
-
-
-Enemies:
-  horizontal crawler
-  vertical crawler
-  jumper
-  dasher
-  swooping flyer
-  Boss
 
 Need to make design of each room more interesting with mazing paths and different enemy layouts
 need to add faster progression by using secrets/knowledge gained from previous playthroughs
 
 random ideas
   secret tunnel to unlock speed early (should have as many sequence breaks from knowledge gained from previous playthroughs as possible)
-
 
 Graphics
   main character

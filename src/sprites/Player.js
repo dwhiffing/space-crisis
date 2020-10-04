@@ -10,6 +10,7 @@ export class Player extends Phaser.Physics.Arcade.Sprite {
     this.jump = this.jump.bind(this)
     scene.add.existing(this)
     scene.physics.world.enable(this)
+    this.body.setGravityY(2000)
     this.direction = { left: false, right: false, up: false, down: false }
 
     this.type = object.name

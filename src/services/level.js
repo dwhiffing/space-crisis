@@ -132,4 +132,8 @@ export default class LevelService {
       this.enemies.add(new Enemy(this.scene, s))
     })
   }
+
+  update() {
+    this.enemies.children.entries.forEach((e) => e.update.call(e))
+  }
 }
