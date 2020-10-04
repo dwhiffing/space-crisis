@@ -14,7 +14,7 @@ export class Player extends Phaser.Physics.Arcade.Sprite {
     this.direction = { left: false, right: false, up: false, down: false }
 
     this.type = object.name
-    this.name = object.name
+    this.name = 'player'
     this.canShoot = true
     this.canMove = true
     this.unlocks = {
@@ -36,9 +36,9 @@ export class Player extends Phaser.Physics.Arcade.Sprite {
 
     this.body.setMaxVelocity(600, 600)
     this.body.useDamping = true
-    this.setDrag(0.9, 1)
-    this.setSize(14, 14)
-    this.setOffset(1, 2)
+    this.setDrag(0.8, 1)
+    this.setSize(7, 11)
+    this.setOffset(5, 5)
     this.setDepth(2)
     this.setAlpha(1)
 
@@ -89,7 +89,7 @@ export class Player extends Phaser.Physics.Arcade.Sprite {
       runChildUpdate: true,
     })
 
-    scene.cameras.main.startFollow(this, true, 0.1, 0.1, 0, 15)
+    scene.cameras.main.startFollow(this, true, 0.1, 0.1, 0, 5)
 
     scene.anims.create({
       key: `idle`,
@@ -165,6 +165,7 @@ export class Player extends Phaser.Physics.Arcade.Sprite {
   update() {
     this.emitter.setPosition(this.x + (this.flipX ? 2 : -2), this.y + 6)
     this.jumpEmitter.setPosition(this.x + (this.flipX ? 2 : -2), this.y + 6)
+    if (!this.body) return
     if (!this.body.onFloor()) {
       this.inAir = true
     }
@@ -299,11 +300,11 @@ export class Player extends Phaser.Physics.Arcade.Sprite {
       }
       this.anims.play(`jump`, true)
 
-      let jumpHeight = this.unlocks.jump ? -220 : -5
-      if (this.unlocks.jump >= 2) {
+      let jumpHeight = this.unlocks.jump ? -225 : -5
+      if (this.unlocks.jump >= 2 && amount > 120) {
         jumpHeight *= 1.45
       }
-      const diff = amount > 70 ? 1 : 0.65
+      const diff = amount > 80 ? 1 : 0.65
       this.body.setVelocityY(jumpHeight * diff)
     }
   }

@@ -84,7 +84,7 @@ export default class LevelService {
       [this.player, this.player.bullets],
       this.enemies,
       (bulletOrPlayer, enemy) => {
-        if (bulletOrPlayer.name === 'red') {
+        if (bulletOrPlayer.name === 'player') {
           bulletOrPlayer.damage(10)
         } else if (bulletOrPlayer.active) {
           bulletOrPlayer.destroy()

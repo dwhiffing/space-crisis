@@ -12,34 +12,40 @@ export default class extends Phaser.Scene {
     this.background = this.add
       .tileSprite(0, 0, window.innerWidth, window.innerHeight, 'background')
       .setScrollFactor(0)
+    this.time.addEvent({
+      delay: 300,
+      callback: () => {
+        this.sound.mute = false
+      },
+    })
     this.background2 = this.add
       .graphics(0, 0)
       .fillStyle(0x181425)
-      .fillRect(0, 0, this.cameras.main.width, 18)
+      .fillRect(0, 0, this.cameras.main.width, 17)
       .fillStyle(0x3a4466)
-      .fillRect(1, 1, this.cameras.main.width - 2, 16)
+      .fillRect(1, 1, this.cameras.main.width - 2, 15)
       .fillStyle(0x181425)
-      .fillRect(2, 2, this.cameras.main.width - 4, 14)
+      .fillRect(2, 2, this.cameras.main.width - 4, 13)
       .setScrollFactor(0)
       .setDepth(998)
 
     this.healthText = this.add
-      .bitmapText(20, 7, 'pixel-dan', '100')
+      .bitmapText(20, 6, 'pixel-dan', '100')
       .setScrollFactor(0)
       .setDepth(999)
 
     this.ammoText = this.add
-      .bitmapText(55, 7, 'pixel-dan', '5')
+      .bitmapText(55, 6, 'pixel-dan', '5')
       .setScrollFactor(0)
       .setDepth(999)
 
     this.heartImage = this.add
-      .image(10, 9, 'tilemap', 47)
+      .image(10, 8, 'tilemap', 47)
       .setScrollFactor(0)
       .setDepth(999)
 
     this.ammoImage = this.add
-      .image(45, 10, 'tilemap', 49)
+      .image(45, 9, 'tilemap', 49)
       .setScrollFactor(0)
       .setDepth(999)
 
@@ -49,7 +55,7 @@ export default class extends Phaser.Scene {
       .setDepth(999)
 
     this.timerText = this.add
-      .bitmapText(this.cameras.main.width - 18, 7, 'pixel-dan', this.timer + 1)
+      .bitmapText(this.cameras.main.width - 18, 6, 'pixel-dan', this.timer + 1)
       .setScrollFactor(0)
       .setDepth(999)
 
@@ -70,6 +76,7 @@ export default class extends Phaser.Scene {
     })
 
     this.level = new LevelService(this, 'map')
+    this.player = this.level.player
     this.inputService = new InputService(this)
   }
 

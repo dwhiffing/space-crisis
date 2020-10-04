@@ -95,7 +95,12 @@ export default class InputService {
     this.zKey.addListener('up', this.shootReleased)
     this.xKey.addListener('down', this.missilePressed)
     this.xKey.addListener('up', this.missileReleased)
-    this.rKey.addListener('down', () => this.scene.scene.start('Game'))
+    this.rKey.addListener('down', () => {
+      this.scene.sound.mute = true
+      const scene = this.scene
+
+      scene.scene.start('Game')
+    })
     this.spaceKey.addListener('down', this.jumpPressed)
     this.spaceKey.addListener('up', this.jumpReleased)
 
@@ -139,7 +144,7 @@ export default class InputService {
     this.player.direction.jump = true
     this.jumpTime = +new Date()
     this.scene.time.addEvent({
-      delay: 100,
+      delay: 150,
       callback: this.jumpReleased,
     })
   }

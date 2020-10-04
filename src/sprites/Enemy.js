@@ -11,9 +11,11 @@ export class Enemy extends Phaser.Physics.Arcade.Sprite {
     this.doInit = this.doInit.bind(this)
     this.scene.add.existing(this)
     this.scene.physics.world.enable(this)
-    this.setSize(15, 9)
-    this.setOffset(1, 8)
+    this.setSize(8, 9)
+    this.object = object
+    this.setOffset(4, 8)
     this.health = 50
+    this.spawned = false
 
     const props = object.properties || []
     const getPropValue = (n, defaultValue = 0) =>
@@ -27,13 +29,9 @@ export class Enemy extends Phaser.Physics.Arcade.Sprite {
     this.delay = getPropValue('delay', 0)
     this.direction = getPropValue('direction', 1)
     this.baseSpeed = getPropValue('speed', 1)
-
-    // TODO: need to handle turning logic for various enemies
-
-    this.move(object.name)
   }
 
-  doInit(vx, vy, gravity, delay, callback) {
+  doInit(vx = 0, vy = 0, gravity, delay, callback) {
     this.scene.time.addEvent({
       delay: 0,
       callback: () => {
@@ -42,10 +40,22 @@ export class Enemy extends Phaser.Physics.Arcade.Sprite {
       },
     })
     this.setVelocity(vx, vy)
-    this.callback = this.scene.time.addEvent({ delay, repeat: -1, callback })
+    this.callback = this.scene.time.addEvent({
+      delay,
+      repeat: -1,
+      callback: () => {
+        if (!this.active) {
+          this.setVelocity(0)
+          return
+        }
+        callback()
+      },
+    })
   }
 
   move() {
+    if (this.spawned) return
+    this.spawned = true
     this.speed = 50 * this.baseSpeed
     const baseDelay = 1000 + this.delay * 500
 
@@ -64,19 +74,20 @@ export class Enemy extends Phaser.Physics.Arcade.Sprite {
         this.velo = this.speed * 2
         this.setVelocityX(this.speed * 2 * this.direction)
         this.setVelocityY(this.speed * -5)
-        this.scene.sound.play('jump', {
-          rate: Phaser.Math.RND.between(4, 5) / 10,
-          volume: 0.5,
-        })
+        if (this.scene.cameras.main.worldView.contains(this.x, this.y))
+          this.scene.sound.play('jump', {
+            rate: Phaser.Math.RND.between(4, 5) / 10,
+            volume: 0.5,
+          })
       })
       this.callback2 = this.scene.time.addEvent({
-        delay: baseDelay * 3,
+        delay: baseDelay * 1.9,
         repeat: -1,
-        callback: () => this.setVelocityX(this.velo * -1),
+        callback: () => (this.direction = this.direction === 1 ? -1 : 1),
       })
       // flipper
     } else if (this.type === 3) {
-      this.doInit(-this.speed, 0, 0, baseDelay, () => {
+      this.doInit(0, -this.speed, 0, baseDelay, () => {
         this.setVelocityY(this.direction ? this.speed * 2 : -this.speed * 2)
         this.direction = this.direction ? 0 : 1
       })
@@ -86,11 +97,17 @@ export class Enemy extends Phaser.Physics.Arcade.Sprite {
       this.flipY = true
       this.setOffset(1, -1)
       this.doInit(-this.speed, 0, -1000, baseDelay, () => {
-        this.scene.sound.play('jump', {
-          rate: Phaser.Math.RND.between(8, 10) / 10,
-        })
+        if (this.scene.cameras.main.worldView.contains(this.x, this.y))
+          this.scene.sound.play('jump', {
+            rate: Phaser.Math.RND.between(8, 10) / 10,
+          })
         this.setVelocityX(this.speed * this.direction)
-        this.setVelocityY(this.speed * 2)
+        this.setVelocityY(this.speed * 5)
+      })
+      this.callback2 = this.scene.time.addEvent({
+        delay: baseDelay * 2.9,
+        repeat: -1,
+        callback: () => (this.direction = this.direction === 1 ? -1 : 1),
       })
       // dasher
     } else if (this.type === 5) {
@@ -114,6 +131,20 @@ export class Enemy extends Phaser.Physics.Arcade.Sprite {
   }
 
   update() {
+    const distToPlayer = Phaser.Math.Distance.Between(
+      this.x,
+      this.y,
+      this.scene.player.x,
+      this.scene.player.y,
+    )
+    if (distToPlayer < 200) {
+      this.setActive(true)
+      if (!this.spawned) this.move()
+    } else {
+      this.setActive(false)
+      this.x = this.object.x
+      this.y = this.object.y - 8
+    }
     if (
       this.shouldStop &&
       (this.body.onFloor() || this.body.onCeiling()) &&
@@ -146,22 +177,25 @@ export class Enemy extends Phaser.Physics.Arcade.Sprite {
     if (!this.scene) return
     this.scene.sound.play('enemyDead')
     const roll = Phaser.Math.RND.integerInRange(0, 10)
-    if (roll >= 3 && this.scene.player.health < this.scene.player.maxHealth) {
+    if (
+      roll >= 3 &&
+      this.scene.level.player.health < this.scene.level.player.maxHealth
+    ) {
       this.scene.level.coins.add(
         new ObjectSprite(this.scene, {
           x: this.x,
           y: this.y + 10,
           type: 'health',
-          gid: 47,
+          gid: 48,
         }),
       )
-    } else if (roll >= 6 && this.scene.player.unlocks.ammo) {
+    } else if (roll >= 6 && this.scene.level.player.unlocks.ammo) {
       this.scene.level.coins.add(
         new ObjectSprite(this.scene, {
           x: this.x,
           y: this.y + 10,
           type: 'ammo',
-          gid: 51,
+          gid: 52,
         }),
       )
     }
