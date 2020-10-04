@@ -1,94 +1,1836 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.3.4" orientation="orthogonal" renderorder="right-down" width="100" height="100" tilewidth="63" tileheight="63" infinite="0" backgroundcolor="#ffffff" nextlayerid="8" nextobjectid="149">
+<map version="1.2" tiledversion="1.3.4" orientation="orthogonal" renderorder="right-down" width="100" height="100" tilewidth="16" tileheight="16" infinite="0" nextlayerid="4" nextobjectid="377">
  <editorsettings>
   <export target="map.json" format="json"/>
  </editorsettings>
- <tileset firstgid="1" name="tilemap" tilewidth="63" tileheight="63" tilecount="900" columns="30">
-  <image source="../../../tojam2020/assets/images/tilemap.png" width="1890" height="1890"/>
+ <tileset firstgid="1" name="tilemap" tilewidth="16" tileheight="16" tilecount="225" columns="15">
+  <image source="../images/tilemap.png" width="240" height="240"/>
  </tileset>
- <objectgroup id="7" name="Objects">
-  <object id="53" name="red" type="spawn" x="4110.75" y="4788">
+ <tileset firstgid="226" name="tilemap" tilewidth="16" tileheight="16" tilecount="225" columns="15">
+  <image source="../images/tilemap.png" width="240" height="240"/>
+ </tileset>
+ <objectgroup id="2" name="Objects">
+  <object id="1" name="red" type="spawn" x="1080" y="888">
    <point/>
   </object>
-  <object id="100" name="jump" type="upgrade" gid="79" x="3008.25" y="5764.5" width="63" height="63"/>
-  <object id="101" type="enemy" gid="261" x="1244.25" y="4803.75" width="63" height="63"/>
-  <object id="102" name="gun" type="upgrade" gid="79" x="945" y="4095" width="63" height="63"/>
-  <object id="103" name="speed" type="upgrade" gid="79" x="5087.25" y="4126.5" width="63" height="63"/>
-  <object id="105" type="enemy" gid="261" x="819" y="4803.75" width="63" height="63"/>
-  <object id="106" name="armor" type="upgrade" gid="79" x="6158.25" y="6205.5" width="63" height="63"/>
-  <object id="107" name="win" type="upgrade" gid="79" x="126" y="1212.75" width="63" height="63"/>
-  <object id="109" name="enemy-spawn" type="enemy-spawn" x="1795.5" y="3890.25">
+  <object id="2" name="jump" type="upgrade" gid="47" x="736" y="1472" width="15.8475" height="15.8475"/>
+  <object id="3" name="speed" type="upgrade" gid="47" x="1280" y="992" width="15.8475" height="15.8475"/>
+  <object id="4" name="armor" type="upgrade" gid="47" x="1552" y="1568" width="15.8475" height="15.8475"/>
+  <object id="5" name="win" type="upgrade" gid="49" x="32" y="304" width="15.8475" height="15.8475"/>
+  <object id="7" name="gun-collect-trigger" type="trigger" x="240" y="1008" width="15.8475" height="15.8475"/>
+  <object id="9" name="enemy-spawn" type="enemy-spawn" x="465.374" y="992">
    <properties>
+    <property name="delay" type="int" value="2"/>
     <property name="trigger" value="gun-collect-trigger"/>
-    <property name="type" value="normal"/>
+    <property name="type" value="3"/>
    </properties>
    <point/>
   </object>
-  <object id="110" name="gun-collect-trigger" type="trigger" x="945" y="4032" width="63" height="63"/>
-  <object id="111" name="enemy-spawn" type="enemy-spawn" x="2079" y="3890.25">
+  <object id="10" name="jump" type="upgrade" gid="47" x="592" y="1568" width="15.8475" height="15.8475"/>
+  <object id="11" name="1" x="800.644" y="1415.99">
+   <point/>
+  </object>
+  <object id="12" name="2" x="248" y="1016">
+   <point/>
+  </object>
+  <object id="13" name="3" x="622.359" y="1530.89">
    <properties>
-    <property name="trigger" value="gun-collect-trigger"/>
-    <property name="type" value="normal"/>
+    <property name="trigger" value="jump2-collect-trigger"/>
    </properties>
    <point/>
   </object>
-  <object id="112" name="enemy-spawn" type="enemy-spawn" x="2346.75" y="3890.25">
-   <properties>
-    <property name="trigger" value="gun-collect-trigger"/>
-    <property name="type" value="normal"/>
-   </properties>
+  <object id="14" name="4" x="408" y="772">
    <point/>
   </object>
-  <object id="114" name="jump" type="upgrade" gid="79" x="2441.25" y="6221.25" width="63" height="63"/>
-  <object id="115" name="1" x="3165.75" y="5591.25">
+  <object id="15" name="5" x="848" y="932">
    <point/>
   </object>
-  <object id="116" name="2" x="1102.5" y="3858.75">
+  <object id="16" name="6" x="804" y="1584">
    <point/>
   </object>
-  <object id="117" name="3" x="2457" y="6048">
+  <object id="17" name="7" x="1516" y="1536">
    <point/>
   </object>
-  <object id="118" name="4" x="1149.75" y="2898">
+  <object id="18" name="8" x="1312" y="536">
    <point/>
   </object>
-  <object id="119" name="5" x="5055.75" y="3874.5">
+  <object id="19" name="9" x="988" y="176">
    <point/>
   </object>
-  <object id="120" name="6" x="6126.75" y="6032.25">
+  <object id="20" name="10" x="1192" y="376">
    <point/>
   </object>
-  <object id="121" name="7" x="3795.75" y="2850.75">
+  <object id="21" name="health" type="upgrade" gid="47" x="112" y="496" width="15.8475" height="15.8475"/>
+  <object id="22" name="0" x="1100" y="888">
    <point/>
   </object>
-  <object id="122" name="8" x="4473" y="1464.75">
-   <point/>
-  </object>
-  <object id="123" name="9" x="3780" y="630">
-   <point/>
-  </object>
-  <object id="124" name="10" x="220.5" y="929.25">
-   <point/>
-  </object>
-  <object id="126" name="health" type="upgrade" gid="79" x="157.5" y="1968.75" width="63" height="63"/>
-  <object id="127" name="0" x="4158" y="4756.5">
-   <point/>
-  </object>
-  <object id="128" name="ammo" type="upgrade" gid="79" x="3969" y="3685.5" width="63" height="63"/>
-  <object id="135" name="ammo" type="upgrade" gid="79" x="1055.25" y="3055.5" width="63" height="63"/>
-  <object id="136" name="gun" type="upgrade" gid="79" x="3780" y="834.75" width="63" height="63"/>
-  <object id="137" name="gun" type="upgrade" gid="79" x="3780" y="3039.75" width="63" height="63"/>
-  <object id="139" name="jump" type="upgrade" gid="79" x="4725" y="1559.25" width="63" height="63"/>
-  <object id="140" name="gun" type="upgrade" gid="79" x="3370.5" y="6221.25" width="63" height="63"/>
-  <object id="141" name="trigger-heat-damage" type="trigger" x="5166" y="4536" width="756" height="315">
+  <object id="24" name="ammo" type="upgrade" gid="47" x="432" y="768" width="15.8475" height="15.8475"/>
+  <object id="25" name="bossKey" type="upgrade" gid="47" x="1216" y="368" width="15.8475" height="15.8475"/>
+  <object id="26" name="gun" type="upgrade" gid="53" x="1344" y="528" width="15.8475" height="15.8475"/>
+  <object id="27" name="jump" type="upgrade" gid="47" x="1184" y="208" width="15.8475" height="15.8475"/>
+  <object id="28" name="gun" type="upgrade" gid="53" x="864" y="1568" width="15.8475" height="15.8475"/>
+  <object id="29" name="trigger-heat-damage" type="trigger" x="1312" y="1152" width="190.171" height="79.2377">
    <properties>
     <property name="continuous" type="bool" value="true"/>
    </properties>
   </object>
+  <object id="30" type="spike" gid="4" x="416" y="512" width="15.8475" height="15.8475"/>
+  <object id="31" name="gun" type="upgrade" gid="53" x="240" y="1024" width="15.8475" height="15.8475"/>
+  <object id="35" name="health" type="upgrade" gid="47" x="976" y="928" width="15.8475" height="15.8475"/>
+  <object id="40" type="enemy" gid="79" x="848" y="992" width="15.8475" height="15.8475">
+   <properties>
+    <property name="delay" type="int" value="1"/>
+    <property name="direction" type="int" value="-1"/>
+    <property name="speed" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="45" type="enemy" gid="77" x="440" y="1260" width="15.8475" height="15.8475">
+   <properties>
+    <property name="delay" type="int" value="1"/>
+    <property name="direction" type="int" value="1"/>
+    <property name="speed" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="46" type="enemy" gid="77" x="376" y="1260" width="15.8475" height="15.8475">
+   <properties>
+    <property name="delay" type="int" value="1"/>
+    <property name="direction" type="int" value="1"/>
+    <property name="speed" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="47" type="enemy" gid="77" x="272" y="1260" width="15.8475" height="15.8475">
+   <properties>
+    <property name="delay" type="int" value="1"/>
+    <property name="direction" type="int" value="1"/>
+    <property name="speed" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="49" type="enemy" gid="79" x="944" y="992" width="15.8475" height="15.8475">
+   <properties>
+    <property name="delay" type="int" value="1"/>
+    <property name="direction" type="int" value="-1"/>
+    <property name="speed" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="52" name="enemy-spawn" type="enemy-spawn" x="576" y="1028">
+   <properties>
+    <property name="delay" type="int" value="1"/>
+    <property name="direction" value="-1"/>
+    <property name="trigger" value="gun-collect-trigger"/>
+    <property name="type" value="2"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="54" name="enemy-spawn" type="enemy-spawn" x="388" y="992.11">
+   <properties>
+    <property name="delay" type="int" value="2"/>
+    <property name="trigger" value="gun-collect-trigger"/>
+    <property name="type" value="3"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="56" name="enemy-spawn" type="enemy-spawn" x="432" y="1028">
+   <properties>
+    <property name="delay" type="int" value="1"/>
+    <property name="direction" value="-1"/>
+    <property name="trigger" value="gun-collect-trigger"/>
+    <property name="type" value="2"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="57" name="enemy-spawn" type="enemy-spawn" x="617.374" y="992">
+   <properties>
+    <property name="delay" type="int" value="2"/>
+    <property name="trigger" value="gun-collect-trigger"/>
+    <property name="type" value="3"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="59" name="enemy-spawn" type="enemy-spawn" x="540" y="992.11">
+   <properties>
+    <property name="delay" type="int" value="2"/>
+    <property name="trigger" value="gun-collect-trigger"/>
+    <property name="type" value="3"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="65" name="11" x="80" y="276">
+   <point/>
+  </object>
+  <object id="66" name="trigger-heat-damage" type="trigger" x="1504" y="708" width="80" height="524">
+   <properties>
+    <property name="continuous" type="bool" value="true"/>
+   </properties>
+  </object>
+  <object id="67" name="trigger-heat-damage" type="trigger" x="1216" y="708" width="284" height="76">
+   <properties>
+    <property name="continuous" type="bool" value="true"/>
+   </properties>
+  </object>
+  <object id="68" name="health" type="upgrade" gid="47" x="864" y="1296" width="15.8475" height="15.8475"/>
+  <object id="69" type="spike" gid="4" x="1136" y="1584" width="15.8475" height="15.8475"/>
+  <object id="70" type="spike" gid="4" x="1152" y="1584" width="15.8475" height="15.8475"/>
+  <object id="71" type="spike" gid="4" x="1168" y="1584" width="15.8475" height="15.8475"/>
+  <object id="72" type="spike" gid="4" x="1184" y="1584" width="15.8475" height="15.8475"/>
+  <object id="74" type="spike" gid="4" x="1216" y="1584" width="15.8475" height="15.8475"/>
+  <object id="75" type="spike" gid="4" x="1232" y="1584" width="15.8475" height="15.8475"/>
+  <object id="76" type="spike" gid="4" x="1248" y="1584" width="15.8475" height="15.8475"/>
+  <object id="77" type="spike" gid="4" x="1264" y="1584" width="15.8475" height="15.8475"/>
+  <object id="79" type="spike" gid="4" x="1296" y="1584" width="15.8475" height="15.8475"/>
+  <object id="80" type="spike" gid="4" x="1312" y="1584" width="15.8475" height="15.8475"/>
+  <object id="81" type="spike" gid="4" x="1328" y="1584" width="15.8475" height="15.8475"/>
+  <object id="82" type="spike" gid="4" x="1344" y="1584" width="15.8475" height="15.8475"/>
+  <object id="84" type="spike" gid="4" x="1376" y="1584" width="15.8475" height="15.8475"/>
+  <object id="85" type="spike" gid="4" x="1392" y="1584" width="15.8475" height="15.8475"/>
+  <object id="86" type="spike" gid="4" x="1408" y="1584" width="15.8475" height="15.8475"/>
+  <object id="87" type="spike" gid="4" x="1424" y="1584" width="15.8475" height="15.8475"/>
+  <object id="88" type="spike" gid="4" x="432" y="512" width="15.8475" height="15.8475"/>
+  <object id="89" type="spike" gid="4" x="448" y="512" width="15.8475" height="15.8475"/>
+  <object id="90" type="spike" gid="4" x="464" y="512" width="15.8475" height="15.8475"/>
+  <object id="92" name="enemy-spawn" type="enemy-spawn" x="480" y="1572">
+   <properties>
+    <property name="delay" type="int" value="1"/>
+    <property name="direction" value="-1"/>
+    <property name="trigger" value="jump2-collect-trigger"/>
+    <property name="type" value="2"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="93" name="enemy-spawn" type="enemy-spawn" x="401.374" y="1524">
+   <properties>
+    <property name="delay" type="int" value="2"/>
+    <property name="trigger" value="jump2-collect-trigger"/>
+    <property name="type" value="3"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="96" name="enemy-spawn" type="enemy-spawn" x="404" y="1572">
+   <properties>
+    <property name="delay" type="int" value="1"/>
+    <property name="direction" value="-1"/>
+    <property name="trigger" value="jump2-collect-trigger"/>
+    <property name="type" value="2"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="97" name="enemy-spawn" type="enemy-spawn" x="324" y="1524.11">
+   <properties>
+    <property name="delay" type="int" value="2"/>
+    <property name="trigger" value="jump2-collect-trigger"/>
+    <property name="type" value="3"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="99" name="enemy-spawn" type="enemy-spawn" x="312" y="1568">
+   <properties>
+    <property name="delay" type="int" value="1"/>
+    <property name="direction" value="-1"/>
+    <property name="trigger" value="jump2-collect-trigger"/>
+    <property name="type" value="2"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="102" name="enemy-spawn" type="enemy-spawn" x="476" y="1524.11">
+   <properties>
+    <property name="delay" type="int" value="2"/>
+    <property name="trigger" value="jump2-collect-trigger"/>
+    <property name="type" value="3"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="103" name="enemy-spawn" type="enemy-spawn" x="548" y="1524">
+   <properties>
+    <property name="delay" type="int" value="1"/>
+    <property name="trigger" value="jump2-collect-trigger"/>
+    <property name="type" value="3"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="104" name="jump2-collect-trigger" type="trigger" x="592" y="1552" width="15.8475" height="15.8475"/>
+  <object id="106" name="enemy-spawn" type="enemy-spawn" x="504" y="1020">
+   <properties>
+    <property name="delay" type="int" value="1"/>
+    <property name="direction" value="-1"/>
+    <property name="trigger" value="gun-collect-trigger"/>
+    <property name="type" value="2"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="107" name="enemy-spawn" type="enemy-spawn" x="308" y="992">
+   <properties>
+    <property name="delay" type="int" value="2"/>
+    <property name="trigger" value="gun-collect-trigger"/>
+    <property name="type" value="3"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="108" type="enemy" gid="79" x="932" y="1168" width="15.8475" height="15.8475">
+   <properties>
+    <property name="delay" type="int" value="1"/>
+    <property name="direction" type="int" value="-1"/>
+    <property name="speed" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="110" type="enemy" gid="79" x="1028" y="1168" width="15.8475" height="15.8475">
+   <properties>
+    <property name="delay" type="int" value="1"/>
+    <property name="direction" type="int" value="-1"/>
+    <property name="speed" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="111" type="enemy" gid="78" x="1232" y="1232" width="15.8475" height="15.8475">
+   <properties>
+    <property name="delay" type="int" value="1"/>
+    <property name="direction" type="int" value="-1"/>
+    <property name="speed" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="112" type="enemy" gid="78" x="1248" y="1232" width="15.8475" height="15.8475">
+   <properties>
+    <property name="delay" type="int" value="1"/>
+    <property name="direction" type="int" value="-1"/>
+    <property name="speed" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="113" type="enemy" gid="78" x="1264" y="1232" width="15.8475" height="15.8475">
+   <properties>
+    <property name="delay" type="int" value="1"/>
+    <property name="direction" type="int" value="-1"/>
+    <property name="speed" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="116" type="enemy" gid="77" x="768" y="1264" width="15.8475" height="15.8475">
+   <properties>
+    <property name="delay" type="int" value="2"/>
+    <property name="direction" type="int" value="1"/>
+    <property name="speed" type="int" value="2"/>
+   </properties>
+  </object>
+  <object id="118" type="enemy" gid="79" x="464" y="1296" width="15.8475" height="15.8475">
+   <properties>
+    <property name="delay" type="int" value="1"/>
+    <property name="direction" type="int" value="1"/>
+    <property name="speed" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="119" type="enemy" gid="79" x="368" y="1296" width="15.8475" height="15.8475">
+   <properties>
+    <property name="delay" type="int" value="1"/>
+    <property name="direction" type="int" value="1"/>
+    <property name="speed" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="120" type="enemy" gid="79" x="272" y="1296" width="15.8475" height="15.8475">
+   <properties>
+    <property name="delay" type="int" value="1"/>
+    <property name="direction" type="int" value="1"/>
+    <property name="speed" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="122" type="enemy" gid="80" x="552" y="1104" width="15.8475" height="15.8475">
+   <properties>
+    <property name="delay" type="int" value="1"/>
+    <property name="direction" type="int" value="1"/>
+    <property name="speed" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="123" type="enemy" gid="80" x="636" y="1104" width="15.8475" height="15.8475">
+   <properties>
+    <property name="delay" type="int" value="1"/>
+    <property name="direction" type="int" value="1"/>
+    <property name="speed" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="124" type="enemy" gid="80" x="592" y="1104" width="15.8475" height="15.8475">
+   <properties>
+    <property name="delay" type="int" value="1"/>
+    <property name="direction" type="int" value="1"/>
+    <property name="speed" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="125" type="enemy" gid="79" x="304" y="1168" width="15.8475" height="15.8475">
+   <properties>
+    <property name="delay" type="int" value="1"/>
+    <property name="direction" type="int" value="-1"/>
+    <property name="speed" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="126" type="enemy" gid="79" x="352" y="1152" width="15.8475" height="15.8475">
+   <properties>
+    <property name="delay" type="int" value="1"/>
+    <property name="direction" type="int" value="1"/>
+    <property name="speed" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="128" type="enemy" gid="79" x="448" y="1152" width="15.8475" height="15.8475">
+   <properties>
+    <property name="delay" type="int" value="1"/>
+    <property name="direction" type="int" value="1"/>
+    <property name="speed" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="129" type="enemy" gid="79" x="496" y="1168" width="15.8475" height="15.8475">
+   <properties>
+    <property name="delay" type="int" value="1"/>
+    <property name="direction" type="int" value="-1"/>
+    <property name="speed" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="130" type="enemy" gid="80" x="240" y="1360" width="15.8475" height="15.8475">
+   <properties>
+    <property name="delay" type="int" value="1"/>
+    <property name="direction" type="int" value="1"/>
+    <property name="speed" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="131" type="enemy" gid="80" x="444" y="1360" width="15.8475" height="15.8475">
+   <properties>
+    <property name="delay" type="int" value="1"/>
+    <property name="direction" type="int" value="1"/>
+    <property name="speed" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="132" type="enemy" gid="80" x="340" y="1360" width="15.8475" height="15.8475">
+   <properties>
+    <property name="delay" type="int" value="1"/>
+    <property name="direction" type="int" value="1"/>
+    <property name="speed" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="134" type="enemy" gid="77" x="336" y="1440" width="15.8475" height="15.8475">
+   <properties>
+    <property name="delay" type="int" value="1"/>
+    <property name="direction" type="int" value="1"/>
+    <property name="speed" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="135" type="enemy" gid="77" x="176" y="1392" width="15.8475" height="15.8475">
+   <properties>
+    <property name="delay" type="int" value="1"/>
+    <property name="direction" type="int" value="1"/>
+    <property name="speed" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="136" type="enemy" gid="77" x="480" y="1392" width="15.8475" height="15.8475">
+   <properties>
+    <property name="delay" type="int" value="1"/>
+    <property name="direction" type="int" value="1"/>
+    <property name="speed" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="137" type="enemy" gid="77" x="152" y="1280" width="15.8475" height="15.8475">
+   <properties>
+    <property name="delay" type="int" value="1"/>
+    <property name="direction" type="int" value="1"/>
+    <property name="speed" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="139" type="enemy" gid="77" x="40" y="1424" width="15.8475" height="15.8475">
+   <properties>
+    <property name="delay" type="int" value="1"/>
+    <property name="direction" type="int" value="1"/>
+    <property name="speed" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="140" type="enemy" gid="79" x="32" y="1216" width="15.8475" height="15.8475">
+   <properties>
+    <property name="delay" type="int" value="1"/>
+    <property name="direction" type="int" value="1"/>
+    <property name="speed" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="143" type="enemy" gid="77" x="624" y="1456" width="15.8475" height="15.8475">
+   <properties>
+    <property name="delay" type="int" value="1"/>
+    <property name="direction" type="int" value="1"/>
+    <property name="speed" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="147" type="enemy" gid="77" x="624" y="1392" width="15.8475" height="15.8475">
+   <properties>
+    <property name="delay" type="int" value="1"/>
+    <property name="direction" type="int" value="1"/>
+    <property name="speed" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="154" type="enemy" gid="77" x="1328" y="1456" width="15.8475" height="15.8475">
+   <properties>
+    <property name="delay" type="int" value="2"/>
+    <property name="direction" type="int" value="1"/>
+    <property name="speed" type="int" value="2"/>
+   </properties>
+  </object>
+  <object id="155" type="enemy" gid="77" x="1216" y="1504" width="15.8475" height="15.8475">
+   <properties>
+    <property name="delay" type="int" value="2"/>
+    <property name="direction" type="int" value="1"/>
+    <property name="speed" type="int" value="2"/>
+   </properties>
+  </object>
+  <object id="156" type="enemy" gid="77" x="1104" y="1536" width="15.8475" height="15.8475">
+   <properties>
+    <property name="delay" type="int" value="2"/>
+    <property name="direction" type="int" value="1"/>
+    <property name="speed" type="int" value="2"/>
+   </properties>
+  </object>
+  <object id="157" type="enemy" gid="79" x="848" y="1456" width="15.8475" height="15.8475">
+   <properties>
+    <property name="delay" type="int" value="1"/>
+    <property name="direction" type="int" value="-1"/>
+    <property name="speed" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="158" type="enemy" gid="79" x="880" y="1472" width="15.8475" height="15.8475">
+   <properties>
+    <property name="delay" type="int" value="1"/>
+    <property name="direction" type="int" value="-1"/>
+    <property name="speed" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="159" type="enemy" gid="79" x="912" y="1456" width="15.8475" height="15.8475">
+   <properties>
+    <property name="delay" type="int" value="1"/>
+    <property name="direction" type="int" value="-1"/>
+    <property name="speed" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="160" type="enemy" gid="79" x="944" y="1472" width="15.8475" height="15.8475">
+   <properties>
+    <property name="delay" type="int" value="1"/>
+    <property name="direction" type="int" value="-1"/>
+    <property name="speed" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="161" type="enemy" gid="79" x="1120" y="1504" width="15.8475" height="15.8475">
+   <properties>
+    <property name="delay" type="int" value="1"/>
+    <property name="direction" type="int" value="-1"/>
+    <property name="speed" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="162" type="enemy" gid="79" x="1296" y="1424" width="15.8475" height="15.8475">
+   <properties>
+    <property name="delay" type="int" value="1"/>
+    <property name="direction" type="int" value="-1"/>
+    <property name="speed" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="163" type="enemy" gid="79" x="1264" y="1500" width="15.8475" height="15.8475">
+   <properties>
+    <property name="delay" type="int" value="1"/>
+    <property name="direction" type="int" value="-1"/>
+    <property name="speed" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="164" type="enemy" gid="79" x="1168" y="1500" width="15.8475" height="15.8475">
+   <properties>
+    <property name="delay" type="int" value="1"/>
+    <property name="direction" type="int" value="-1"/>
+    <property name="speed" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="165" type="enemy" gid="78" x="1372" y="1232" width="15.8475" height="15.8475">
+   <properties>
+    <property name="delay" type="int" value="1"/>
+    <property name="direction" type="int" value="-1"/>
+    <property name="speed" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="166" type="enemy" gid="78" x="1388" y="1232" width="15.8475" height="15.8475">
+   <properties>
+    <property name="delay" type="int" value="1"/>
+    <property name="direction" type="int" value="-1"/>
+    <property name="speed" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="167" type="enemy" gid="78" x="1404" y="1232" width="15.8475" height="15.8475">
+   <properties>
+    <property name="delay" type="int" value="1"/>
+    <property name="direction" type="int" value="-1"/>
+    <property name="speed" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="168" type="enemy" gid="78" x="1356" y="1232" width="15.8475" height="15.8475">
+   <properties>
+    <property name="delay" type="int" value="1"/>
+    <property name="direction" type="int" value="-1"/>
+    <property name="speed" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="169" type="enemy" gid="77" x="1564" y="1144" width="15.8475" height="15.8475">
+   <properties>
+    <property name="delay" type="int" value="1"/>
+    <property name="direction" type="int" value="1"/>
+    <property name="speed" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="170" type="enemy" gid="77" x="1548" y="1128" width="15.8475" height="15.8475">
+   <properties>
+    <property name="delay" type="int" value="1"/>
+    <property name="direction" type="int" value="1"/>
+    <property name="speed" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="172" type="enemy" gid="77" x="1548" y="1096" width="15.8475" height="15.8475">
+   <properties>
+    <property name="delay" type="int" value="1"/>
+    <property name="direction" type="int" value="1"/>
+    <property name="speed" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="173" type="enemy" gid="77" x="1564" y="1080" width="15.8475" height="15.8475">
+   <properties>
+    <property name="delay" type="int" value="1"/>
+    <property name="direction" type="int" value="1"/>
+    <property name="speed" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="174" type="enemy" gid="77" x="1552" y="948" width="15.8475" height="15.8475">
+   <properties>
+    <property name="delay" type="int" value="1"/>
+    <property name="direction" type="int" value="1"/>
+    <property name="speed" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="175" type="enemy" gid="77" x="1536" y="932" width="15.8475" height="15.8475">
+   <properties>
+    <property name="delay" type="int" value="1"/>
+    <property name="direction" type="int" value="1"/>
+    <property name="speed" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="177" type="enemy" gid="77" x="1536" y="900" width="15.8475" height="15.8475">
+   <properties>
+    <property name="delay" type="int" value="1"/>
+    <property name="direction" type="int" value="1"/>
+    <property name="speed" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="178" type="enemy" gid="77" x="1552" y="884" width="15.8475" height="15.8475">
+   <properties>
+    <property name="delay" type="int" value="1"/>
+    <property name="direction" type="int" value="1"/>
+    <property name="speed" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="179" type="enemy" gid="79" x="1260" y="756" width="15.8475" height="15.8475">
+   <properties>
+    <property name="delay" type="int" value="1"/>
+    <property name="direction" type="int" value="1"/>
+    <property name="speed" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="180" type="enemy" gid="79" x="1432" y="740" width="15.8475" height="15.8475">
+   <properties>
+    <property name="delay" type="int" value="1"/>
+    <property name="direction" type="int" value="1"/>
+    <property name="speed" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="181" type="enemy" gid="79" x="1348" y="756" width="15.8475" height="15.8475">
+   <properties>
+    <property name="delay" type="int" value="1"/>
+    <property name="direction" type="int" value="1"/>
+    <property name="speed" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="182" type="enemy" gid="79" x="1308" y="724" width="15.8475" height="15.8475">
+   <properties>
+    <property name="delay" type="int" value="1"/>
+    <property name="direction" type="int" value="1"/>
+    <property name="speed" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="183" type="enemy" gid="79" x="1380" y="724" width="15.8475" height="15.8475">
+   <properties>
+    <property name="delay" type="int" value="1"/>
+    <property name="direction" type="int" value="1"/>
+    <property name="speed" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="185" type="enemy" gid="77" x="1056" y="752" width="15.8475" height="15.8475">
+   <properties>
+    <property name="delay" type="int" value="1"/>
+    <property name="direction" type="int" value="1"/>
+    <property name="speed" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="186" type="enemy" gid="77" x="1088" y="720" width="15.8475" height="15.8475">
+   <properties>
+    <property name="delay" type="int" value="1"/>
+    <property name="direction" type="int" value="1"/>
+    <property name="speed" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="187" type="enemy" gid="77" x="1024" y="672" width="15.8475" height="15.8475">
+   <properties>
+    <property name="delay" type="int" value="1"/>
+    <property name="direction" type="int" value="1"/>
+    <property name="speed" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="189" type="enemy" gid="77" x="1168" y="736" width="15.8475" height="15.8475">
+   <properties>
+    <property name="delay" type="int" value="1"/>
+    <property name="direction" type="int" value="1"/>
+    <property name="speed" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="190" type="enemy" gid="77" x="960" y="784" width="15.8475" height="15.8475">
+   <properties>
+    <property name="delay" type="int" value="1"/>
+    <property name="direction" type="int" value="1"/>
+    <property name="speed" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="191" type="enemy" gid="77" x="960" y="752" width="15.8475" height="15.8475">
+   <properties>
+    <property name="delay" type="int" value="1"/>
+    <property name="direction" type="int" value="1"/>
+    <property name="speed" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="192" type="enemy" gid="77" x="944" y="688" width="15.8475" height="15.8475">
+   <properties>
+    <property name="delay" type="int" value="1"/>
+    <property name="direction" type="int" value="1"/>
+    <property name="speed" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="193" type="enemy" gid="79" x="976" y="640" width="15.8475" height="15.8475">
+   <properties>
+    <property name="delay" type="int" value="1"/>
+    <property name="direction" type="int" value="1"/>
+    <property name="speed" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="196" type="enemy" gid="79" x="1120" y="624" width="15.8475" height="15.8475">
+   <properties>
+    <property name="delay" type="int" value="1"/>
+    <property name="direction" type="int" value="1"/>
+    <property name="speed" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="198" type="enemy" gid="79" x="1008" y="560" width="15.8475" height="15.8475">
+   <properties>
+    <property name="delay" type="int" value="1"/>
+    <property name="direction" type="int" value="1"/>
+    <property name="speed" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="199" type="enemy" gid="79" x="1056" y="576" width="15.8475" height="15.8475">
+   <properties>
+    <property name="delay" type="int" value="1"/>
+    <property name="direction" type="int" value="1"/>
+    <property name="speed" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="201" type="enemy" gid="79" x="644" y="544" width="15.8475" height="15.8475">
+   <properties>
+    <property name="delay" type="int" value="1"/>
+    <property name="direction" type="int" value="1"/>
+    <property name="speed" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="203" type="enemy" gid="79" x="740" y="544" width="15.8475" height="15.8475">
+   <properties>
+    <property name="delay" type="int" value="1"/>
+    <property name="direction" type="int" value="1"/>
+    <property name="speed" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="205" type="enemy" gid="79" x="636" y="464" width="15.8475" height="15.8475">
+   <properties>
+    <property name="delay" type="int" value="1"/>
+    <property name="direction" type="int" value="1"/>
+    <property name="speed" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="207" type="enemy" gid="79" x="732" y="464" width="15.8475" height="15.8475">
+   <properties>
+    <property name="delay" type="int" value="1"/>
+    <property name="direction" type="int" value="1"/>
+    <property name="speed" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="209" type="enemy" gid="79" x="560" y="752" width="15.8475" height="15.8475">
+   <properties>
+    <property name="delay" type="int" value="1"/>
+    <property name="direction" type="int" value="1"/>
+    <property name="speed" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="210" type="enemy" gid="79" x="608" y="736" width="15.8475" height="15.8475">
+   <properties>
+    <property name="delay" type="int" value="1"/>
+    <property name="direction" type="int" value="1"/>
+    <property name="speed" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="211" type="enemy" gid="79" x="656" y="752" width="15.8475" height="15.8475">
+   <properties>
+    <property name="delay" type="int" value="1"/>
+    <property name="direction" type="int" value="1"/>
+    <property name="speed" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="212" type="enemy" gid="79" x="704" y="736" width="15.8475" height="15.8475">
+   <properties>
+    <property name="delay" type="int" value="1"/>
+    <property name="direction" type="int" value="1"/>
+    <property name="speed" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="213" type="enemy" gid="79" x="352" y="688" width="15.8475" height="15.8475">
+   <properties>
+    <property name="delay" type="int" value="1"/>
+    <property name="direction" type="int" value="1"/>
+    <property name="speed" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="214" type="enemy" gid="79" x="400" y="672" width="15.8475" height="15.8475">
+   <properties>
+    <property name="delay" type="int" value="1"/>
+    <property name="direction" type="int" value="1"/>
+    <property name="speed" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="215" type="enemy" gid="79" x="448" y="688" width="15.8475" height="15.8475">
+   <properties>
+    <property name="delay" type="int" value="1"/>
+    <property name="direction" type="int" value="1"/>
+    <property name="speed" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="216" type="enemy" gid="79" x="496" y="672" width="15.8475" height="15.8475">
+   <properties>
+    <property name="delay" type="int" value="1"/>
+    <property name="direction" type="int" value="1"/>
+    <property name="speed" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="217" type="enemy" gid="77" x="300" y="680" width="15.8475" height="15.8475">
+   <properties>
+    <property name="delay" type="int" value="1"/>
+    <property name="direction" type="int" value="1"/>
+    <property name="speed" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="218" type="enemy" gid="77" x="280" y="588" width="15.8475" height="15.8475">
+   <properties>
+    <property name="delay" type="int" value="1"/>
+    <property name="direction" type="int" value="1"/>
+    <property name="speed" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="219" type="enemy" gid="77" x="280" y="636" width="15.8475" height="15.8475">
+   <properties>
+    <property name="delay" type="int" value="1"/>
+    <property name="direction" type="int" value="1"/>
+    <property name="speed" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="220" type="enemy" gid="80" x="304" y="452" width="15.8475" height="15.8475">
+   <properties>
+    <property name="delay" type="int" value="1"/>
+    <property name="direction" type="int" value="1"/>
+    <property name="speed" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="221" type="enemy" gid="80" x="484" y="452" width="15.8475" height="15.8475">
+   <properties>
+    <property name="delay" type="int" value="1"/>
+    <property name="direction" type="int" value="1"/>
+    <property name="speed" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="222" type="enemy" gid="80" x="376" y="452" width="15.8475" height="15.8475">
+   <properties>
+    <property name="delay" type="int" value="1"/>
+    <property name="direction" type="int" value="1"/>
+    <property name="speed" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="223" type="enemy" gid="80" x="572" y="592" width="15.8475" height="15.8475">
+   <properties>
+    <property name="delay" type="int" value="1"/>
+    <property name="direction" type="int" value="1"/>
+    <property name="speed" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="224" type="enemy" gid="79" x="592" y="308" width="15.8475" height="15.8475">
+   <properties>
+    <property name="delay" type="int" value="1"/>
+    <property name="direction" type="int" value="1"/>
+    <property name="speed" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="226" type="enemy" gid="79" x="688" y="308" width="15.8475" height="15.8475">
+   <properties>
+    <property name="delay" type="int" value="1"/>
+    <property name="direction" type="int" value="1"/>
+    <property name="speed" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="232" type="enemy" gid="79" x="368" y="96" width="15.8475" height="15.8475">
+   <properties>
+    <property name="delay" type="int" value="1"/>
+    <property name="direction" type="int" value="1"/>
+    <property name="speed" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="233" type="enemy" gid="79" x="416" y="80" width="15.8475" height="15.8475">
+   <properties>
+    <property name="delay" type="int" value="1"/>
+    <property name="direction" type="int" value="1"/>
+    <property name="speed" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="235" type="enemy" gid="79" x="512" y="80" width="15.8475" height="15.8475">
+   <properties>
+    <property name="delay" type="int" value="1"/>
+    <property name="direction" type="int" value="1"/>
+    <property name="speed" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="236" type="enemy" gid="79" x="356" y="160" width="15.8475" height="15.8475">
+   <properties>
+    <property name="delay" type="int" value="1"/>
+    <property name="direction" type="int" value="1"/>
+    <property name="speed" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="239" type="enemy" gid="79" x="500" y="144" width="15.8475" height="15.8475">
+   <properties>
+    <property name="delay" type="int" value="1"/>
+    <property name="direction" type="int" value="1"/>
+    <property name="speed" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="240" type="enemy" gid="79" x="352" y="220" width="15.8475" height="15.8475">
+   <properties>
+    <property name="delay" type="int" value="1"/>
+    <property name="direction" type="int" value="1"/>
+    <property name="speed" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="242" type="enemy" gid="79" x="448" y="220" width="15.8475" height="15.8475">
+   <properties>
+    <property name="delay" type="int" value="1"/>
+    <property name="direction" type="int" value="1"/>
+    <property name="speed" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="243" type="enemy" gid="79" x="496" y="204" width="15.8475" height="15.8475">
+   <properties>
+    <property name="delay" type="int" value="1"/>
+    <property name="direction" type="int" value="1"/>
+    <property name="speed" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="244" type="enemy" gid="78" x="328" y="308" width="15.8475" height="15.8475">
+   <properties>
+    <property name="delay" type="int" value="1"/>
+    <property name="direction" type="int" value="1"/>
+    <property name="speed" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="245" type="enemy" gid="78" x="312" y="260" width="15.8475" height="15.8475">
+   <properties>
+    <property name="delay" type="int" value="1"/>
+    <property name="direction" type="int" value="1"/>
+    <property name="speed" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="247" type="enemy" gid="78" x="408" y="260" width="15.8475" height="15.8475">
+   <properties>
+    <property name="delay" type="int" value="1"/>
+    <property name="direction" type="int" value="1"/>
+    <property name="speed" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="248" type="enemy" gid="78" x="84" y="100" width="15.8475" height="15.8475">
+   <properties>
+    <property name="delay" type="int" value="1"/>
+    <property name="direction" type="int" value="1"/>
+    <property name="speed" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="249" type="enemy" gid="78" x="68" y="52" width="15.8475" height="15.8475">
+   <properties>
+    <property name="delay" type="int" value="1"/>
+    <property name="direction" type="int" value="1"/>
+    <property name="speed" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="250" type="enemy" gid="78" x="116" y="68" width="15.8475" height="15.8475">
+   <properties>
+    <property name="delay" type="int" value="1"/>
+    <property name="direction" type="int" value="1"/>
+    <property name="speed" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="251" type="enemy" gid="78" x="164" y="52" width="15.8475" height="15.8475">
+   <properties>
+    <property name="delay" type="int" value="1"/>
+    <property name="direction" type="int" value="1"/>
+    <property name="speed" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="253" type="enemy" gid="78" x="120" y="92" width="15.8475" height="15.8475">
+   <properties>
+    <property name="delay" type="int" value="1"/>
+    <property name="direction" type="int" value="1"/>
+    <property name="speed" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="254" type="enemy" gid="80" x="252" y="112" width="15.8475" height="15.8475">
+   <properties>
+    <property name="delay" type="int" value="1"/>
+    <property name="direction" type="int" value="1"/>
+    <property name="speed" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="255" type="enemy" gid="78" x="180" y="72" width="15.8475" height="15.8475">
+   <properties>
+    <property name="delay" type="int" value="1"/>
+    <property name="direction" type="int" value="1"/>
+    <property name="speed" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="257" type="enemy" gid="80" x="212" y="116" width="15.8475" height="15.8475">
+   <properties>
+    <property name="delay" type="int" value="1"/>
+    <property name="direction" type="int" value="1"/>
+    <property name="speed" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="262" type="enemy" gid="79" x="164" y="108" width="15.8475" height="15.8475">
+   <properties>
+    <property name="delay" type="int" value="1"/>
+    <property name="direction" type="int" value="1"/>
+    <property name="speed" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="263" type="enemy" gid="79" x="116" y="56" width="15.8475" height="15.8475">
+   <properties>
+    <property name="delay" type="int" value="1"/>
+    <property name="direction" type="int" value="1"/>
+    <property name="speed" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="264" type="enemy" gid="79" x="228" y="136" width="15.8475" height="15.8475">
+   <properties>
+    <property name="delay" type="int" value="1"/>
+    <property name="direction" type="int" value="1"/>
+    <property name="speed" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="265" type="enemy" gid="79" x="240" y="56" width="15.8475" height="15.8475">
+   <properties>
+    <property name="delay" type="int" value="1"/>
+    <property name="direction" type="int" value="1"/>
+    <property name="speed" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="266" type="enemy" gid="77" x="176" y="160" width="15.8475" height="15.8475">
+   <properties>
+    <property name="delay" type="int" value="1"/>
+    <property name="direction" type="int" value="1"/>
+    <property name="speed" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="267" type="enemy" gid="77" x="64" y="160" width="15.8475" height="15.8475">
+   <properties>
+    <property name="delay" type="int" value="1"/>
+    <property name="direction" type="int" value="1"/>
+    <property name="speed" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="268" type="enemy" gid="77" x="84" y="112" width="15.8475" height="15.8475">
+   <properties>
+    <property name="delay" type="int" value="1"/>
+    <property name="direction" type="int" value="1"/>
+    <property name="speed" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="269" type="enemy" gid="77" x="140" y="44" width="15.8475" height="15.8475">
+   <properties>
+    <property name="delay" type="int" value="1"/>
+    <property name="direction" type="int" value="1"/>
+    <property name="speed" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="270" type="enemy" gid="77" x="72" y="80" width="15.8475" height="15.8475">
+   <properties>
+    <property name="delay" type="int" value="1"/>
+    <property name="direction" type="int" value="1"/>
+    <property name="speed" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="271" type="enemy" gid="77" x="160" y="128" width="15.8475" height="15.8475">
+   <properties>
+    <property name="delay" type="int" value="1"/>
+    <property name="direction" type="int" value="1"/>
+    <property name="speed" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="272" type="enemy" gid="77" x="144" y="176" width="15.8475" height="15.8475">
+   <properties>
+    <property name="delay" type="int" value="1"/>
+    <property name="direction" type="int" value="1"/>
+    <property name="speed" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="273" type="enemy" gid="77" x="144" y="192" width="15.8475" height="15.8475">
+   <properties>
+    <property name="delay" type="int" value="1"/>
+    <property name="direction" type="int" value="1"/>
+    <property name="speed" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="274" type="enemy" gid="77" x="144" y="208" width="15.8475" height="15.8475">
+   <properties>
+    <property name="delay" type="int" value="1"/>
+    <property name="direction" type="int" value="1"/>
+    <property name="speed" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="275" type="enemy" gid="77" x="112" y="160" width="15.8475" height="15.8475">
+   <properties>
+    <property name="delay" type="int" value="1"/>
+    <property name="direction" type="int" value="1"/>
+    <property name="speed" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="276" type="enemy" gid="77" x="144" y="160" width="15.8475" height="15.8475">
+   <properties>
+    <property name="delay" type="int" value="1"/>
+    <property name="direction" type="int" value="1"/>
+    <property name="speed" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="277" type="enemy" gid="77" x="176" y="144" width="15.8475" height="15.8475">
+   <properties>
+    <property name="delay" type="int" value="1"/>
+    <property name="direction" type="int" value="1"/>
+    <property name="speed" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="278" type="enemy" gid="77" x="160" y="160" width="15.8475" height="15.8475">
+   <properties>
+    <property name="delay" type="int" value="1"/>
+    <property name="direction" type="int" value="1"/>
+    <property name="speed" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="279" type="enemy" gid="77" x="112" y="144" width="15.8475" height="15.8475">
+   <properties>
+    <property name="delay" type="int" value="1"/>
+    <property name="direction" type="int" value="1"/>
+    <property name="speed" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="280" type="enemy" gid="77" x="144" y="144" width="15.8475" height="15.8475">
+   <properties>
+    <property name="delay" type="int" value="1"/>
+    <property name="direction" type="int" value="1"/>
+    <property name="speed" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="281" type="enemy" gid="77" x="128" y="160" width="15.8475" height="15.8475">
+   <properties>
+    <property name="delay" type="int" value="1"/>
+    <property name="direction" type="int" value="1"/>
+    <property name="speed" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="282" type="enemy" gid="79" x="1120" y="1392" width="15.8475" height="15.8475">
+   <properties>
+    <property name="delay" type="int" value="1"/>
+    <property name="direction" type="int" value="-1"/>
+    <property name="speed" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="283" type="enemy" gid="79" x="1092" y="1376" width="15.8475" height="15.8475">
+   <properties>
+    <property name="delay" type="int" value="1"/>
+    <property name="direction" type="int" value="-1"/>
+    <property name="speed" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="284" type="enemy" gid="79" x="1064" y="1388" width="15.8475" height="15.8475">
+   <properties>
+    <property name="delay" type="int" value="1"/>
+    <property name="direction" type="int" value="-1"/>
+    <property name="speed" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="285" type="enemy" gid="79" x="1096" y="1344" width="15.8475" height="15.8475">
+   <properties>
+    <property name="delay" type="int" value="1"/>
+    <property name="direction" type="int" value="-1"/>
+    <property name="speed" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="288" type="enemy" gid="79" x="1252" y="1344" width="15.8475" height="15.8475">
+   <properties>
+    <property name="delay" type="int" value="1"/>
+    <property name="direction" type="int" value="-1"/>
+    <property name="speed" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="289" type="enemy" gid="79" x="1324" y="1344" width="15.8475" height="15.8475">
+   <properties>
+    <property name="delay" type="int" value="1"/>
+    <property name="direction" type="int" value="-1"/>
+    <property name="speed" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="290" type="enemy" gid="77" x="1504" y="1376" width="15.8475" height="15.8475">
+   <properties>
+    <property name="delay" type="int" value="2"/>
+    <property name="direction" type="int" value="1"/>
+    <property name="speed" type="int" value="2"/>
+   </properties>
+  </object>
+  <object id="291" type="enemy" gid="77" x="1504" y="1424" width="15.8475" height="15.8475">
+   <properties>
+    <property name="delay" type="int" value="2"/>
+    <property name="direction" type="int" value="1"/>
+    <property name="speed" type="int" value="2"/>
+   </properties>
+  </object>
+  <object id="292" type="enemy" gid="77" x="1504" y="1488" width="15.8475" height="15.8475">
+   <properties>
+    <property name="delay" type="int" value="2"/>
+    <property name="direction" type="int" value="1"/>
+    <property name="speed" type="int" value="2"/>
+   </properties>
+  </object>
+  <object id="293" type="enemy" gid="77" x="1544" y="1272" width="15.8475" height="15.8475">
+   <properties>
+    <property name="delay" type="int" value="2"/>
+    <property name="direction" type="int" value="1"/>
+    <property name="speed" type="int" value="2"/>
+   </properties>
+  </object>
+  <object id="295" type="enemy" gid="79" x="1020" y="372" width="15.8475" height="15.8475">
+   <properties>
+    <property name="delay" type="int" value="1"/>
+    <property name="direction" type="int" value="1"/>
+    <property name="speed" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="296" type="enemy" gid="79" x="1068" y="356" width="15.8475" height="15.8475">
+   <properties>
+    <property name="delay" type="int" value="1"/>
+    <property name="direction" type="int" value="1"/>
+    <property name="speed" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="297" type="enemy" gid="79" x="1116" y="372" width="15.8475" height="15.8475">
+   <properties>
+    <property name="delay" type="int" value="1"/>
+    <property name="direction" type="int" value="1"/>
+    <property name="speed" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="300" type="enemy" gid="79" x="820" y="340" width="15.8475" height="15.8475">
+   <properties>
+    <property name="delay" type="int" value="1"/>
+    <property name="direction" type="int" value="1"/>
+    <property name="speed" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="303" type="enemy" gid="79" x="1128" y="96" width="15.8475" height="15.8475">
+   <properties>
+    <property name="delay" type="int" value="1"/>
+    <property name="direction" type="int" value="1"/>
+    <property name="speed" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="304" type="enemy" gid="79" x="992" y="140" width="15.8475" height="15.8475">
+   <properties>
+    <property name="delay" type="int" value="1"/>
+    <property name="direction" type="int" value="1"/>
+    <property name="speed" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="307" type="enemy" gid="79" x="1144" y="124" width="15.8475" height="15.8475">
+   <properties>
+    <property name="delay" type="int" value="1"/>
+    <property name="direction" type="int" value="1"/>
+    <property name="speed" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="310" type="enemy" gid="77" x="1152" y="224" width="15.8475" height="15.8475">
+   <properties>
+    <property name="delay" type="int" value="1"/>
+    <property name="direction" type="int" value="1"/>
+    <property name="speed" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="311" type="enemy" gid="77" x="1024" y="176" width="15.8475" height="15.8475">
+   <properties>
+    <property name="delay" type="int" value="1"/>
+    <property name="direction" type="int" value="1"/>
+    <property name="speed" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="312" type="enemy" gid="77" x="1132" y="176" width="15.8475" height="15.8475">
+   <properties>
+    <property name="delay" type="int" value="1"/>
+    <property name="direction" type="int" value="1"/>
+    <property name="speed" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="313" type="enemy" gid="80" x="972" y="32" width="15.8475" height="15.8475">
+   <properties>
+    <property name="delay" type="int" value="1"/>
+    <property name="direction" type="int" value="1"/>
+    <property name="speed" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="314" type="enemy" gid="80" x="1040" y="32" width="15.8475" height="15.8475">
+   <properties>
+    <property name="delay" type="int" value="1"/>
+    <property name="direction" type="int" value="1"/>
+    <property name="speed" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="315" type="enemy" gid="80" x="1120" y="32" width="15.8475" height="15.8475">
+   <properties>
+    <property name="delay" type="int" value="1"/>
+    <property name="direction" type="int" value="1"/>
+    <property name="speed" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="316" type="enemy" gid="80" x="1260" y="160" width="15.8475" height="15.8475">
+   <properties>
+    <property name="delay" type="int" value="1"/>
+    <property name="direction" type="int" value="1"/>
+    <property name="speed" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="317" type="enemy" gid="80" x="1328" y="160" width="15.8475" height="15.8475">
+   <properties>
+    <property name="delay" type="int" value="1"/>
+    <property name="direction" type="int" value="1"/>
+    <property name="speed" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="318" type="enemy" gid="80" x="1408" y="160" width="15.8475" height="15.8475">
+   <properties>
+    <property name="delay" type="int" value="1"/>
+    <property name="direction" type="int" value="1"/>
+    <property name="speed" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="319" type="enemy" gid="79" x="1028" y="288" width="15.8475" height="15.8475">
+   <properties>
+    <property name="delay" type="int" value="1"/>
+    <property name="direction" type="int" value="1"/>
+    <property name="speed" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="322" type="enemy" gid="79" x="1180" y="272" width="15.8475" height="15.8475">
+   <properties>
+    <property name="delay" type="int" value="1"/>
+    <property name="direction" type="int" value="1"/>
+    <property name="speed" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="323" type="enemy" gid="79" x="1296" y="216" width="15.8475" height="15.8475">
+   <properties>
+    <property name="delay" type="int" value="1"/>
+    <property name="direction" type="int" value="1"/>
+    <property name="speed" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="326" type="enemy" gid="79" x="1448" y="200" width="15.8475" height="15.8475">
+   <properties>
+    <property name="delay" type="int" value="1"/>
+    <property name="direction" type="int" value="1"/>
+    <property name="speed" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="328" type="enemy" gid="79" x="1372" y="44" width="15.8475" height="15.8475">
+   <properties>
+    <property name="delay" type="int" value="1"/>
+    <property name="direction" type="int" value="1"/>
+    <property name="speed" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="330" type="enemy" gid="79" x="1476" y="44" width="15.8475" height="15.8475">
+   <properties>
+    <property name="delay" type="int" value="1"/>
+    <property name="direction" type="int" value="1"/>
+    <property name="speed" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="331" type="enemy" gid="79" x="1252" y="128" width="15.8475" height="15.8475">
+   <properties>
+    <property name="delay" type="int" value="1"/>
+    <property name="direction" type="int" value="1"/>
+    <property name="speed" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="335" type="enemy" gid="79" x="1380" y="296" width="15.8475" height="15.8475">
+   <properties>
+    <property name="delay" type="int" value="1"/>
+    <property name="direction" type="int" value="1"/>
+    <property name="speed" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="336" type="enemy" gid="79" x="1428" y="312" width="15.8475" height="15.8475">
+   <properties>
+    <property name="delay" type="int" value="1"/>
+    <property name="direction" type="int" value="1"/>
+    <property name="speed" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="337" type="enemy" gid="79" x="1388" y="392" width="15.8475" height="15.8475">
+   <properties>
+    <property name="delay" type="int" value="1"/>
+    <property name="direction" type="int" value="1"/>
+    <property name="speed" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="338" type="enemy" gid="79" x="1436" y="408" width="15.8475" height="15.8475">
+   <properties>
+    <property name="delay" type="int" value="1"/>
+    <property name="direction" type="int" value="1"/>
+    <property name="speed" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="339" type="enemy" gid="77" x="1332" y="336" width="15.8475" height="15.8475">
+   <properties>
+    <property name="delay" type="int" value="1"/>
+    <property name="direction" type="int" value="1"/>
+    <property name="speed" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="340" type="enemy" gid="77" x="1536" y="492" width="15.8475" height="15.8475">
+   <properties>
+    <property name="delay" type="int" value="1"/>
+    <property name="direction" type="int" value="1"/>
+    <property name="speed" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="342" name="enemy-spawn" type="enemy-spawn" x="1313.37" y="492">
+   <properties>
+    <property name="delay" type="int" value="2"/>
+    <property name="trigger" value="gun2-collect-trigger"/>
+    <property name="type" value="3"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="343" name="enemy-spawn" type="enemy-spawn" x="1349.37" y="492">
+   <properties>
+    <property name="delay" type="int" value="1"/>
+    <property name="trigger" value="gun2-collect-trigger"/>
+    <property name="type" value="3"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="346" name="enemy-spawn" type="enemy-spawn" x="1236" y="492.11">
+   <properties>
+    <property name="delay" type="int" value="2"/>
+    <property name="trigger" value="gun2-collect-trigger"/>
+    <property name="type" value="3"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="347" name="enemy-spawn" type="enemy-spawn" x="1273.37" y="492">
+   <properties>
+    <property name="delay" type="int" value="1"/>
+    <property name="trigger" value="gun2-collect-trigger"/>
+    <property name="type" value="3"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="349" name="enemy-spawn" type="enemy-spawn" x="1465.37" y="492">
+   <properties>
+    <property name="delay" type="int" value="2"/>
+    <property name="trigger" value="gun2-collect-trigger"/>
+    <property name="type" value="3"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="351" name="enemy-spawn" type="enemy-spawn" x="1388" y="492.11">
+   <properties>
+    <property name="delay" type="int" value="2"/>
+    <property name="trigger" value="gun2-collect-trigger"/>
+    <property name="type" value="3"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="352" name="enemy-spawn" type="enemy-spawn" x="1425.37" y="492">
+   <properties>
+    <property name="delay" type="int" value="1"/>
+    <property name="trigger" value="gun2-collect-trigger"/>
+    <property name="type" value="3"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="353" name="gun2-collect-trigger" type="trigger" x="1344" y="512" width="15.8475" height="15.8475"/>
+  <object id="354" type="enemy" gid="77" x="768" y="1136" width="15.8475" height="15.8475">
+   <properties>
+    <property name="delay" type="int" value="1"/>
+    <property name="direction" type="int" value="-1"/>
+    <property name="speed" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="355" type="enemy" gid="77" x="768" y="896" width="15.8475" height="15.8475">
+   <properties>
+    <property name="delay" type="int" value="1"/>
+    <property name="direction" type="int" value="-1"/>
+    <property name="speed" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="356" type="enemy" gid="77" x="768" y="832" width="15.8475" height="15.8475">
+   <properties>
+    <property name="delay" type="int" value="1"/>
+    <property name="direction" type="int" value="-1"/>
+    <property name="speed" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="357" type="enemy" gid="77" x="768" y="976" width="15.8475" height="15.8475">
+   <properties>
+    <property name="delay" type="int" value="1"/>
+    <property name="direction" type="int" value="-1"/>
+    <property name="speed" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="358" type="enemy" gid="77" x="768" y="928" width="15.8475" height="15.8475">
+   <properties>
+    <property name="delay" type="int" value="1"/>
+    <property name="direction" type="int" value="-1"/>
+    <property name="speed" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="359" type="enemy" gid="77" x="768" y="736" width="15.8475" height="15.8475">
+   <properties>
+    <property name="delay" type="int" value="1"/>
+    <property name="direction" type="int" value="-1"/>
+    <property name="speed" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="360" type="enemy" gid="77" x="768" y="672" width="15.8475" height="15.8475">
+   <properties>
+    <property name="delay" type="int" value="1"/>
+    <property name="direction" type="int" value="-1"/>
+    <property name="speed" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="361" type="enemy" gid="77" x="400" y="592" width="15.8475" height="15.8475">
+   <properties>
+    <property name="delay" type="int" value="1"/>
+    <property name="direction" type="int" value="-1"/>
+    <property name="speed" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="362" type="enemy" gid="77" x="464" y="608" width="15.8475" height="15.8475">
+   <properties>
+    <property name="delay" type="int" value="1"/>
+    <property name="direction" type="int" value="-1"/>
+    <property name="speed" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="363" type="enemy" gid="77" x="464" y="560" width="15.8475" height="15.8475">
+   <properties>
+    <property name="delay" type="int" value="1"/>
+    <property name="direction" type="int" value="-1"/>
+    <property name="speed" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="364" type="enemy" gid="77" x="1532" y="176" width="15.8475" height="15.8475">
+   <properties>
+    <property name="delay" type="int" value="1"/>
+    <property name="direction" type="int" value="-1"/>
+    <property name="speed" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="365" type="enemy" gid="77" x="1536" y="244" width="15.8475" height="15.8475">
+   <properties>
+    <property name="delay" type="int" value="1"/>
+    <property name="direction" type="int" value="-1"/>
+    <property name="speed" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="366" type="enemy" gid="77" x="1536" y="319" width="15.8475" height="15.8475">
+   <properties>
+    <property name="delay" type="int" value="1"/>
+    <property name="direction" type="int" value="-1"/>
+    <property name="speed" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="367" name="enemy-spawn" type="enemy-spawn" x="932" y="1520">
+   <properties>
+    <property name="delay" type="int" value="1"/>
+    <property name="direction" value="-1"/>
+    <property name="trigger" value="gun3-collect-trigger"/>
+    <property name="type" value="4"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="368" name="gun3-collect-trigger" type="trigger" x="864" y="1552" width="15.8475" height="15.8475"/>
+  <object id="369" name="enemy-spawn" type="enemy-spawn" x="892" y="1520">
+   <properties>
+    <property name="delay" type="int" value="1"/>
+    <property name="direction" value="-1"/>
+    <property name="trigger" value="gun3-collect-trigger"/>
+    <property name="type" value="4"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="370" name="enemy-spawn" type="enemy-spawn" x="848" y="1520">
+   <properties>
+    <property name="delay" type="int" value="1"/>
+    <property name="direction" value="-1"/>
+    <property name="trigger" value="gun3-collect-trigger"/>
+    <property name="type" value="4"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="371" name="enemy-spawn" type="enemy-spawn" x="816" y="1520">
+   <properties>
+    <property name="delay" type="int" value="1"/>
+    <property name="direction" value="-1"/>
+    <property name="trigger" value="gun3-collect-trigger"/>
+    <property name="type" value="4"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="372" name="enemy-spawn" type="enemy-spawn" x="776" y="1520">
+   <properties>
+    <property name="delay" type="int" value="1"/>
+    <property name="direction" value="-1"/>
+    <property name="trigger" value="gun3-collect-trigger"/>
+    <property name="type" value="4"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="373" name="enemy-spawn" type="enemy-spawn" x="736" y="1520">
+   <properties>
+    <property name="delay" type="int" value="1"/>
+    <property name="direction" value="-1"/>
+    <property name="trigger" value="gun3-collect-trigger"/>
+    <property name="type" value="4"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="374" name="speed" type="upgrade" gid="47" x="1472" y="1296" width="15.8475" height="15.8475"/>
+  <object id="375" name="ammo" type="upgrade" gid="47" x="1360" y="1568" width="15.8475" height="15.8475"/>
  </objectgroup>
  <layer id="1" name="World" width="100" height="100">
-  <data encoding="base64">
-   1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA1wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA1wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA1wAAANcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAANcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAANcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAANcAAADXAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADXAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADXAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADXAAAA1wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA1wAAANcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAANcAAADXAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAAAAAAAAAAAAAAAAAANcAAADXAAAA1wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADXAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA1wAAANcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA1wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAANcAAADXAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAANcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADXAAAA1wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA1wAAANcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAxAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAAAAAAAAAAAAAJ8AAACfAAAAAAAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAAAAAAAAnwAAAJ8AAACfAAAAAAAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAAAAAAAAAAAAAJ8AAACfAAAAAAAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADXAAAA1wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA1wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA1wAAANcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAANcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAAAAAAAAAAAAA1wAAANcAAADXAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADXAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADXAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADXAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADXAAAA1wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA4QAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA1wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA1wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA1wAAANcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAOEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAAAAAAAAAAAAAJ8AAAAAAAAAAAAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAANcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAANcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAAAAAAAAnwAAAJ8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAAAAAAAAnwAAAJ8AAACfAAAAAAAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAAAAAAAJ8AAACfAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAnwAAAJ8AAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAJ8AAACfAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAAAAAAAAnwAAAJ8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA4gAAAOIAAADiAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA1wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADXAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADXAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADXAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAANcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA1wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA1wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA1wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADXAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAANcAAAAAAAAAAAAAAJ8AAAAAAAAAAAAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAANcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAANcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADhAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADhAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA4QAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA4QAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAAAAAAAAAAAAAAAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAAAAAAAAAAAAAAAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAAAAAAAJ8AAACfAAAAnwAAAAAAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAAAAAAAJ8AAACfAAAAnwAAAAAAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAAAAAAAAAAAACfAAAAAAAAAAAAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA1wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADXAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAANcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA1wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADXAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAANcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAAAAAAAAAAAACfAAAAAAAAAAAAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA4QAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAOEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAAAAAAAAAAAACfAAAAAAAAAAAAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAAAAAAAAAAAACfAAAAAAAAAAAAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA1wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAANcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADXAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAAAAAAAJ8AAACfAAAAnwAAAAAAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAAnwAAAJ8AAACfAAAAnwAAAJ8AAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAAAAAAAAAAAACfAAAAAAAAAAAAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAAAAAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAAAAAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAAAAAAAAAAAAAAAAAAAAAAAJ8AAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAAAAAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAAAAAAAAAAAACfAAAAAAAAAAAAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAAAAAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAAAAAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAAAAAAAAAAAAAAAAAAAAAAAJ8AAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAAAAAAAAAAAACfAAAAAAAAAAAAAADXAAAA1wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA1wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA1wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA1wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA1wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA1wAAANcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAANcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAANcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAANcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAANcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAANcAAADXAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADXAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADXAAAAAAAAAAAAAAAAAAAAAAAAAJ8AAADXAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADXAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAJ8AAACfAAAAnwAAAAAAAADXAAAA1wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAwwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAwwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA4QAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA1wAAANcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAOEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAANcAAADXAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAAnwAAAJ8AAAAAAAAAAAAAAAAAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAACfAAAAnwAAANcAAADXAAAA1wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAAAAAAAAAAAAAAAAAAAAAAAA1wAAANcAAAAAAAAAAAAAAJ8AAAAAAAAAAAAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAAAAAAAAAAAAAAAAAAAAAAANcAAADXAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAAnwAAAAAAAAAAAAAAAAAAAAAAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAAAAAAAAAAAAAAAAAAAAAAADXAAAA1wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAAAAAAAAAAAAAAAAAAAAAAAA1wAAANcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAAAAAAAAAAAAAAAAAAAAAAANcAAADXAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAAnwAAAAAAAAAAAAAAAAAAAAAAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAACfAAAAnwAAANcAAADXAAAA1wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA1wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA1wAAANcAAAAAAAAAnwAAAJ8AAACfAAAAAAAAANcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAANcAAADXAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADXAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAAnwAAAAAAAAAAAAAAAAAAAAAAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADXAAAA1wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA1wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAnwAAAJ8AAAAAAAAA1wAAANcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAANcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAANcAAADXAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADXAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAAnwAAAJ8AAACfAAAAAAAAAAAAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADXAAAA1wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA1wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA1wAAANcAAAAAAAAAAAAAAJ8AAAAAAAAAAAAAANcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAJ8AAACfAAAAAAAAANcAAADXAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADXAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADXAAAA1wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA1wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA1wAAANcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAANcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADXAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA1wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAANcAAADXAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADXAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA1wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAANcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADXAAAA1wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA1wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAANcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADXAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA1wAAANcAAAAAAAAAnwAAAJ8AAACfAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADhAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA4QAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAANcAAADXAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA4QAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAOEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAANcAAADXAAAA1wAAAA==
-  </data>
+  <data encoding="csv">
+2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,
+2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,2,
+2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,9,9,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,9,2,
+2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,2,0,0,2,2,2,2,2,2,2,2,2,2,2,2,2,0,0,2,9,9,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,9,2,
+2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,9,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,2,0,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,9,9,0,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,0,0,0,9,2,
+2,0,0,0,0,0,0,0,0,0,0,0,0,9,9,9,9,2,9,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,9,9,9,9,9,9,9,9,0,0,0,0,0,0,0,0,0,0,0,0,3,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,9,9,0,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,3,0,0,9,2,
+2,9,9,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,9,0,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,0,0,0,9,9,9,9,9,9,9,9,0,0,0,0,0,0,0,0,0,0,0,0,0,2,0,0,2,2,2,2,2,2,2,2,2,2,2,2,2,9,9,0,0,0,0,0,0,0,0,0,0,0,0,0,0,9,9,9,0,0,0,9,2,
+2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,9,0,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,0,0,3,9,9,9,9,9,9,9,9,0,0,9,9,9,9,9,9,9,9,2,0,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,9,9,0,0,0,0,0,0,0,0,0,0,0,0,0,0,9,9,9,0,0,0,9,2,
+2,9,9,9,0,0,0,0,0,0,0,0,0,0,0,0,0,2,9,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,9,9,0,0,0,9,9,9,9,9,9,9,9,0,0,9,9,9,9,9,9,9,9,2,0,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,2,2,2,2,2,2,2,2,2,2,2,2,2,0,0,0,2,2,2,0,0,0,2,2,
+2,0,0,0,0,0,0,0,0,0,0,0,0,0,9,3,3,2,9,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,9,9,0,0,0,9,9,9,9,9,9,9,9,0,0,9,9,9,9,9,9,9,9,2,0,3,2,2,2,2,2,2,2,2,2,2,2,2,2,2,0,2,9,9,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,0,0,0,0,0,2,
+2,0,12,12,12,12,12,12,12,12,12,12,12,12,9,0,0,2,9,9,9,9,9,9,9,9,9,9,9,9,9,9,0,0,9,9,0,0,0,9,9,9,9,9,9,9,9,0,0,9,9,9,9,9,9,9,9,2,0,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,9,9,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,0,0,0,0,0,2,
+2,0,12,12,12,12,12,12,12,12,12,12,12,12,9,0,0,2,9,9,9,9,9,9,9,9,9,9,9,9,9,9,0,0,9,9,0,0,0,9,9,9,9,9,9,9,9,0,0,9,9,9,9,9,9,9,9,2,0,0,2,0,2,2,2,2,2,2,2,2,2,2,2,2,2,2,9,9,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,9,0,3,3,3,0,2,
+2,0,12,12,12,12,12,12,12,12,12,12,12,12,9,0,0,2,9,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,9,9,0,0,3,9,9,9,9,9,9,9,9,0,0,9,9,9,9,9,9,9,9,2,0,0,2,0,0,0,0,2,0,0,0,2,0,0,0,0,0,9,9,9,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,9,0,0,0,0,0,2,
+2,0,0,0,0,0,0,0,0,0,0,9,9,9,9,0,0,2,9,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,9,9,0,0,0,9,9,9,9,9,9,9,9,0,0,9,9,9,9,9,9,9,9,2,0,0,2,0,0,2,0,0,0,2,0,0,0,2,0,0,13,9,9,9,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,9,0,0,0,0,0,2,
+2,12,12,12,12,12,0,0,0,0,9,9,9,9,9,0,0,2,2,0,0,2,2,2,2,2,2,9,9,9,9,9,2,2,2,2,0,0,0,9,2,2,2,2,2,2,2,0,0,2,2,2,9,9,9,9,9,2,0,3,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,9,2,2,0,0,2,2,2,2,2,2,2,2,2,2,2,2,2,9,2,0,0,0,2,2,
+2,12,12,12,0,0,0,0,0,0,9,9,9,9,9,3,0,2,0,0,0,0,0,0,0,0,0,9,9,9,9,0,0,0,0,0,0,0,0,9,9,9,9,9,9,9,0,0,0,0,9,2,9,9,9,9,9,9,0,0,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,0,0,9,9,9,9,9,9,9,9,9,9,9,9,9,2,0,0,0,0,0,2,
+2,2,12,0,0,0,0,0,0,9,9,9,9,9,9,0,0,2,0,0,0,0,0,0,0,0,0,9,9,9,9,0,0,0,0,0,0,0,0,0,9,9,9,9,9,0,0,0,0,0,0,2,9,9,9,9,9,9,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,9,9,9,9,9,9,9,9,9,9,9,9,9,2,0,0,0,0,0,2,
+2,2,0,0,0,0,0,0,9,9,9,9,9,9,9,0,0,2,0,0,0,0,0,0,0,0,0,9,9,9,9,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,9,9,9,9,9,9,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,9,9,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,
+2,2,0,0,0,9,9,9,9,9,9,9,9,9,9,0,0,8,0,0,0,0,0,0,0,0,0,9,9,9,9,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3,3,0,2,
+2,2,13,0,9,9,9,9,9,9,9,9,9,9,9,0,0,8,0,0,0,0,0,0,0,0,0,9,9,9,9,9,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,9,9,9,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,
+2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,9,9,9,9,9,2,2,2,2,0,0,0,2,2,2,2,2,2,2,0,0,0,0,0,0,0,0,0,0,0,9,9,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,9,9,9,0,0,0,9,9,9,9,9,9,9,9,2,9,9,9,9,9,2,
+2,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,0,0,0,9,9,9,9,9,9,2,0,0,0,0,0,0,0,0,0,0,0,9,9,0,0,9,9,0,0,0,0,0,0,0,0,0,9,9,0,0,0,0,2,9,9,9,0,0,0,9,9,9,9,9,9,9,9,2,9,9,9,9,9,2,
+2,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,0,0,0,9,9,9,9,9,9,2,9,0,0,0,0,0,0,9,9,0,0,9,9,0,0,9,9,0,0,0,0,0,0,0,0,0,9,9,0,0,0,0,2,9,9,9,0,0,3,9,9,9,9,9,9,9,9,2,9,9,9,9,9,2,
+2,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,0,0,0,9,9,9,9,9,9,2,9,9,0,0,0,0,0,9,9,0,0,0,0,0,0,9,9,0,0,0,0,0,0,0,0,0,9,9,0,0,13,0,2,9,9,9,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,
+2,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,0,0,3,9,9,9,9,9,9,2,9,9,9,9,0,0,0,9,9,0,0,0,0,0,0,9,9,0,0,0,0,0,0,0,0,0,9,9,9,9,9,9,2,9,9,9,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,
+2,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,0,0,0,9,9,9,9,9,9,9,9,9,9,9,9,9,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,9,9,9,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3,3,0,2,
+2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,9,0,0,0,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,2,0,0,0,0,0,2,
+2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,9,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,2,0,0,0,0,0,2,
+2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,9,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,9,9,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,0,0,2,2,
+2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,0,0,0,0,0,0,0,2,2,2,0,0,0,0,2,2,0,0,2,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,2,9,0,0,9,9,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,2,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,0,0,0,0,0,2,
+2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,6,0,0,0,0,0,0,2,2,2,2,0,0,0,0,2,2,0,3,2,9,9,9,9,9,9,9,9,9,9,2,9,9,9,9,9,9,9,0,0,9,9,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,0,0,0,0,0,2,
+2,0,0,0,0,0,0,13,0,0,0,0,0,0,0,6,0,0,0,0,0,2,2,2,2,2,0,0,0,0,2,2,0,0,2,9,9,9,9,9,9,9,9,9,9,2,9,9,9,9,9,2,9,0,0,9,9,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,0,0,0,0,0,2,
+2,2,2,2,2,2,2,2,2,0,0,2,2,2,2,2,0,0,0,0,2,2,2,2,2,2,2,2,2,2,2,2,0,0,2,9,9,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,9,0,3,9,9,2,0,0,2,2,2,2,2,2,2,2,2,2,2,2,2,0,0,6,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,7,0,0,0,0,0,2,
+9,9,9,9,9,9,9,9,9,0,0,9,9,9,9,2,0,0,0,0,2,0,0,0,0,0,0,2,0,0,0,0,0,0,2,9,9,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,9,0,0,9,9,2,0,3,2,2,2,2,2,2,2,2,2,2,2,2,2,2,0,6,0,0,0,0,0,0,0,0,13,0,0,0,0,0,0,0,0,7,0,0,0,0,0,2,
+9,9,9,9,9,9,9,9,9,0,0,9,9,9,9,2,0,3,3,0,2,0,0,0,0,0,0,2,0,0,0,2,2,2,2,9,9,0,9,9,9,9,9,9,9,9,9,9,9,9,0,0,0,0,0,9,9,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,
+9,9,9,9,9,9,9,9,9,0,0,9,9,9,9,2,0,0,0,0,2,0,0,2,0,0,0,2,0,0,0,2,2,2,2,9,9,0,9,9,9,9,9,9,9,9,9,9,9,9,9,0,0,0,0,9,9,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,2,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,2,
+9,9,9,9,9,9,9,9,9,0,0,9,9,9,9,2,0,0,0,0,2,0,0,2,0,0,0,2,0,0,3,2,2,2,2,0,0,0,9,9,9,9,9,9,9,9,9,9,9,9,9,9,0,0,0,9,9,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,0,0,0,2,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,2,
+9,9,9,9,9,9,9,9,9,0,0,9,9,9,9,2,0,0,0,0,2,0,0,2,0,0,0,2,0,0,0,2,2,2,2,0,0,0,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,0,0,9,9,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,0,0,0,2,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,2,
+9,9,9,9,9,9,9,9,9,0,0,9,9,9,9,2,0,3,3,0,2,0,3,2,0,0,0,2,0,0,0,2,2,2,2,0,0,0,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3,3,2,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,2,
+9,9,9,9,9,9,9,9,9,0,0,9,9,9,9,2,0,0,0,0,2,0,0,2,0,0,0,0,0,0,0,2,2,2,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,9,9,9,9,9,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,2,
+9,9,9,9,9,9,9,9,9,0,0,9,9,9,9,2,0,0,0,0,2,0,0,2,2,2,2,2,2,2,2,2,2,2,2,9,9,9,9,9,9,9,9,9,9,2,0,0,0,0,0,2,9,9,9,9,9,2,0,0,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,2,
+9,9,9,9,9,9,9,9,9,0,0,9,9,9,9,2,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,2,9,9,9,9,9,9,9,9,9,9,2,0,0,0,0,0,2,9,9,9,9,9,2,0,3,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,2,
+9,9,9,9,9,9,9,9,9,0,0,9,9,9,9,2,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,2,9,9,9,9,9,9,9,9,9,9,2,0,0,0,0,0,2,9,9,9,9,9,2,0,0,2,0,2,2,2,2,2,2,2,2,2,2,0,0,0,2,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,2,
+9,9,9,9,9,9,9,9,9,0,0,9,9,9,9,2,0,3,3,0,2,2,2,2,2,2,2,2,2,2,2,2,0,0,2,2,2,2,2,2,2,2,2,2,2,2,2,7,7,7,2,2,9,9,9,9,9,2,0,0,2,0,0,0,0,0,2,0,0,0,0,2,3,0,0,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,
+9,9,9,9,9,9,9,9,9,0,0,9,9,9,9,2,0,0,0,0,2,2,2,2,2,2,2,2,2,2,2,2,0,0,10,0,0,0,0,0,0,0,0,0,0,10,0,0,0,0,0,2,9,9,9,9,9,2,0,3,2,2,2,2,0,0,2,0,0,0,0,2,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,
+9,9,9,9,9,9,9,9,9,0,0,9,9,9,9,2,0,3,3,0,2,2,2,2,2,2,2,2,2,2,2,2,0,0,10,0,0,0,0,0,0,0,0,0,0,10,0,0,0,0,0,2,9,9,9,9,9,2,0,0,0,0,0,2,0,0,2,0,0,2,0,2,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,
+9,9,9,9,9,9,9,9,9,0,0,9,9,9,9,2,0,0,0,0,0,0,0,0,0,0,0,0,2,2,2,2,0,0,10,0,0,0,0,0,0,0,0,0,0,10,0,0,3,0,0,2,9,9,9,9,9,2,0,0,0,0,0,2,0,0,0,0,0,2,0,2,3,0,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,
+9,9,9,9,9,9,9,9,9,0,0,9,9,9,9,2,0,0,0,0,0,0,0,0,0,0,0,0,2,2,2,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,9,9,9,9,9,2,0,0,0,0,0,2,2,2,2,2,2,2,0,2,0,0,0,6,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,
+9,9,9,9,9,9,9,9,9,0,0,9,9,9,9,2,0,0,0,0,0,0,0,0,0,0,0,13,2,2,2,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,9,9,9,9,9,2,0,0,0,0,0,0,0,0,0,0,0,0,0,2,0,0,0,6,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,
+9,9,9,9,9,9,9,9,9,0,0,9,9,9,9,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,10,0,0,0,10,2,9,9,9,9,9,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,0,0,0,2,2,
+9,9,9,9,9,9,9,9,9,0,0,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,2,0,0,0,0,0,2,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,2,0,3,3,3,0,2,
+9,9,9,9,9,9,9,9,9,0,0,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,2,0,0,0,0,0,2,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,2,0,0,0,0,0,2,
+9,9,9,9,9,9,9,9,9,0,0,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,2,0,0,0,0,0,2,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,2,0,0,0,0,0,2,
+9,9,9,9,9,9,9,9,9,0,0,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,2,0,3,3,3,0,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,9,9,9,9,9,9,9,9,9,2,0,0,3,0,0,2,
+9,9,9,9,9,9,9,9,9,0,0,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,2,0,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,9,9,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,9,9,9,9,9,9,9,9,9,2,0,0,0,0,0,2,
+9,9,9,9,9,9,9,9,9,0,0,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,2,0,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,9,9,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,9,9,9,9,9,9,9,9,9,2,0,0,0,0,0,2,
+9,9,9,9,9,9,9,9,9,0,0,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,2,0,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,9,9,2,9,9,9,9,0,0,0,0,0,0,0,0,0,0,0,0,0,2,9,9,9,9,9,9,9,9,9,2,0,0,3,0,0,2,
+9,9,9,9,9,9,9,9,9,0,0,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,2,0,0,0,0,0,6,0,0,0,0,0,0,0,0,0,0,0,9,9,9,9,9,9,9,0,9,9,9,9,9,9,9,9,9,9,9,0,2,9,9,9,9,9,9,9,9,9,2,0,0,0,0,0,2,
+9,9,9,9,9,9,9,9,9,0,0,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,2,0,0,0,0,0,6,0,0,0,0,0,0,0,0,0,13,0,0,0,0,0,0,9,9,0,9,9,9,9,9,9,9,9,9,9,9,0,2,9,9,9,9,9,9,9,9,9,2,0,0,0,0,0,2,
+9,9,9,9,9,9,9,9,9,0,0,9,9,9,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,0,0,3,0,0,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,0,0,9,9,0,9,9,0,0,0,0,0,0,0,0,0,0,2,9,9,9,9,9,9,9,9,9,2,0,0,3,0,0,2,
+9,9,9,9,9,9,9,9,9,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,10,0,0,0,0,0,2,9,9,9,9,9,9,9,9,9,9,9,9,9,2,0,0,9,9,0,9,9,0,9,9,9,9,9,9,9,9,9,2,2,2,2,2,2,2,2,2,2,2,0,0,0,0,0,2,
+9,9,9,9,9,9,9,9,9,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,10,0,0,0,0,0,2,0,0,0,9,9,9,0,0,0,9,9,9,9,2,0,0,9,9,0,9,9,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,
+9,9,9,9,9,9,9,9,9,0,0,9,9,9,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,10,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,9,9,2,0,0,9,9,0,9,9,9,9,9,9,9,9,9,13,0,0,2,2,2,2,2,2,2,2,2,2,2,0,3,3,3,0,2,
+9,9,9,9,9,9,9,9,9,0,0,9,9,9,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,9,9,2,0,0,0,9,0,9,0,0,0,0,0,0,0,0,0,0,0,2,9,9,9,9,9,9,9,9,9,2,0,0,0,0,0,2,
+9,9,9,9,9,9,9,9,9,0,0,9,9,9,2,13,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,9,9,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,9,9,9,9,9,9,9,9,9,2,0,0,0,0,0,2,
+9,9,9,9,9,9,9,9,9,0,0,9,9,9,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,0,0,9,9,2,9,9,9,9,0,9,9,9,9,9,9,9,9,9,9,9,9,2,9,9,9,9,9,9,9,9,9,2,0,0,3,0,0,2,
+9,9,9,9,9,9,9,9,9,0,3,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,2,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,3,0,9,9,2,2,2,2,2,0,2,2,9,2,2,2,2,2,2,2,2,2,2,9,9,9,9,9,9,9,9,9,2,0,0,0,0,0,2,
+9,9,9,9,9,9,9,9,9,0,0,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,9,9,9,9,9,9,9,0,9,2,9,2,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,2,0,0,0,0,0,2,
+9,9,9,9,9,9,9,9,0,0,0,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,0,0,0,0,0,0,0,0,0,0,0,0,9,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,9,9,9,9,9,9,9,0,9,2,9,2,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,2,0,0,3,0,0,2,
+9,9,9,9,9,9,9,9,0,0,0,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,0,0,0,0,0,0,0,0,0,0,0,0,9,2,0,0,0,0,0,2,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,0,9,2,9,2,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,2,0,0,0,0,0,2,
+9,9,9,9,9,9,9,9,0,0,0,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,0,0,0,0,0,0,0,0,0,0,0,0,9,2,0,0,0,0,0,2,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,0,9,9,9,2,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,2,0,0,0,0,0,2,
+2,2,2,2,2,2,2,2,0,0,0,2,2,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,9,9,9,9,9,9,0,0,0,2,2,0,0,0,0,3,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,0,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,0,0,3,0,0,2,
+2,0,0,0,0,0,2,0,0,0,3,9,9,9,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,9,9,9,9,9,9,0,0,0,0,2,0,0,0,0,0,2,2,2,2,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,
+2,0,0,0,0,0,2,0,0,0,0,9,9,9,0,0,0,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,0,0,0,0,2,0,0,0,0,0,2,2,2,2,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,
+2,0,0,0,0,0,2,0,0,0,0,9,9,9,0,0,0,9,0,0,0,0,0,9,0,0,0,0,0,9,0,0,0,0,0,9,9,9,9,9,9,9,0,0,0,2,0,0,0,0,3,2,2,2,2,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,3,3,3,0,2,
+2,0,0,0,0,0,0,0,0,0,0,9,9,9,0,0,0,9,0,0,0,0,0,9,0,0,0,0,0,9,0,0,0,0,0,9,9,9,9,9,9,9,0,0,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,6,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,
+2,0,0,0,0,0,0,0,0,0,0,9,9,9,0,0,0,9,0,0,9,0,0,9,0,0,9,0,0,9,0,0,9,0,0,9,9,9,9,9,9,9,0,0,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,6,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,
+2,0,0,0,0,9,2,9,0,0,0,2,2,2,2,0,0,0,0,0,9,0,0,0,0,0,9,0,0,0,0,0,9,0,0,2,2,2,2,2,2,2,2,2,2,2,3,3,0,0,0,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,3,3,2,2,
+2,0,0,0,0,9,2,9,3,0,0,0,9,9,9,0,0,0,0,0,9,0,0,0,0,0,9,0,0,0,0,0,9,0,0,9,9,9,9,9,9,9,9,9,9,2,0,0,0,0,0,2,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,2,0,0,0,0,2,
+2,0,9,9,9,9,2,9,0,0,0,0,9,9,9,0,0,0,0,9,9,0,0,0,0,9,9,0,0,0,0,9,9,0,0,9,9,9,9,9,9,9,9,9,9,2,0,0,0,0,0,2,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,2,0,0,0,0,2,
+2,0,0,9,9,9,2,9,0,0,0,0,9,9,9,0,0,0,0,0,9,0,0,0,0,0,9,0,0,0,0,0,9,0,0,9,9,9,9,9,9,9,9,9,9,2,0,3,3,3,0,2,9,9,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,9,2,0,0,0,0,2,
+2,0,0,0,9,9,2,9,3,0,0,0,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,0,0,9,9,9,0,0,0,0,0,0,0,0,0,0,0,0,0,2,9,9,13,0,0,0,0,0,0,0,0,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,0,13,9,2,0,0,0,0,2,
+2,0,0,0,0,9,2,9,0,0,0,0,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,0,0,9,9,9,0,0,0,0,0,0,0,0,0,0,0,0,0,2,9,9,9,9,9,9,9,9,9,0,0,9,9,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,0,0,9,2,0,0,0,0,2,
+2,0,0,0,0,9,2,9,0,0,0,0,0,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,0,0,0,2,2,2,0,0,2,9,9,9,9,2,0,0,0,0,3,2,9,9,9,9,9,9,9,9,9,0,0,9,9,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,2,2,3,3,2,2,
+2,0,0,0,0,9,2,9,3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,9,9,0,0,0,2,9,9,9,9,2,0,0,0,0,0,2,9,9,9,9,9,9,9,9,9,0,3,9,9,2,0,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,0,0,0,0,0,0,0,0,2,
+2,9,9,9,0,9,2,9,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,9,9,0,0,0,2,9,9,9,9,2,0,0,0,0,0,2,9,9,9,9,9,9,9,9,9,0,0,9,9,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,2,2,2,2,0,0,0,0,0,0,0,2,
+2,9,9,0,0,9,2,9,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,9,9,9,0,0,0,2,9,9,9,9,2,0,0,0,0,3,2,9,9,9,9,9,9,9,9,9,0,0,9,9,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,2,2,2,0,0,0,0,0,0,0,2,
+2,0,0,0,0,9,2,9,9,9,9,9,9,9,9,9,9,0,0,0,0,0,0,0,0,0,0,9,9,9,9,9,9,9,9,9,9,0,0,3,2,9,9,9,9,2,0,0,0,0,0,2,9,9,9,9,9,9,9,9,9,0,0,9,9,2,2,2,2,2,2,2,3,3,3,3,3,3,3,0,0,0,0,0,0,3,3,0,0,2,2,2,0,0,0,0,3,3,0,2,
+2,0,0,0,0,9,2,9,9,9,9,9,9,9,9,9,9,9,9,0,0,0,0,0,0,9,9,9,9,9,9,9,9,9,9,9,9,0,0,0,2,9,9,9,9,2,0,0,0,0,0,2,9,9,9,9,9,9,9,9,9,0,3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,2,0,0,0,0,0,0,0,2,
+2,0,0,0,0,9,2,9,9,9,9,9,9,9,9,9,9,9,9,0,0,0,0,0,9,9,9,9,9,9,9,9,9,9,9,9,0,0,0,0,2,9,9,9,9,2,3,3,3,0,0,2,9,9,9,9,9,9,9,9,9,0,0,9,9,2,2,2,2,2,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3,2,2,0,0,0,0,0,0,0,2,
+2,0,0,0,0,9,2,0,0,0,0,0,0,0,0,9,9,9,9,9,9,9,9,9,9,9,9,9,0,0,0,0,0,0,0,0,0,0,0,0,2,9,9,9,9,2,0,0,0,0,0,6,0,0,0,0,0,0,0,0,0,0,0,9,9,2,2,2,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,2,0,0,0,0,0,0,0,2,
+2,0,9,9,9,9,2,0,0,0,9,9,0,0,0,9,9,0,9,9,9,9,9,9,9,9,9,0,0,0,0,0,0,0,0,0,0,0,0,0,2,9,9,9,9,2,0,0,0,0,0,6,0,0,0,0,0,0,0,0,0,0,0,9,9,2,2,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,2,0,0,0,0,3,3,0,2,
+2,0,0,9,9,9,2,3,0,0,9,9,0,0,0,9,9,0,0,9,9,9,9,9,9,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,9,9,9,9,2,13,2,2,2,2,2,9,9,9,9,9,9,9,9,9,9,9,9,9,2,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,2,0,0,0,0,0,0,0,2,
+2,0,0,0,9,9,2,0,0,0,9,9,3,0,0,9,9,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,2,2,0,0,0,0,0,2,2,0,0,0,0,0,0,0,2,
+2,0,0,0,0,9,2,0,0,0,9,9,0,0,0,9,9,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,6,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,2,0,0,0,0,0,0,0,2,
+2,0,0,0,0,9,2,0,0,3,9,9,0,0,0,9,9,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,6,0,0,0,0,0,0,0,0,0,2,2,2,0,0,0,0,0,0,0,0,0,0,0,0,2,2,0,0,0,0,0,0,0,2,
+2,0,0,0,0,9,9,0,0,0,9,9,0,0,0,9,9,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,0,0,0,2,2,2,2,0,0,0,0,0,0,0,0,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,2,2,0,0,0,0,0,0,2,
+2,9,9,0,0,0,0,0,0,0,9,9,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,6,0,0,0,2,0,0,2,0,0,0,0,0,0,0,0,2,2,2,2,2,2,2,2,2,2,2,2,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,2,2,0,0,0,0,0,0,2,
+2,9,9,9,0,0,0,0,0,0,9,9,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,13,0,0,6,0,0,0,2,0,0,2,0,0,0,0,0,0,13,0,2,2,2,2,2,2,2,2,2,2,2,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,13,0,0,0,0,2,2,2,2,0,0,0,13,2,2,
+2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2
+</data>
+ </layer>
+ <layer id="3" name="Overlay" width="100" height="100" visible="0">
+  <data encoding="csv">
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,2,2,2,2,2,2,2,2,2,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,2,2,2,2,2,2,2,2,2,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,12,0,0,0,0,0,0,0,12,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,12,0,0,0,0,0,0,0,12,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,12,0,0,0,0,0,0,0,12,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,12,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,2,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,2,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,2,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,2,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,2,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,2,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,2,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,2,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,2,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,2,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,2,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,2,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,2,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,2,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,2,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,2,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,2,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,2,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,2,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,2,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,2,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,2,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,2,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,9,9,9,9,9,9,9,9,9,9,9,9,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,2,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,9,9,9,9,9,9,9,9,9,9,9,9,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,2,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,9,9,9,9,9,9,9,9,9,9,9,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,2,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,9,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,2,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,9,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,2,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,9,9,9,9,9,9,9,9,9,9,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,9,9,9,9,9,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,9,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,9,9,9,9,9,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,9,9,9,9,9,9,9,0,0,0,2,2,2,2,2,2,2,2,2,2,2,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,9,9,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,9,9,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,9,9,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,9,9,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,9,9,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,9,9,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,9,9,9,9,9,9,9,9,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,9,9,9,9,9,9,9,9,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,9,9,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,9,9,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,9,9,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+</data>
  </layer>
 </map>
