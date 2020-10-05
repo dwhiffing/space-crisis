@@ -70,7 +70,7 @@ export default class extends Phaser.Scene {
       callback: () => {
         if (this.timer < 0) {
           this.sound.muted = true
-          this.scene.start('Game')
+          this.scene.restart()
         }
         if (this.timer >= 0) this.timerText.setText(this.timer--)
       },

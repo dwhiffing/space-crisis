@@ -298,7 +298,7 @@ export class Player extends Phaser.Physics.Arcade.Sprite {
 
   jump(amount) {
     if (!this.unlocks.jump) {
-      this.scene.sound.play('not-available')
+      this.scene && this.scene.sound.play('not-available')
     }
     if (!this.canMove) return
     if (this.direction.down && this.canFall) {
@@ -310,18 +310,19 @@ export class Player extends Phaser.Physics.Arcade.Sprite {
       // TODO: allow 3 levels of jump height
       this.jumpEmitter.explode(this.unlocks.jump * 20)
       if (this.unlocks.jump) {
-        this.scene.sound.play('jump', {
-          rate: Phaser.Math.RND.between(8, 10) / 10,
-        })
+        this.scene &&
+          this.scene.sound.play('jump', {
+            rate: Phaser.Math.RND.between(8, 10) / 10,
+          })
       }
-      this.anims.play(`jump`, true)
+      if (this.anims) this.anims.play(`jump`, true)
 
       let jumpHeight = this.unlocks.jump ? -225 : -5
       if (this.unlocks.jump >= 2 && amount > 120) {
         jumpHeight *= 1.45
       }
       const diff = amount > 80 ? 1 : 0.65
-      this.body.setVelocityY(jumpHeight * diff)
+      this.body && this.body.setVelocityY(jumpHeight * diff)
     }
   }
 
@@ -375,7 +376,10 @@ export class Player extends Phaser.Physics.Arcade.Sprite {
       delay: 500,
       callback: () => {
         this.scene.sound.muted = true
-        this.scene.scene.start('Game')
+        this.destroy()
+        this.scene.registry.destroy()
+        this.scene.events.off()
+        this.scene.scene.restart()
       },
     })
   }

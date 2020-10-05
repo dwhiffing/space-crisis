@@ -98,8 +98,7 @@ export default class InputService {
     this.rKey.addListener('down', () => {
       this.scene.sound.mute = true
       const scene = this.scene
-
-      scene.scene.start('Game')
+      scene.scene.restart()
     })
     this.spaceKey.addListener('down', this.jumpPressed)
     this.spaceKey.addListener('up', this.jumpReleased)
@@ -246,7 +245,7 @@ export default class InputService {
       .setScale(scale)
       .setInteractive()
       .setScrollFactor(0)
-      .setDepth(10)
+      .setDepth(1000)
       .setAlpha(0.6)
       .on('pointerdown', callback)
       .on('pointerup', releaseCallback)
