@@ -215,10 +215,14 @@ export class Player extends Phaser.Physics.Arcade.Sprite {
     }
 
     if (name === 'gun') {
+      this.scene.inputService.shootButton &&
+        this.scene.inputService.shootButton.setAlpha(0.6)
       this.gun.setAlpha(1)
     }
 
     if (name === 'ammo') {
+      this.scene.inputService.missileButton &&
+        this.scene.inputService.missileButton.setAlpha(0.6)
       this.maxAmmo = this.unlocks.ammo * 10
       this.reload(1000)
     }
@@ -234,6 +238,8 @@ export class Player extends Phaser.Physics.Arcade.Sprite {
       extraText = this.unlocks.ammo === 1 ? 'X TO SHOOT' : ''
     }
     if (name === 'jump') {
+      this.scene.inputService.jumpButton &&
+        this.scene.inputService.jumpButton.setAlpha(0.6)
       upgradeText =
         this.unlocks.jump === 1
           ? 'JUMP'
@@ -376,10 +382,8 @@ export class Player extends Phaser.Physics.Arcade.Sprite {
       delay: 500,
       callback: () => {
         this.scene.sound.muted = true
-        this.destroy()
-        this.scene.registry.destroy()
-        this.scene.events.off()
         this.scene.scene.restart()
+        this.destroy()
       },
     })
   }

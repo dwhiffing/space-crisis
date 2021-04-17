@@ -3,7 +3,7 @@ import * as scenes from './scenes'
 
 const game = new Phaser.Game({
   transparent: true,
-  type: Phaser.AUTO,
+  type: navigator.userAgent.includes('Chrome') ? Phaser.WEBGL : Phaser.CANVAS,
   parent: 'phaser-example',
   width: 170,
   height: 120,
@@ -21,7 +21,6 @@ const game = new Phaser.Game({
     arcade: {
       fps: 60,
       tileBias: 16,
-      // gravity: { y: 2000 },
       // debug: true,
     },
   },

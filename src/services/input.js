@@ -21,7 +21,7 @@ export default class InputService {
 
     this.player = this.scene.level.player
 
-    const DISTX = 18
+    const DISTX = 25
     const DISTY = 20
     const { height, width } = this.scene.cameras.main
 
@@ -54,27 +54,27 @@ export default class InputService {
         this.rightPressed,
         this.rightReleased,
       )
-      this.makeButton(
+      this.jumpButton = this.makeButton(
         width - DISTX,
         height - DISTY,
         217,
         this.jumpPressed,
         this.jumpReleased,
-      )
-      this.makeButton(
+      ).setAlpha(0)
+      this.shootButton = this.makeButton(
         width - DISTX * 2,
         height - DISTY,
         218,
         this.shootPressed,
         this.shootReleased,
-      )
-      this.makeButton(
+      ).setAlpha(0)
+      this.missileButton = this.makeButton(
         width - DISTX * 3,
         height - DISTY,
         219,
         this.missilePressed,
         this.missileReleased,
-      )
+      ).setAlpha(0)
     }
 
     this.cursors = this.scene.input.keyboard.createCursorKeys()
@@ -102,7 +102,6 @@ export default class InputService {
     })
     this.spaceKey.addListener('down', this.jumpPressed)
     this.spaceKey.addListener('up', this.jumpReleased)
-
     this.chargeSound = this.scene.sound.add('charge2', {
       rate: 0.5,
       volume: 0.5,
